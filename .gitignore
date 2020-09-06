@@ -1,0 +1,19 @@
+# --- Julia-generated files
+
+# Environment files
+**/Manifest.toml
+
+# Coverage.jl files
+*.jl.*.cov
+*.jl.*.mem
+
+# --- Miscellaneous
+
+# autoenv
+.env
+
+# vim
+.*.swp
+
+# macOS
+.DS_Store*

@@ -1,0 +1,11 @@
+name = "Example"
+uuid = "5215ab09-4271-4e7e-a46a-fb9f1c532ced"
+authors = ["Kevin Chu <kevin@velexi.com>"]
+version = "0.1.0"
+
+[deps]
+Coverage = "a2441757-f6aa-5fb2-8edb-039e3f45d037"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[compat]
+julia = "1.2"
