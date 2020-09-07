@@ -11,11 +11,15 @@ contained in the LICENSE file.
 """
 # --- Imports
 
-using Test, TestSetExtensions
+using Test
+using Example
 
+# --- Unit tests
 
-# --- Define test sets
+# Unit tests for say_hello()
+@test say_hello("Julia") == "Hello, Julia"
 
-@testset ExtendedTestSet "All the tests" begin
-    @includetests
-end
+# Unit tests for add_one()
+@test add_one(2) == 3
+@test add_one(2.0) ≈ 2.9 atol=0.2
+@test add_one(π) ≈ π + 1 atol=0.2

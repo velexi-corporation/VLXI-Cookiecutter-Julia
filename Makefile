@@ -11,8 +11,8 @@ all: test
 
 test check:
 	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Remove old coverage files
-	julia --color=yes --code-coverage test/runtests.jl
-	julia bin/analyze-coverage.jl
+	julia --color=yes -e 'using Pkg; Pkg.test(coverage=true)'
+	julia --project=bin bin/analyze-coverage.jl
 
 # Maintenance
 clean:
