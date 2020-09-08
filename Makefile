@@ -11,7 +11,7 @@ all: test
 
 test check:
 	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Remove old coverage files
-	julia --color=yes -e 'using Pkg; Pkg.test(coverage=true)'
+	julia --color=yes -e 'import Pkg; Pkg.test(coverage=true)'
 	@echo
 	coverage.jl
 
@@ -24,7 +24,7 @@ clean:
 # Setup Julia
 setup:
 	julia --project=`pwd`/bin --startup-file=no \
-		-e 'using Pkg; Pkg.instantiate()'
+		-e 'import Pkg; Pkg.instantiate()'
 
 # Phony Targets
 .PHONY: all clean setup \
