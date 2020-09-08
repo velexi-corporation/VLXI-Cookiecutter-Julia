@@ -70,8 +70,6 @@ function main()
     # --- Clean up
 
     clean_up(tmp_dir)
-
-    return 0
 end
 
 # --- Helper Functions
