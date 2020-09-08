@@ -21,6 +21,11 @@ clean:
 	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Coverage.jl files
 	find . -name "*.jl.*.mem" -exec rm -f {} \;  # Coverage.jl files
 
+# Setup Julia
+setup:
+	julia --project=`pwd`/bin --startup-file=no \
+		-e 'using Pkg; Pkg.instantiate()'
+
 # Phony Targets
-.PHONY: all clean \
+.PHONY: all clean setup \
         test check
