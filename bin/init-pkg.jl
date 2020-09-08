@@ -36,6 +36,7 @@ function main()
             action = :store_true
         "--julia-version", "-j"
             help = "minimum Julia version"
+            arg_type = VersionNumber
             default = v"1.4.0"
         "--dest-dir", "-d"
             help = "directory where Julia package will reside"
