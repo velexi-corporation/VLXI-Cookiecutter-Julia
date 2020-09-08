@@ -1,11 +1,16 @@
-# --- Julia-generated files
+# --- Julia files
 
-# Environment files
+# Project files
+/Project.toml
 **/Manifest.toml
 
 # Coverage.jl files
 *.jl.*.cov
 *.jl.*.mem
+
+# --- Package files
+
+/LICENSE
 
 # --- Miscellaneous
 
