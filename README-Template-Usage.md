@@ -52,6 +52,7 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
     README.md.template
     Makefile
     bin/
+    extras/
     src/
     test/
 
@@ -78,6 +79,9 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
 
   * `Example_tests.jl` contains example unit tests.
 
+* `extras`: directory containing optional content (e.g., configuration files,
+  example code snippets, etc.)
+
 ### 1.3. Template Files
 
 Template files and directories are indicated by the 'template' suffix. These
@@ -92,7 +96,7 @@ appropriate, they should be renamed (with the 'template' suffix removed).
 
 * (OPTIONAL) Configure `direnv`.
 
-  * `direnv`. Copy `config/envrc.template` to the top-level package directory
+  * `direnv`. Copy `extras/envrc.template` to the top-level package directory
     and rename it to `.envrc`.
 
 * From the top-level package directory, use `make setup` to add the Julia
