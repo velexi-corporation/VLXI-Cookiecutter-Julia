@@ -33,7 +33,7 @@ This project template is intended to
 
 * streamline the process of setting up a Julia package and
 
-* provide collection of tools to support Julia software development (e.g.,
+* provide a collection of tools to support Julia software development (e.g.,
   analysis of unit test coverage).
 
 ### 1.1. Software Dependencies
@@ -44,7 +44,7 @@ This project template is intended to
 
 #### Julia Packages ####
 
-See `[deps]` section of `Project.toml` files.
+See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
 
 ### 1.2. Directory Structure
 
@@ -62,11 +62,11 @@ See `[deps]` section of `Project.toml` files.
 * `Makefile`: Makefile defining a collection of useful commands to maintain
   software (e.g., `test`, `clean`)
 
-* `bin`: directory containing utility scripts
+* `bin`: directory containing command-line utilities
 
-  * `init-pkg.jl`: TODO
+  * `init-pkg.jl`: utility to initialize Julia package
 
-  * `coverage.jl`: TODO
+  * `coverage.jl`: utility to analyze test coverage
 
 * `src`: directory for source code
 
@@ -74,7 +74,7 @@ See `[deps]` section of `Project.toml` files.
 
 * `test`: directory for test code
 
-  * `runtests.jl` is an example of a test setup file.
+  * `runtests.jl` is an example test setup file.
 
   * `Example_tests.jl` contains example unit tests.
 
@@ -90,8 +90,10 @@ appropriate, they should be renamed (with the 'template' suffix removed).
 
 ### 2.1. Setting Up
 
-* (OPTIONAL) If using `autoenv`, copy `config/env.template` to the top-level
-  package directory and rename it to `.env`.
+* (OPTIONAL) Configure `direnv`.
+
+  * `direnv`. Copy `config/envrc.template` to the top-level package directory
+    and rename it to `.envrc`.
 
 * From the top-level package directory, use `make setup` to add the Julia
   packages required to set up the development environment.
