@@ -93,14 +93,19 @@ appropriate, they should be renamed (with the 'template' suffix removed).
 * (OPTIONAL) If using `autoenv`, copy `config/env.template` to the top-level
   package directory and rename it to `.env`.
 
-* Use `make setup` to add the Julia packages required to set up the development
-  environment.
+* From the top-level package directory, use `make setup` to add the Julia
+  packages required to set up the development environment.
+
+  ```shell
+  $ cd PKG_DIR
+  $ make setup
+  ```
 
 * Use the `init-pkg.jl` utility to initialize the package. In the following
   command, replace `PKG_NAME` with the name of your package.
 
   ```shell
-  $ init-pkg.jl PKG_NAME
+  $ bin/init-pkg.jl PKG_NAME
   ```
 
   Note that `init-pkg.jl` supports several command-line options. To see the
