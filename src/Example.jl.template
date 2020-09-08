@@ -12,7 +12,7 @@ contained in the LICENSE file.
 module Example
 
 
-# --- Exported functions
+# --- Exported types and functions
 
 export say_hello, add_one
 
