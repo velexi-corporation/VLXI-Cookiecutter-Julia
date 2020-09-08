@@ -17,6 +17,7 @@ test check:
 
 # Maintenance
 clean:
+	find . -name "tmp.init-pkg.*" -exec rm -rf {} \;  # init-pkg.jl files
 	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Coverage.jl files
 	find . -name "*.jl.*.mem" -exec rm -f {} \;  # Coverage.jl files
 
