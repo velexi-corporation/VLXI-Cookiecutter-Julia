@@ -11,13 +11,18 @@ contained in the LICENSE file.
 """
 module Example
 
+# --- Imports
 
-# --- Exported types and functions
+
+# --- Exports
 
 export say_hello, add_one
 
 
-# --- Function definitions
+# --- Types
+
+
+# --- Functions
 
 """
     say_hello(who::String)
