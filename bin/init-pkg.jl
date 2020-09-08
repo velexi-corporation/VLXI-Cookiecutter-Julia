@@ -5,7 +5,7 @@ exec julia --color=yes --startup-file=no \
            --project=`dirname "${BASH_SOURCE[0]}"` "${BASH_SOURCE[0]}" "$@"
 =#
 """
-Create Julia package.
+Initialize Julia package.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the XYZ package. It is subject to
