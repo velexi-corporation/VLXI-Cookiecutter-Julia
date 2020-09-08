@@ -72,6 +72,9 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
 
   * `coverage.jl`: utility to analyze test coverage
 
+* `extras`: directory containing optional content (e.g., configuration files,
+  example code snippets, etc.)
+
 * `src`: directory for source code
 
   * `Example.jl.template` is an example Julia module.
@@ -81,9 +84,6 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
   * `runtests.jl` is an example test setup file.
 
   * `Example_tests.jl.template` contains example unit tests.
-
-* `extras`: directory containing optional content (e.g., configuration files,
-  example code snippets, etc.)
 
 ### 1.3. Template Files
 
