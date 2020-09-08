@@ -74,13 +74,13 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
 
 * `src`: directory for source code
 
-  * `Example.jl` is an example Julia module.
+  * `Example.jl.template` is an example Julia module.
 
 * `test`: directory for test code
 
   * `runtests.jl` is an example test setup file.
 
-  * `Example_tests.jl` contains example unit tests.
+  * `Example_tests.jl.template` contains example unit tests.
 
 * `extras`: directory containing optional content (e.g., configuration files,
   example code snippets, etc.)
@@ -110,15 +110,23 @@ appropriate, they should be renamed (with the 'template' suffix removed).
   $ make setup
   ```
 
-* Use the `init-pkg.jl` utility to initialize the package. In the following
-  command, replace `PKG_NAME` with the name of your package.
+* Initialize Julia package.
 
-  ```shell
-  $ bin/init-pkg.jl PKG_NAME
-  ```
+  * Use the `init-pkg.jl` utility to initialize the package. In the following
+    command, replace `PKG_NAME` with the name of your package.
 
-  Note that `init-pkg.jl` supports several command-line options. To see the
-  full list of options, use `init-pkg.jl --help`.
+    ```shell
+    $ bin/init-pkg.jl PKG_NAME
+    ```
+
+    Note that `init-pkg.jl` supports several command-line options. To see the
+    full list of options, use `init-pkg.jl --help`.
+
+  * Update template files in the `src` and `test` directories to be consistent
+    with `PKG_NAME`.
+
+    * Replace all references to the `Example` module to `PKG_NAME` in
+      filenames and source code.
 
 * Update documentation
 
