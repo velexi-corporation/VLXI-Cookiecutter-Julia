@@ -25,6 +25,8 @@ clean:
 setup:
 	julia --project=`pwd`/bin --startup-file=no \
 		-e 'import Pkg; Pkg.instantiate()'
+	julia --project=`pwd`/test --startup-file=no \
+		-e 'import Pkg; Pkg.instantiate()'
 
 # Phony Targets
 .PHONY: all clean setup \
