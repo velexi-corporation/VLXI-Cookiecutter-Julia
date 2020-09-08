@@ -7,11 +7,10 @@
 *.jl.*.cov
 *.jl.*.mem
 
-
 # --- Miscellaneous
 
-# autoenv
-.env
+# direnv
+.envrc
 
 # vim
 .*.swp
