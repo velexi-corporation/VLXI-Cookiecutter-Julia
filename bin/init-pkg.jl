@@ -29,8 +29,8 @@ function main()
     # --- Preparations
 
     # Define command-line interface
-    argparse_settings = ArgParseSettings()
-    @add_arg_table! argparse_settings begin
+    arg_table = ArgParseSettings()
+    @add_arg_table! arg_table begin
         "--overwrite", "-f"
             help = "overwrite pre-existing package files"
             action = :store_true
@@ -50,7 +50,7 @@ function main()
     end
 
     # Parse command-line arguments
-    args::Dict = parse_args(ARGS, argparse_settings)
+    args::Dict = parse_args(ARGS, arg_table)
     pkg_name::String = args["pkg_name"]
     overwrite::Bool = args["overwrite"]
     julia_version::VersionNumber = args["julia-version"]
