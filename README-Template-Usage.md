@@ -48,6 +48,7 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
 
 ### 1.2. Directory Structure
 
+    README.md
     README-Template-Usage.md
     README.md.template
     Makefile
@@ -55,6 +56,8 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
     extras/
     src/
     test/
+
+* `README.md`: symbolic link to `README-Template-Usage.md`
 
 * `README-Template-Usage.md`: this file
 
@@ -117,8 +120,12 @@ appropriate, they should be renamed (with the 'template' suffix removed).
   Note that `init-pkg.jl` supports several command-line options. To see the
   full list of options, use `init-pkg.jl --help`.
 
-* Replace any template fields in the `LICENSE` file with the appropriate
-  project-specific information.
+* Update documentation
+
+  * Replace `README.md` with `README.md.template`.
+
+  * Replace any template fields in the `LICENSE` file with the appropriate
+    project-specific information.
 
 ### 2.2. Running Tests
 
