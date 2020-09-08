@@ -17,17 +17,8 @@ TOP_DIR=`builtin cd $(dirname "${BASH_SOURCE[0]}") && pwd`
 # Set PATH
 PATH_EXTRA="bin $PATH_EXTRA"
 for DIR in $PATH_EXTRA; do
-    if [[ "$PATH" != *$TOP_DIR/$DIR* ]]; then
-        if [ -d $TOP_DIR/$DIR ]; then
-            export PATH=$TOP_DIR/$DIR:$PATH
-        fi
-    fi
+    PATH_add $TOP_DIR/$DIR
 done
 
-# ------ Julia configuration
-
+# Julia configuration
 export JULIA_PROJECT=@.
-
-# --- Clean up
-
-unset TOP_DIR
