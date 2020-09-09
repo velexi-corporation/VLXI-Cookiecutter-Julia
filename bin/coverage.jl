@@ -59,7 +59,7 @@ function main()
 
     # --- Analyze code coverage and display results
 
-    coverage = analyze_coverage(src_dir::String, test_dir::String)
+    coverage = analyze_coverage(src_dir, test_dir)
     display_results(coverage)
 
 end
