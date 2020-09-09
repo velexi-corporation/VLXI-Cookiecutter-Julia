@@ -16,6 +16,9 @@ module Example
 
 # --- Exports
 
+# Types
+
+# Functions
 export say_hello, add_one
 
 
