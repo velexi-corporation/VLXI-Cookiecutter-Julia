@@ -20,16 +20,10 @@ using Example
 
 # --- Unit tests
 
-"""
-Unit tests for say_hello()
-"""
 @testset "say_hello() tests" begin
     @test say_hello("Julia") == "Hello, Julia"
 end
 
-"""
-Unit tests for add_one()
-"""
 @testset "add_one() tests" begin
     # Unit tests for add_one()
     @test add_one(2) == 3
