@@ -13,19 +13,20 @@ module Example
 
 # --- Imports
 
+# Standard library
 
-# --- Exports
-
-# Types
-
-# Functions
-export say_hello, add_one
+# XYZ package
 
 
 # --- Types
 
+# Exports
+
 
 # --- Functions
+
+# Exports
+export say_hello, add_one
 
 """
     say_hello(who::String)
