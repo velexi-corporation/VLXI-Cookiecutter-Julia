@@ -14,7 +14,7 @@ contained in the LICENSE file.
 # Standard library
 using Test
 
-# XYZ package
+# Example.jl package
 using Example
 
 
