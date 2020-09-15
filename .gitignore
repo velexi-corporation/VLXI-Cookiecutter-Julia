@@ -10,6 +10,7 @@
 # --- Miscellaneous
 
 # direnv
+.direnv
 .envrc
 
 # vim
