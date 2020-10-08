@@ -11,19 +11,19 @@ Contents
 
 1. [Overview][#1]
 
-  1.1. [Software Dependencies][#1.1]
+    1.1. [Software Dependencies][#1.1]
 
-  1.2. [Directory Structure][#1.2]
+    1.2. [Directory Structure][#1.2]
 
-  1.3. [Template Files][#1.3]
+    1.3. [Template Files][#1.3]
 
 2. [Usage][#2]
 
-  2.1. [Setting Up][#2.1]
+    2.1. [Setting Up][#2.1]
 
-  2.2. [Running Tests][#2.2]
+    2.2. [Running Tests][#2.2]
 
-  2.3. [Cleaning the Project Directory][#1.3]
+    2.3. [Cleaning the Project Directory][#1.3]
 
 ------------------------------------------------------------------------------
 
