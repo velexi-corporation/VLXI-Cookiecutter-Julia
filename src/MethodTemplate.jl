@@ -1,5 +1,5 @@
 """
-The Example.jl module demonstrates a Julia module.
+The MethodTemplate.jl module demonstrates a Julia module.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the XYZ package. It is subject to
@@ -9,24 +9,11 @@ copied, modified, propagated, or distributed except according to the terms
 contained in the LICENSE file.
 ------------------------------------------------------------------------------
 """
-module Example
+# --- Exports
 
-# --- Imports
-
-# Standard library
-
-# XYZ package
-
-
-# --- Types
-
-# Exports
-
-
-# --- Functions
-
-# Exports
 export say_hello, add_one
+
+# --- Method definitions
 
 """
     say_hello(who::String)
@@ -35,12 +22,9 @@ Return "Hello, `who`".
 """
 say_hello(who::String) = "Hello, $who"
 
-
 """
     add_one(x)
 
 Return `x + 1`.
 """
 add_one(x) = x + 1
-
-end  # End of Example.jl module
