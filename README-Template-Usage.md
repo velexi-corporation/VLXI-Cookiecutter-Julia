@@ -77,13 +77,15 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
 
 * `src`: directory for source code
 
-  * `Example.jl.template` is an example Julia module.
+  * `Example.jl` is an example Julia module.
+  * `TypeTemplate.jl` is an example source file for defining a type.
+  * `MethodTemplate.jl` is an example source file for defining methods.
 
 * `test`: directory for test code
 
   * `runtests.jl` is an example test setup file.
 
-  * `Example_tests.jl.template` contains example unit tests.
+  * `Example_tests.jl` contains example unit tests.
 
 ### 1.3. Template Files
 
