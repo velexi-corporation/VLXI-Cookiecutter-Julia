@@ -19,7 +19,7 @@ export Node
 
 export say_hello, add_one
 
-# --- Type definition
+# --- Type definitions
 
 struct Node
     #=
