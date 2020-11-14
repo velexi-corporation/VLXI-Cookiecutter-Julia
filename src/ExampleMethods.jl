@@ -1,5 +1,5 @@
 """
-The TypeTemplate.jl module demonstrates a Julia module.
+ExampleMethods.jl defines methods for the Example.jl module.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the XYZ package. It is subject to
@@ -11,23 +11,20 @@ contained in the LICENSE file.
 """
 # --- Exports
 
-# ------ Types
-
-export Node
-
-# ------ Functions
-
 export say_hello, add_one
 
-# --- Type definitions
+# --- Method definitions
 
-struct Node
-    #=
-      Fields
-      ------
-      * `id`: node ID
-      * `connections`: Dict
-    =#
-    id::Int
-    connections::Dict{Int, Int}
-end
+"""
+    say_hello(who::String)
+
+Return "Hello, `who`".
+"""
+say_hello(who::String) = "Hello, $who"
+
+"""
+    add_one(x)
+
+Return `x + 1`.
+"""
+add_one(x) = x + 1

@@ -1,5 +1,5 @@
 """
-The Example.jl module demonstrates a Julia module.
+The ExampleModule.jl module defines XYZ types and functions.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the XYZ package. It is subject to
@@ -9,12 +9,12 @@ copied, modified, propagated, or distributed except according to the terms
 contained in the LICENSE file.
 ------------------------------------------------------------------------------
 """
-module Example
+module ExampleModule
 
 # Types
-include("TypeTemplate.jl")
+include("ExampleType.jl")
 
 # Methods
-include("MethodTemplate.jl")
+include("ExampleMethod.jl")
 
-end  # End of Example.jl module
+end  # End of ExampleModule.jl module

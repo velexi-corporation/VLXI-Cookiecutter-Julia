@@ -1,5 +1,5 @@
 """
-Unit tests for Example.jl module.
+Unit tests for ExampleModule.jl module.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the XYZ package. It is subject to
@@ -15,7 +15,7 @@ contained in the LICENSE file.
 using Test
 
 # Example.jl package
-using Example
+using ExampleModule
 
 
 # --- Unit tests
