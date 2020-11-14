@@ -19,8 +19,13 @@ contained in the LICENSE file.
 
 using ArgParse
 using Logging
+using Pkg
 using PkgTemplates
 using UUIDs
+
+# --- Constants
+
+STANDARD_PACKAGES = ["Documenter"]
 
 # --- Main program
 
@@ -66,7 +71,12 @@ function main()
     create_pkg(pkg_name, tmp_dir, julia_version, license)
 
     # Move package files to destination directory
-    move_pkg(pkg_name, tmp_dir, dest_dir, overwrite)
+    move_succeeded = move_pkg(pkg_name, tmp_dir, dest_dir, overwrite)
+
+    # Add standard package dependencies
+    if move_succeeded
+        add_standard_packages_dependencies()
+    end
 
     # --- Clean up
 
@@ -99,7 +109,8 @@ end
     move_pkg(pkg_name::String, tmp_dir::String, dest_dir::String,
                  overwrite::Bool)
 
-Move Julia package in `tmp_dir/pkg_name` to `dest_dir`.
+Move Julia package in `tmp_dir/pkg_name` to `dest_dir`. Return `true` if
+move succeeded; otherwise, return false.
 """
 function move_pkg(pkg_name::String, tmp_dir::String, dest_dir::String,
                   overwrite::Bool=false)
@@ -130,12 +141,31 @@ function move_pkg(pkg_name::String, tmp_dir::String, dest_dir::String,
         end
     end
 
-    # Move package contents
+    # Move package contents if no items will be overwritten
     if !items_will_be_overwritten
         for item in pkg_contents
             mv(joinpath(tmp_pkg_dir, item), joinpath(dest_dir, item),
                force=overwrite)
         end
+    end
+
+    # Rename ExampleModule.jl to $(pkg_name).jl
+    mv(joinpath("src", "ExampleModule.jl"),
+       joinpath(dest_dir, "src", "$(pkg_name).jl"))
+
+    return !items_will_be_overwritten
+end
+
+"""
+    add_standard_packages_dependencies()
+
+Add standard dependencies.
+"""
+function add_standard_packages_dependencies()
+    @info "Adding standard package dependencies"
+    Pkg.activate(".")
+    for package in STANDARD_PACKAGES
+        Pkg.add(package)
     end
 end
 
