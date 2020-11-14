@@ -77,9 +77,9 @@ See `[deps]` section of the `bin/Project.toml` and `test/Project.toml` files.
 
 * `src`: directory for source code
 
-  * `Example.jl` is an example Julia module.
-  * `TypeTemplate.jl` is an example source file for defining a type.
-  * `MethodTemplate.jl` is an example source file for defining methods.
+  * `ExampleModule.jl` is an example Julia module.
+  * `ExampleType.jl` is an example source file for defining a type.
+  * `ExampleMethods.jl` is an example source file for defining methods.
 
 * `test`: directory for test code
 
@@ -127,7 +127,7 @@ appropriate, they should be renamed (with the 'template' suffix removed).
   * Update template files in the `src` and `test` directories to be consistent
     with `PKG_NAME`.
 
-    * Replace all references to the `Example` module to `PKG_NAME` in
+    * Replace all references to the `ExampleModule` module to `PKG_NAME` in
       filenames and source code.
 
 * Update documentation
