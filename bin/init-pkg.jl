@@ -18,6 +18,7 @@ contained in the LICENSE file.
 # --- Imports
 
 using ArgParse
+using DocumenterTools
 using Logging
 using Pkg
 using PkgTemplates
@@ -26,6 +27,7 @@ using UUIDs
 # --- Constants
 
 STANDARD_PACKAGES = ["Documenter"]
+EXAMPLE_MODULE_JL = "ExampleModule.jl"
 
 # --- Main program
 
@@ -59,7 +61,7 @@ function main()
     pkg_name::String = args["pkg_name"]
     overwrite::Bool = args["overwrite"]
     julia_version::VersionNumber = args["julia-version"]
-    dest_dir::String = args["dest-dir"]
+    dst_dir::String = args["dest-dir"]
     license::String = args["license"]
 
     # Construct name of temporary directory
@@ -71,11 +73,25 @@ function main()
     create_pkg(pkg_name, tmp_dir, julia_version, license)
 
     # Move package files to destination directory
-    move_succeeded = move_pkg(pkg_name, tmp_dir, dest_dir, overwrite)
+    success = move_pkg(pkg_name, tmp_dir, dst_dir, overwrite=overwrite)
 
-    # Add standard package dependencies
-    if move_succeeded
+    # --- Set up standard package structure
+
+    # Rename EXAMPLE_MODULE_JL to $pkg_name.jl
+    if success
+        success = initialize_pkg_module_file(pkg_name, overwrite=overwrite)
+    end
+
+    # Add package depdendencies and documentation structure
+    if success
+        # Activate environment for package
+        Pkg.activate(".")
+
+        # Add standard package dependencies
         add_standard_packages_dependencies()
+
+        # Generate standard documentation structure
+        initialize_docs(pkg_name, overwrite=overwrite)
     end
 
     # --- Clean up
@@ -87,7 +103,7 @@ end
 
 """
     create_pkg(pkg_name::String, tmp_dir::String,
-                   julia_version::VersionNumber, license::String)
+               julia_version::VersionNumber, license::String)
 
 Create Julia package.
 """
@@ -106,18 +122,18 @@ function create_pkg(pkg_name::String, tmp_dir::String,
 end
 
 """
-    move_pkg(pkg_name::String, tmp_dir::String, dest_dir::String,
-                 overwrite::Bool)
+    move_pkg(pkg_name::String, tmp_dir::String, dst_dir::String,
+             overwrite::Bool)
 
-Move Julia package in `tmp_dir/pkg_name` to `dest_dir`. Return `true` if
-move succeeded; otherwise, return false.
+Move Julia package in `tmp_dir/pkg_name` to `dst_dir`. Return `true` if
+successful; otherwise, return false.
 """
-function move_pkg(pkg_name::String, tmp_dir::String, dest_dir::String,
+function move_pkg(pkg_name::String, tmp_dir::String, dst_dir::String;
                   overwrite::Bool=false)
 
     # Emit progress message
     message = string("Moving package to destination directory ",
-                     dest_dir in (".", "..") ? "'$dest_dir'" : dest_dir)
+                     dst_dir in (".", "..") ? "'$dst_dir'" : dst_dir)
     @info message
 
     # Preparations
@@ -127,33 +143,68 @@ function move_pkg(pkg_name::String, tmp_dir::String, dest_dir::String,
     # Check for items that will be overwritten
     items_will_be_overwritten::Bool = false
     if !overwrite
+        # Check package contents
         for item in pkg_contents
-            dest_path = joinpath(dest_dir, item)
+            dest_path = joinpath(dst_dir, item)
             if ispath(dest_path)
                 items_will_be_overwritten = true
 
                 # Emit error message
                 message = string(
                     "$item already exists in destination directory ",
-                    dest_dir in (".", "..") ? "'$dest_dir'" : dest_dir)
+                    dst_dir in (".", "..") ? "'$dst_dir'" : dst_dir)
                 @error message
             end
         end
     end
 
-    # Move package contents if no items will be overwritten
-    if !items_will_be_overwritten
+    # Move package contents
+    if overwrite || !items_will_be_overwritten
         for item in pkg_contents
-            mv(joinpath(tmp_pkg_dir, item), joinpath(dest_dir, item),
+            mv(joinpath(tmp_pkg_dir, item), joinpath(dst_dir, item),
                force=overwrite)
         end
     end
 
-    # Rename ExampleModule.jl to $(pkg_name).jl
-    mv(joinpath("src", "ExampleModule.jl"),
-       joinpath(dest_dir, "src", "$(pkg_name).jl"))
+    return overwrite || !items_will_be_overwritten
+end
 
-    return !items_will_be_overwritten
+"""
+    initialize_pkg_module_file(pkg_name::String; overwrite::Bool)
+
+Rename EXAMPLE_MODULE_JL to `pkg_name`.jl. Return `true` if successful;
+otherwise, return false.
+"""
+function initialize_pkg_module_file(pkg_name::String; overwrite::Bool=false)
+    # --- Preparations
+
+    pkg_module_path::String = joinpath(".", "src", "$pkg_name.jl")
+    template_pkg_module_path::String = joinpath("src", EXAMPLE_MODULE_JL)
+
+    # --- Check paths
+
+    pkg_module_path_exists = ispath(pkg_module_path)
+    if !overwrite && pkg_module_path_exists
+        message = "$pkg_module_path already exists in `src` directory. " *
+                  "Keeping original."
+        @warn message
+        return true
+    end
+
+    if !ispath(template_pkg_module_path)
+        message = "$template_pkg_module_path not found in `src` directory. " *
+                  "Restoring from git repository"
+        @info message
+
+        # Restore EXAMPLE_MODULE_JL
+        run(`git checkout $template_pkg_module_path`)
+    end
+
+    # --- Rename module file
+
+    mv(template_pkg_module_path, pkg_module_path, force=overwrite)
+
+    return true
 end
 
 """
@@ -163,10 +214,29 @@ Add standard dependencies.
 """
 function add_standard_packages_dependencies()
     @info "Adding standard package dependencies"
-    Pkg.activate(".")
     for package in STANDARD_PACKAGES
         Pkg.add(package)
     end
+end
+
+"""
+    initialize_docs(pkg_name::String; overwrite::Bool)
+
+Generate standard documentation structure.
+"""
+function initialize_docs(pkg_name::String; overwrite::Bool=false)
+    @info "Generating standard documentation structure"
+    if isdir("docs")
+        if overwrite
+            rm("docs", force=true, recursive=true)
+        else
+            message = "`docs` directory already exists. Keeping original."
+            @warn message
+            return
+        end
+    end
+
+    DocumenterTools.generate(name=pkg_name)
 end
 
 """
