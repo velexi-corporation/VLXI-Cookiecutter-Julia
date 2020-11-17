@@ -41,6 +41,7 @@ This project template is intended to
 #### Base Requirements
 
 * Julia (>=1.4)
+* git
 
 #### Julia Packages ####
 
