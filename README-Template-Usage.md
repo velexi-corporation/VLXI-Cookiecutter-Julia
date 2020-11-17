@@ -137,6 +137,8 @@ appropriate, they should be renamed (with the 'template' suffix removed).
     * Replace all references to the `ExampleModule` module to `PKG_NAME` in
       filenames and source code.
 
+  * Remove the `src/ExampleModule.jl` file.
+
 * Update documentation
 
   * Replace `README.md` with `README.md.template`.
