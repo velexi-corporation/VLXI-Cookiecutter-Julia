@@ -21,10 +21,12 @@ using ExampleModule
 
 # --- Test sets
 
-@testset "Doctests" begin
-    doctest(ExampleModule)
-end
+@testset ExtendedTestSet "All the tests" begin
+    @testset "Doctests" begin
+        doctest(ExampleModule)
+    end
 
-@testset ExtendedTestSet "Unit tests" begin
-    @includetests
+    @testset "Unit tests" begin
+        @includetests ARGS
+    end
 end
