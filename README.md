@@ -38,7 +38,7 @@ This package template is intended to
 
 #### Base Requirements
 
-* Julia (>=1.4)
+* Julia (>=1.5)
 * git
 
 #### Julia Packages ####
