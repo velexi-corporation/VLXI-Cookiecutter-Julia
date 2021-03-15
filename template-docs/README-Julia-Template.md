@@ -1,5 +1,5 @@
-Velexi Template: Julia Package (v0.1.4)
-=======================================
+Julia Package Template (v0.1.4)
+===============================
 
 ___Authors___  
 Kevin T. Chu `<kevin@velexi.com>`
