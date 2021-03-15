@@ -63,10 +63,11 @@ package manager.
     template-docs/
     template-docs/examples
 
-* `README.md`: this file (same as `template-docs/README-Template-Usage.md`)
+* `README.md`: this file (same as `README-Template-Usage.md` in the
+  `template-docs` directory)
 
 * `LICENSE`: license file for this package template (same as
-  `template-docs/LICENSE-Julia-Template`)
+  `LICENSE-Julia-Template` in the `template-docs` directory)
 
 * `Makefile`: Makefile defining a collection of useful commands to maintain
   software (e.g., `test`, `clean`)
