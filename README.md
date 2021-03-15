@@ -56,18 +56,27 @@ package manager.
 
     README.md
     LICENSE
+    README.md.template
+    RELEASE-NOTES.md.template
+    LICENSE.template
     Makefile
     bin/
     src/
     test/
     template-docs/
-    template-docs/examples
+    template-docs/extras
 
 * `README.md`: this file (same as `README-Template-Usage.md` in the
   `template-docs` directory)
 
 * `LICENSE`: license file for this package template (same as
   `LICENSE-Julia-Template` in the `template-docs` directory)
+
+* `*.template`: template files for the package
+
+    * Template files are indicated by `template` suffix. These files are
+      intended to simplify the set up of the dataset repository. They should
+      be renamed to remove the `template` suffix.
 
 * `Makefile`: Makefile defining a collection of useful commands to maintain
   software (e.g., `test`, `clean`)
@@ -91,12 +100,7 @@ package manager.
 
 * `template-docs`: directory containing documentation this package template
 
-* `template-docs/examples`: directory containing example and template files
-
-    * Example and template files are indicated by the `example` and `template`
-      suffixes, respectively. These files are intended to simplify the set up
-      of package. When appropriate, they should be renamed (with the `example`
-      or `template` suffix removed).
+* `template-docs/extras`: directory containing example and template files
 
 ------------------------------------------------------------------------------
 
@@ -104,22 +108,22 @@ package manager.
 
 ### 2.1. Setting Up
 
-* (OPTIONAL) Configure `direnv`.
+1. (OPTIONAL) Configure `direnv`.
 
-    * Copy `template-docs/examples/envrc.example` to the package root directory
+    * Copy `template-docs/extras/envrc.example` to the package root directory
       and rename it to `.envrc`.
 
     * Follow `direnv` instructions to enable `.envrc` file.
 
-* From the package root directory, use `make setup` to add the Julia packages
-  required to set up the development environment.
+2. From the package root directory, use `make setup` to add the Julia packages
+   required to set up the development environment.
 
-  ```shell
-  $ cd PKG_ROOT_DIR
-  $ make setup
-  ```
+   ```shell
+   $ cd PKG_ROOT_DIR
+   $ make setup
+   ```
 
-* Initialize Julia package.
+3. Initialize the Julia package.
 
     * Use the `init-pkg.jl` utility to initialize the package. In the following
       command, replace `PKG_NAME` with the name of your package.
@@ -134,11 +138,12 @@ package manager.
     * Update template files in the `src` and `test` directories to be
       consistent with `PKG_NAME`.
 
-      * Replace all references to the `ExampleModule` module to `PKG_NAME` in
-        filenames and source code.
+        * Replace all references to the `ExampleModule` module to `PKG_NAME`
+          in filenames and source code.
 
-* Replace the `README.md` and `LICENSE` files with package-specific versions.
-  Templates are available in the `template-docs/examples` directory.
+4. Update the contents of all template files and rename them with the
+   `template` suffixed removed (overwrite the original `README.md` and
+   `LICENSE` files).
 
 ### 2.2. Running Tests
 
