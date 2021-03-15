@@ -1,4 +1,4 @@
-Velexi Template: Julia Package (v0.1.4)
+Velexi Template: Julia Package (v0.1.5)
 =======================================
 
 ___Authors___  
@@ -39,7 +39,7 @@ This package template is intended to
 #### Base Requirements
 
 * Julia (>=v1.5)
-* git
+* `git`
 
 #### Julia Packages ####
 
