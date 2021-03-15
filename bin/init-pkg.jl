@@ -193,7 +193,7 @@ function initialize_pkg_module_file(pkg_name::String; overwrite::Bool=false)
 
     if !ispath(template_pkg_module_path)
         message = "$template_pkg_module_path not found in `src` directory. " *
-                  "Attempting to restoring from git repository."
+                  "Attempting to restore from git repository."
         @info message
 
         # Restore EXAMPLE_MODULE_JL
