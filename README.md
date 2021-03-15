@@ -89,9 +89,9 @@ package manager.
     * `runtests.jl` is an example test setup file.
     * `Project.toml` contains package dependencies for running unit tests.
 
-* `template-docs`: directory containing documentation this package template.
+* `template-docs`: directory containing documentation this package template
 
-* `template-docs/examples`: directory containing example and template files.
+* `template-docs/examples`: directory containing example and template files
 
     * Example and template files are indicated by the `example` and `template`
       suffixes, respectively. These files are intended to simplify the set up
