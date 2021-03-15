@@ -1,4 +1,4 @@
-Velexi Template: Julia Project
+Velexi Template: Julia Package
 ==============================
 -------------------------------------------------------------------------------
 Release Notes: v0.1.4 (2021-03-15)
