@@ -30,7 +30,7 @@ PLACEHOLDER
 
 #### Base Requirements
 
-* Julia (>=1.5)
+* Julia (>=v1.5)
 
 #### Julia Packages ####
 
