@@ -15,6 +15,8 @@ Contents
 
     1.2. [Directory Structure][#1.2]
 
+    1.3. [License][#1.3]
+
 2. [Usage][#2]
 
     2.1. [Setting Up][#2.1]
@@ -39,7 +41,7 @@ This package template is intended to
 #### Base Requirements
 
 * Julia (>=v1.5)
-* git
+* `git`
 
 #### Julia Packages ####
 
@@ -101,6 +103,11 @@ package manager.
 * `template-docs`: directory containing documentation this package template
 
 * `template-docs/extras`: directory containing example and template files
+
+### 1.3. License
+
+The contents of this directory are covered under the LICENSE contained in the
+root directory of this package.
 
 ------------------------------------------------------------------------------
 
@@ -172,6 +179,7 @@ package manager.
 [#1]: #1-overview
 [#1.1]: #11-software-dependencies
 [#1.2]: #12-directory-structure
+[#1.3]: #13-license
 
 [#2]: #2-usage
 [#2.1]: #21-setting-up
