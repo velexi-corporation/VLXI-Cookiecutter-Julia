@@ -1,7 +1,7 @@
-Velexi Template: Julia Package
-==============================
+Velexi Template: Julia Package (v0.1.4)
+=======================================
 
-___Authors___
+___Authors___  
 Kevin T. Chu `<kevin@velexi.com>`
 
 ------------------------------------------------------------------------------
@@ -15,21 +15,19 @@ Contents
 
     1.2. [Directory Structure][#1.2]
 
-    1.3. [Template Files][#1.3]
-
 2. [Usage][#2]
 
     2.1. [Setting Up][#2.1]
 
     2.2. [Running Tests][#2.2]
 
-    2.3. [Cleaning the Project Directory][#1.3]
+    2.3. [Cleaning the Project Directory][#2.3]
 
 ------------------------------------------------------------------------------
 
 ## 1. Overview
 
-This project template is intended to
+This package template is intended to
 
 * streamline the process of setting up a Julia package and
 
@@ -57,19 +55,18 @@ package manager.
 ### 1.2. Directory Structure
 
     README.md
-    README-Template-Usage.md
-    README.md.template
+    LICENSE
     Makefile
     bin/
-    extras/
     src/
     test/
+    template-docs/
+    template-docs/examples
 
-* `README.md`: symbolic link to `README-Template-Usage.md`
+* `README.md`: this file (same as `template-docs/README-Template-Usage.md`)
 
-* `README-Template-Usage.md`: this file
-
-* `README.md.template`: template README file for Julia package
+* `LICENSE`: license file for this package template (same as
+  `template-docs/LICENSE-Julia-Template`)
 
 * `Makefile`: Makefile defining a collection of useful commands to maintain
   software (e.g., `test`, `clean`)
@@ -80,9 +77,6 @@ package manager.
 
   * `coverage.jl`: utility to analyze test coverage
 
-* `extras`: directory containing optional content (e.g., configuration files,
-  example code snippets, etc.)
-
 * `src`: directory for source code
 
   * `ExampleModule.jl` is an example Julia module.
@@ -91,15 +85,18 @@ package manager.
 
 * `test`: directory for test code
 
-  * `runtests.jl` is an example test setup file.
-
   * `Example_tests.jl` contains example unit tests.
+  * `runtests.jl` is an example test setup file.
+  * `Project.toml` contains package dependencies for running unit tests.
 
-### 1.3. Template Files
+* `template-docs`: directory containing documentation this package template.
 
-Template files and directories are indicated by the 'template' suffix. These
-files and directories are intended to simplify the set up of package. When
-appropriate, they should be renamed (with the 'template' suffix removed).
+* `template-docs/examples`: directory containing example and template files.
+  
+  * Example and template files are indicated by the `example` and `template`
+    suffixes, respectively. These files are intended to simplify the set up of
+    package. When appropriate, they should be renamed (with the `example` or
+    `template` suffix removed).
 
 ------------------------------------------------------------------------------
 
@@ -109,14 +106,19 @@ appropriate, they should be renamed (with the 'template' suffix removed).
 
 * (OPTIONAL) Configure `direnv`.
 
-  * `direnv`. Copy `extras/envrc.template` to the top-level package directory
+  * Copy `template-docs/examples/envrc.example` to the package root directory
     and rename it to `.envrc`.
+
+    ```shell
+    $ cd PKG_ROOT_DIR
+    $ cp template-docs/examples/envrc.example .envrc
+    ```
 
 * From the top-level package directory, use `make setup` to add the Julia
   packages required to set up the development environment.
 
   ```shell
-  $ cd PKG_DIR
+  $ cd PKG_ROOT_DIR
   $ make setup
   ```
 
@@ -138,14 +140,19 @@ appropriate, they should be renamed (with the 'template' suffix removed).
     * Replace all references to the `ExampleModule` module to `PKG_NAME` in
       filenames and source code.
 
-  * Remove the `src/ExampleModule.jl` file.
-
 * Update documentation
 
   * Replace `README.md` with `README.md.template`.
 
-  * Replace any template fields in the `LICENSE` file with the appropriate
-    project-specific information.
+    ```shell
+    $ cd PKG_ROOT_DIR
+    $ mv template-docs/examples/README.md.template README.md
+    ```
+
+  * Replace `LICENSE` with desired license file.
+
+    * A template Apache License is available in the `template-docs/examples`
+      directory.
 
 ### 2.2. Running Tests
 
@@ -174,7 +181,6 @@ appropriate, they should be renamed (with the 'template' suffix removed).
 [#1]: #1-overview
 [#1.1]: #11-software-dependencies
 [#1.2]: #12-directory-structure
-[#1.3]: #13-template-files
 
 [#2]: #2-usage
 [#2.1]: #21-setting-up
