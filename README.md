@@ -73,30 +73,29 @@ package manager.
 
 * `bin`: directory containing command-line utilities
 
-  * `init-pkg.jl`: utility to initialize Julia package
-
-  * `coverage.jl`: utility to analyze test coverage
+    * `init-pkg.jl`: utility to initialize Julia package
+    * `coverage.jl`: utility to analyze test coverage
 
 * `src`: directory for source code
 
-  * `ExampleModule.jl` is an example Julia module.
-  * `ExampleType.jl` is an example source file for defining a type.
-  * `ExampleMethods.jl` is an example source file for defining methods.
+    * `ExampleModule.jl` is an example Julia module.
+    * `ExampleType.jl` is an example source file for defining a type.
+    * `ExampleMethods.jl` is an example source file for defining methods.
 
 * `test`: directory for test code
 
-  * `Example_tests.jl` contains example unit tests.
-  * `runtests.jl` is an example test setup file.
-  * `Project.toml` contains package dependencies for running unit tests.
+    * `Example_tests.jl` contains example unit tests.
+    * `runtests.jl` is an example test setup file.
+    * `Project.toml` contains package dependencies for running unit tests.
 
 * `template-docs`: directory containing documentation this package template.
 
 * `template-docs/examples`: directory containing example and template files.
-  
-  * Example and template files are indicated by the `example` and `template`
-    suffixes, respectively. These files are intended to simplify the set up of
-    package. When appropriate, they should be renamed (with the `example` or
-    `template` suffix removed).
+
+    * Example and template files are indicated by the `example` and `template`
+      suffixes, respectively. These files are intended to simplify the set up
+      of package. When appropriate, they should be renamed (with the `example`
+      or `template` suffix removed).
 
 ------------------------------------------------------------------------------
 
@@ -106,16 +105,13 @@ package manager.
 
 * (OPTIONAL) Configure `direnv`.
 
-  * Copy `template-docs/examples/envrc.example` to the package root directory
-    and rename it to `.envrc`.
+    * Copy `template-docs/examples/envrc.example` to the package root directory
+      and rename it to `.envrc`.
 
-    ```shell
-    $ cd PKG_ROOT_DIR
-    $ cp template-docs/examples/envrc.example .envrc
-    ```
+    * Follow `direnv` instructions to enable `.envrc` file.
 
-* From the top-level package directory, use `make setup` to add the Julia
-  packages required to set up the development environment.
+* From the package root directory, use `make setup` to add the Julia packages
+  required to set up the development environment.
 
   ```shell
   $ cd PKG_ROOT_DIR
@@ -124,35 +120,24 @@ package manager.
 
 * Initialize Julia package.
 
-  * Use the `init-pkg.jl` utility to initialize the package. In the following
-    command, replace `PKG_NAME` with the name of your package.
+    * Use the `init-pkg.jl` utility to initialize the package. In the following
+      command, replace `PKG_NAME` with the name of your package.
 
-    ```shell
-    $ bin/init-pkg.jl PKG_NAME
-    ```
+      ```shell
+      $ bin/init-pkg.jl PKG_NAME
+      ```
 
-    Note that `init-pkg.jl` supports several command-line options. To see the
-    full list of options, use `init-pkg.jl --help`.
+      Note that `init-pkg.jl` supports several command-line options. To see the
+      full list of options, use `init-pkg.jl --help`.
 
-  * Update template files in the `src` and `test` directories to be consistent
-    with `PKG_NAME`.
+    * Update template files in the `src` and `test` directories to be
+      consistent with `PKG_NAME`.
 
-    * Replace all references to the `ExampleModule` module to `PKG_NAME` in
-      filenames and source code.
+      * Replace all references to the `ExampleModule` module to `PKG_NAME` in
+        filenames and source code.
 
-* Update documentation
-
-  * Replace `README.md` with `README.md.template`.
-
-    ```shell
-    $ cd PKG_ROOT_DIR
-    $ mv template-docs/examples/README.md.template README.md
-    ```
-
-  * Replace `LICENSE` with desired license file.
-
-    * A template Apache License is available in the `template-docs/examples`
-      directory.
+* Replace the `README.md` and `LICENSE` files with package-specific versions.
+  Templates are available in the `template-docs/examples` directory.
 
 ### 2.2. Running Tests
 
