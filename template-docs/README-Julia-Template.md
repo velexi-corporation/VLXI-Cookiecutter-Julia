@@ -68,7 +68,7 @@ package manager.
     template-docs/
     template-docs/extras
 
-* `README.md`: this file (same as `README-Template-Usage.md` in the
+* `README.md`: this file (same as `README-Julia-Template.md` in the
   `template-docs` directory)
 
 * `LICENSE`: license file for this package template (same as
