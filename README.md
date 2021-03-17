@@ -76,9 +76,10 @@ package manager.
 
 * `*.template`: template files for the package
 
-    * Template files are indicated by `template` suffix. These files are
-      intended to simplify the set up of the dataset repository. They should
-      be renamed to remove the `template` suffix.
+    * Template files are indicated by the `template` suffix and contain
+      template parameters denoted by double braces (e.g. `{{ PKG_NAME }}`).
+      Template files are intended to simplify the set up of the package. When
+      used, they should be renamed to remove the `template` suffix.
 
 * `Makefile`: Makefile defining a collection of useful commands to maintain
   software (e.g., `test`, `clean`)
@@ -132,8 +133,8 @@ in the `template-docs` and root directories of this package.
 
 3. Initialize the Julia package.
 
-    * Use the `init-pkg.jl` utility to initialize the package. In the following
-      command, replace `PKG_NAME` with the name of your package.
+    * Use the `init-pkg.jl` utility to initialize the package. In the
+      following command, replace `PKG_NAME` with the name of your package.
 
       ```shell
       $ bin/init-pkg.jl PKG_NAME
@@ -142,15 +143,15 @@ in the `template-docs` and root directories of this package.
       Note that `init-pkg.jl` supports several command-line options. To see the
       full list of options, use `init-pkg.jl --help`.
 
-    * Update template files in the `src` and `test` directories to be
-      consistent with `PKG_NAME`.
+    * Update the names and content of all files in the `src` and `test`
+      directories to be consistent with `PKG_NAME`.
 
-        * Replace all references to the `ExampleModule` module to `PKG_NAME`
-          in filenames and source code.
+      * Replace all references to the `ExampleModule` module to `PKG_NAME`
+        in filenames and source code.
 
-4. Update the contents of all template files and rename them with the
-   `template` suffixed removed (overwrite the original `README.md` and
-   `LICENSE` files).
+4. Rename all of the template files with the `template` suffix removed
+   (overwrite the original `README.md` and `LICENSE` files) and replace all
+   template parameters with package-appropriate values.
 
 ### 2.2. Running Tests
 
