@@ -5,7 +5,7 @@
 # --- Project-Specific Configuration Parameters
 
 # Paths to add to PATH
-# NOTE: paths should be specified relative to root directory of the project.
+# NOTE: paths should be specified relative to the project root directory.
 PATH_EXTRA=
 
 # ============================ DO NOT EDIT BELOW ============================ #
