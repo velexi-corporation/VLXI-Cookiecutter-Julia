@@ -1,4 +1,4 @@
-Julia Package Template (v0.1.4)
+Julia Package Template (v0.1.5)
 ===============================
 
 ___Authors___  
