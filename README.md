@@ -40,7 +40,7 @@ This package template is intended to
 
 #### Base Requirements
 
-* Julia (>=v1.5)
+* Julia (>=v1.6)
 * `git`
 
 #### Julia Packages ####
