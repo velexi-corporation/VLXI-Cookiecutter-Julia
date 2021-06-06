@@ -1,5 +1,5 @@
 """
-Unit tests for {{ PKG_NAME }} package.
+Unit test runner for the {{ PKG_NAME }} package.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the {{ PKG_NAME }} package. It is
