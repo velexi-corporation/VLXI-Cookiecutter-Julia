@@ -1,5 +1,5 @@
 """
-ExampleMethods.jl defines methods for the Example.jl module.
+ExampleMethods.jl defines methods for the ExampleModule.jl module.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the {{ PKG_NAME }} package. It is

@@ -16,14 +16,14 @@ using Documenter
 using Test
 using TestSetExtensions
 
-# Example.jl
-using Example
+# ExampleModule.jl
+using ExampleModule
 
 # --- Test sets
 
 @testset ExtendedTestSet "All the tests" begin
     @testset "Doctests" begin
-        doctest(Example)
+        doctest(ExampleModule)
     end
 
     @testset "Unit tests" begin
