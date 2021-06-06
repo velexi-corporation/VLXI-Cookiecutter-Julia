@@ -1,5 +1,5 @@
 """
-The ExampleModule.jl module defines {{ PKG_NAME }} types and functions.
+The Example.jl module defines {{ PKG_NAME }} types and functions.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the {{ PKG_NAME }} package. It is
@@ -9,7 +9,7 @@ file, may be copied, modified, propagated, or distributed except according to
 the terms contained in the LICENSE file.
 ------------------------------------------------------------------------------
 """
-module ExampleModule
+module Example
 
 # Types
 include("ExampleType.jl")
@@ -17,4 +17,4 @@ include("ExampleType.jl")
 # Methods
 include("ExampleMethod.jl")
 
-end  # End of ExampleModule.jl module
+end  # End of Example.jl module

@@ -1,5 +1,5 @@
 """
-Unit tests for ExampleModule.jl module.
+Unit tests for Example.jl module.
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the {{ PKG_NAME }} package. It is
@@ -15,7 +15,7 @@ the terms contained in the LICENSE file.
 using Test
 
 # Example.jl package
-using ExampleModule
+using Example
 
 
 # --- Unit tests
