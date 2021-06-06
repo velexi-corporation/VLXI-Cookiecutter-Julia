@@ -217,7 +217,7 @@ function initialize_pkg_module_file(pkg_name::String; overwrite::Bool=false)
 
     # --- Rename module file
 
-    cp(template_pkg_module_path, pkg_module_path, force=overwrite)
+    mv(template_pkg_module_path, pkg_module_path, force=overwrite)
 
     return true
 end
