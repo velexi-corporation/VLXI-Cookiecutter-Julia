@@ -15,6 +15,6 @@ module Example
 include("ExampleType.jl")
 
 # Methods
-include("ExampleMethod.jl")
+include("ExampleMethods.jl")
 
 end  # End of Example.jl module
