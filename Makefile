@@ -21,6 +21,9 @@ clean:
 	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Coverage.jl files
 	find . -name "*.jl.*.mem" -exec rm -f {} \;  # Coverage.jl files
 
+spotless: clean
+	find . -name "Manifest.toml" -exec rm -rf {} \;  # Manifest.toml files
+
 # Setup Julia
 setup:
 	julia --project=`pwd`/bin --startup-file=no \
