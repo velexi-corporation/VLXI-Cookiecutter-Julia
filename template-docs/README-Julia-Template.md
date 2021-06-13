@@ -163,8 +163,8 @@ file contained in the `template-docs` of this package.
    (overwrite the original `README.md` file) and replace all template
    parameters with package-appropriate values.
 
-5. Remove `init-pkg.jl` from the package. It serves no purpose once the package
-   has been successfully set up.
+5. Remove `bin/init-pkg.jl` from the package. It serves no purpose once the
+   package has been successfully set up.
 
 ### 2.2. Running Tests
 
