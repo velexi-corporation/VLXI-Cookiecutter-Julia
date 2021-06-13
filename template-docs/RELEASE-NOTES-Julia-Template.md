@@ -1,12 +1,18 @@
 Julia Package Template Release Notes
 ====================================
 -------------------------------------------------------------------------------
+Release Notes: v0.1.6 (2021-06-13)
+==================================
+* Fix dependency errors for example code.
+* Improve documentation.
+* Polish code.
+
+-------------------------------------------------------------------------------
 Release Notes: v0.1.5 (2021-06-05)
 ==================================
 * Reorganize template structure.
   * Simplify directory structure of template.
   * Rename `template-docs/examples` to `template-docs/extras`.
-
 * Improve documentation.
 
 -------------------------------------------------------------------------------
@@ -15,7 +21,6 @@ Release Notes: v0.1.4 (2021-03-15)
 * Reorganize package structure.
   * Move template documentation to `template-docs` directory.
   * Move example and template files to `template-docs/examples` directory.
-
 * Improve documentation.
 
 -------------------------------------------------------------------------------
