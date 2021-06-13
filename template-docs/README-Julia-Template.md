@@ -65,7 +65,7 @@ package manager.
     src/
     test/
     template-docs/
-    template-docs/extras
+    template-docs/extras/
 
 * `README.md`: this file (same as `README-Julia-Template.md` in the
   `template-docs` directory)
@@ -109,7 +109,7 @@ package manager.
 
 * `template-docs`: directory containing documentation this package template
 
-* `template-docs/extras`: directory containing example and template files
+    * `template-docs/extras`: directory containing example and template files
 
 ### 1.3. License
 
