@@ -5,6 +5,7 @@ Release Notes: Julia Package Template
 0.1.7 (2021-08-31)
 ==================
 * Migrate to semantic version numbers without "v" prefix.
+* Update documentation.
 
 -------------------------------------------------------------------------------
 0.1.6 (2021-06-13)
