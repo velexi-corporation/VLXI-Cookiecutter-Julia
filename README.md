@@ -1,5 +1,5 @@
-Julia Package Template (v0.1.6)
-===============================
+Julia Package Template (0.1.7)
+==============================
 
 ___Authors___  
 Kevin T. Chu `<kevin@velexi.com>`
@@ -40,7 +40,7 @@ This package template is intended to
 
 #### Base Requirements
 
-* Julia (>=v1.6)
+* Julia (>=1.6)
 * `git`
 
 #### Julia Packages ####
