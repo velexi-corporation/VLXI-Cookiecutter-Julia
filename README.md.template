@@ -34,7 +34,7 @@ PLACEHOLDER
 
 #### Julia Packages ####
 
-See `[deps]` section of `Project.toml` files.
+See the `[deps]` section of the `Project.toml` and `test/Project.toml` files.
 
 ### 1.3. License
 
