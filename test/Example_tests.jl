@@ -25,8 +25,17 @@ using ExampleModule
 end
 
 @testset "add_one() tests" begin
-    # Unit tests for add_one()
     @test add_one(2) == 3
     @test add_one(2.0) ≈ 2.9 atol=0.2
     @test add_one(π) ≈ π + 1 atol=0.2
+end
+
+@testset "get_id() tests" begin
+    # --- Preparations
+
+    x = ExampleType(1)
+
+    # --- Tests
+
+    @test get_id(x) == 1
 end

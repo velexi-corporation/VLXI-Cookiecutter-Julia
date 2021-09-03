@@ -11,13 +11,11 @@ the terms contained in the LICENSE file.
 """
 # --- Exports
 
-# ------ Types
-
+# Types
 export ExampleType
 
-# ------ Functions
-
-export say_hello, add_one
+# Functions
+export get_id
 
 # --- Type definitions
 
@@ -26,8 +24,16 @@ struct ExampleType
       Fields
       ------
       * `id`: node ID
-      * `connections`: Dict
     =#
     id::Int
-    connections::Dict{Int, Int}
 end
+
+# --- Methods
+
+
+"""
+    get_id(x::ExampleType)
+
+Return id.
+"""
+get_id(x::ExampleType) = x.id

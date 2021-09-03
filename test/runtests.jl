@@ -19,14 +19,24 @@ using TestSetExtensions
 # ExampleModule.jl
 using ExampleModule
 
+# --- Preparations
+
+#=
+# Note: fail-fast requires https://github.com/ktchu/TestSetExtensions.jl
+=#
+ENABLE_FAIL_FAST = get(ENV, "JULIA_TEST_FAIL_FAST", "false")
+if ENABLE_FAIL_FAST == "true"
+    extended_test_set = ExtendedTestSet{Test.FallbackTestSet}
+else
+    extended_test_set = ExtendedTestSet
+end
+
 # --- Test sets
 
-@testset ExtendedTestSet "All the tests" begin
-    @testset "Doctests" begin
-        doctest(ExampleModule)
-    end
+@testset "Doctests" begin
+    doctest(ExampleModule)
+end
 
-    @testset "Unit tests" begin
-        @includetests ARGS
-    end
+@testset extended_test_set "Unit tests" begin
+    @includetests ARGS
 end
