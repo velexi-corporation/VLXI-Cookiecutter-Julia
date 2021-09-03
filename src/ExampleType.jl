@@ -14,8 +14,11 @@ the terms contained in the LICENSE file.
 # Types
 export ExampleType
 
-# Functions
-export get_id
+# Properties
+export id
+
+# Functions/Methods
+export say_hello
 
 # --- Type definitions
 
@@ -23,17 +26,25 @@ struct ExampleType
     #=
       Fields
       ------
-      * `id`: node ID
+      * `id`: ID
+      * `name`: name
     =#
     id::Int
+    name::String
 end
 
 # --- Methods
 
-
 """
-    get_id(x::ExampleType)
+    id(x::ExampleType)
 
 Return id.
 """
-get_id(x::ExampleType) = x.id
+id(x::ExampleType) = x.id
+
+"""
+    say_hello(who::ExampleType)
+
+Return "Hello, `who`".
+"""
+say_hello(who::ExampleType) = "Hello, $(who.name)"

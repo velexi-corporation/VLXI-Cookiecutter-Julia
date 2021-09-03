@@ -11,16 +11,9 @@ the terms contained in the LICENSE file.
 """
 # --- Exports
 
-export say_hello, add_one
+export add_one
 
 # --- Method definitions
-
-"""
-    say_hello(who::String)
-
-Return "Hello, `who`".
-"""
-say_hello(who::String) = "Hello, $who"
 
 """
     add_one(x)

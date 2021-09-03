@@ -20,22 +20,28 @@ using ExampleModule
 
 # --- Unit tests
 
-@testset "say_hello() tests" begin
-    @test say_hello("Julia") == "Hello, Julia"
-end
-
 @testset "add_one() tests" begin
     @test add_one(2) == 3
     @test add_one(2.0) ≈ 2.9 atol=0.2
     @test add_one(π) ≈ π + 1 atol=0.2
 end
 
-@testset "get_id() tests" begin
+@testset "id() tests" begin
     # --- Preparations
 
-    x = ExampleType(1)
+    x = ExampleType(1, "name")
 
     # --- Tests
 
-    @test get_id(x) == 1
+    @test id(x) == 1
+end
+
+@testset "say_hello() tests" begin
+    # --- Preparations
+
+    x = ExampleType(1, "Julia")
+
+    # --- Tests
+
+    @test say_hello(x) == "Hello, Julia"
 end
