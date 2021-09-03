@@ -1,5 +1,5 @@
 """
-ExampleType.jl defines the ExampleType type and core methods
+ExampleType.jl defines the ExampleType type and type-specific methods
 
 ------------------------------------------------------------------------------
 COPYRIGHT/LICENSE. This file is part of the {{ PKG_NAME }} package. It is
