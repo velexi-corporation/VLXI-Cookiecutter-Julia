@@ -19,7 +19,7 @@ export id
 # Functions/Methods
 export say_hello
 
-# --- Type definitions
+# --- Types
 
 struct ExampleType
     #=

@@ -12,7 +12,7 @@ propagated, or distributed except according to the terms contained in the LICENS
 
 export add_one
 
-# --- Method definitions
+# --- Methods
 
 """
     add_one(x)
