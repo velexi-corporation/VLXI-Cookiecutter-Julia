@@ -34,7 +34,7 @@ using UUIDs
 
 # --- Constants
 
-STANDARD_PACKAGES = ["Documenter"]
+STANDARD_PACKAGES = ["Documenter", "JuliaFormatter"]
 EXAMPLE_MODULE_JL = "ExampleModule.jl"
 
 # --- Main program
