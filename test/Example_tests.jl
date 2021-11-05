@@ -16,13 +16,12 @@ using Test
 # ExampleModule.jl package
 using ExampleModule
 
-
 # --- Unit tests
 
 @testset "add_one() tests" begin
     @test add_one(2) == 3
-    @test add_one(2.0) ≈ 2.9 atol=0.2
-    @test add_one(π) ≈ π + 1 atol=0.2
+    @test add_one(2.0) ≈ 2.9 atol = 0.2
+    @test add_one(π) ≈ π + 1 atol = 0.2
 end
 
 @testset "id() tests" begin
