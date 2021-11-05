@@ -47,21 +47,21 @@ function main()
     arg_table = ArgParseSettings()
     @add_arg_table! arg_table begin
         "--overwrite", "-f"
-            help = "overwrite pre-existing package files"
-            action = :store_true
+        help = "overwrite pre-existing package files"
+        action = :store_true
         "--julia-version", "-j"
-            help = "minimum Julia version"
-            arg_type = VersionNumber
-            default = v"1.6"
+        help = "minimum Julia version"
+        arg_type = VersionNumber
+        default = v"1.6"
         "--dest-dir", "-d"
-            help = "directory where Julia package will reside"
-            default = "."
+        help = "directory where Julia package will reside"
+        default = "."
         "--license", "-l"
-            help = "package license"
-            default = "ASL"
+        help = "package license"
+        default = "ASL"
         "pkg_name"
-            help = "package name"
-            required = true
+        help = "package name"
+        required = true
     end
 
     # Parse command-line arguments
@@ -81,13 +81,13 @@ function main()
     create_pkg(pkg_name, tmp_dir, julia_version, license)
 
     # Move package files to destination directory
-    success = move_pkg(pkg_name, tmp_dir, dst_dir, overwrite=overwrite)
+    success = move_pkg(pkg_name, tmp_dir, dst_dir; overwrite=overwrite)
 
     # --- Set up standard package structure
 
     # Rename EXAMPLE_MODULE_JL to $pkg_name.jl
     if success
-        success = initialize_pkg_module_file(pkg_name, overwrite=overwrite)
+        success = initialize_pkg_module_file(pkg_name; overwrite=overwrite)
     end
 
     # Add package depdendencies and documentation structure
@@ -99,12 +99,14 @@ function main()
         add_standard_packages_dependencies()
 
         # Generate standard documentation structure
-        initialize_docs(pkg_name, overwrite=overwrite)
+        initialize_docs(pkg_name; overwrite=overwrite)
     end
 
     # --- Clean up
 
     clean_up(tmp_dir)
+
+    return nothing
 end
 
 # --- Helper Functions
@@ -115,18 +117,22 @@ end
 
 Create Julia package.
 """
-function create_pkg(pkg_name::String, tmp_dir::String,
-                    julia_version::VersionNumber, license::String)
-
+function create_pkg(
+    pkg_name::String, tmp_dir::String, julia_version::VersionNumber, license::String
+)
     @info "Creating '$pkg_name' package"
 
-    pkg_template = Template(dir=tmp_dir,
-                            julia=julia_version,
-                            plugins=[License(name=license),
-                                     !SrcDir, !Tests, !Readme,
-                                     !Git, !CompatHelper, !TagBot])
+    pkg_template = Template(;
+        dir=tmp_dir,
+        julia=julia_version,
+        plugins=[
+            License(; name=license), !SrcDir, !Tests, !Readme, !Git, !CompatHelper, !TagBot
+        ],
+    )
 
     pkg_template(pkg_name)
+
+    return nothing
 end
 
 """
@@ -136,17 +142,18 @@ end
 Move Julia package in `tmp_dir/pkg_name` to `dst_dir`. Return `true` if
 successful; otherwise, return false.
 """
-function move_pkg(pkg_name::String, tmp_dir::String, dst_dir::String;
-                  overwrite::Bool=false)
+function move_pkg(pkg_name::String, tmp_dir::String, dst_dir::String; overwrite::Bool=false)
 
     # Emit progress message
-    message = string("Moving package to destination directory ",
-                     dst_dir in (".", "..") ? "'$dst_dir'" : dst_dir)
+    message = string(
+        "Moving package to destination directory ",
+        dst_dir in (".", "..") ? "'$dst_dir'" : dst_dir,
+    )
     @info message
 
     # Preparations
     tmp_pkg_dir::String = joinpath(tmp_dir, pkg_name)
-    pkg_contents::Vector = readdir(tmp_pkg_dir, sort=false)
+    pkg_contents::Vector = readdir(tmp_pkg_dir; sort=false)
 
     # Check for items that will be overwritten
     items_will_be_overwritten::Bool = false
@@ -160,7 +167,8 @@ function move_pkg(pkg_name::String, tmp_dir::String, dst_dir::String;
                 # Emit error message
                 message = string(
                     "$item already exists in destination directory ",
-                    dst_dir in (".", "..") ? "'$dst_dir'" : dst_dir)
+                    dst_dir in (".", "..") ? "'$dst_dir'" : dst_dir,
+                )
                 @error message
             end
         end
@@ -169,8 +177,7 @@ function move_pkg(pkg_name::String, tmp_dir::String, dst_dir::String;
     # Move package contents
     if overwrite || !items_will_be_overwritten
         for item in pkg_contents
-            mv(joinpath(tmp_pkg_dir, item), joinpath(dst_dir, item),
-               force=overwrite)
+            mv(joinpath(tmp_pkg_dir, item), joinpath(dst_dir, item); force=overwrite)
         end
     end
 
@@ -193,15 +200,16 @@ function initialize_pkg_module_file(pkg_name::String; overwrite::Bool=false)
 
     pkg_module_path_exists = ispath(pkg_module_path)
     if !overwrite && pkg_module_path_exists
-        message = "$pkg_module_path already exists in `src` directory. " *
-                  "Keeping original."
+        message =
+            "$pkg_module_path already exists in `src` directory. " * "Keeping original."
         @warn message
         return true
     end
 
     if !ispath(template_pkg_module_path)
-        message = "$template_pkg_module_path not found in `src` directory. " *
-                  "Attempting to restore from git repository."
+        message =
+            "$template_pkg_module_path not found in `src` directory. " *
+            "Attempting to restore from git repository."
         @info message
 
         # Restore EXAMPLE_MODULE_JL
@@ -217,7 +225,7 @@ function initialize_pkg_module_file(pkg_name::String; overwrite::Bool=false)
 
     # --- Rename module file
 
-    mv(template_pkg_module_path, pkg_module_path, force=overwrite)
+    mv(template_pkg_module_path, pkg_module_path; force=overwrite)
 
     return true
 end
@@ -243,15 +251,17 @@ function initialize_docs(pkg_name::String; overwrite::Bool=false)
     @info "Generating standard documentation structure"
     if isdir("docs")
         if overwrite
-            rm("docs", force=true, recursive=true)
+            rm("docs"; force=true, recursive=true)
         else
             message = "`docs` directory already exists. Keeping original."
             @warn message
-            return
+            return nothing
         end
     end
 
-    DocumenterTools.generate(name=pkg_name)
+    DocumenterTools.generate(; name=pkg_name)
+
+    return nothing
 end
 
 """
@@ -261,7 +271,9 @@ Remove temporary directories.
 """
 function clean_up(tmp_dir::String)
     @info "Cleaning up"
-    rm(tmp_dir, force=true, recursive=true)
+    rm(tmp_dir; force=true, recursive=true)
+
+    return nothing
 end
 
 # --- Run main program

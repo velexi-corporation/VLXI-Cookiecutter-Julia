@@ -40,14 +40,14 @@ function main()
     arg_table = ArgParseSettings()
     @add_arg_table! arg_table begin
         "--keep-cov-files", "-k"
-            help = "retain *.cov files"
-            action = :store_true
+        help = "retain *.cov files"
+        action = :store_true
         "--pkg-dir", "-d"
-            help = "package directory"
-            default = "."
+        help = "package directory"
+        default = "."
         "--verbose", "-v"
-            help = "enable verbose mode"
-            action = :store_true
+        help = "enable verbose mode"
+        action = :store_true
     end
 
     # Parse command-line arguments
@@ -70,6 +70,7 @@ function main()
     coverage = analyze_coverage(src_dir::String, test_dir::String)
     display_results(coverage)
 
+    return nothing
 end
 
 # --- Functions
@@ -84,14 +85,17 @@ function analyze_coverage(src_dir::String, test_dir::String)
     coverage = process_folder(src_dir)
 
     # Process '*.info' files
-    coverage = merge_coverage_counts(coverage,
+    coverage = merge_coverage_counts(
+        coverage,
         filter!(
             let prefixes = (src_dir, "")
                 c -> any(p -> startswith(c.filename, p), prefixes)
             end,
-            LCOV.readfolder(test_dir)
-        )
+            LCOV.readfolder(test_dir),
+        ),
     )
+
+    return coverage
 end
 
 """
@@ -108,8 +112,7 @@ function display_results(coverage::Array)
 
     # Print header line
     println(horizontal_rule)
-    print_formatted(header_line_format,
-                    "File", "Lines of Code", "Missed", "Coverage")
+    print_formatted(header_line_format, "File", "Lines of Code", "Missed", "Coverage")
     println(horizontal_rule)
 
     # Initialize line counters
@@ -118,18 +121,23 @@ function display_results(coverage::Array)
 
     # Print coverage for individual files
     for file_coverage in coverage
-        filename = file_coverage.filename[
-            findlast("src/", file_coverage.filename)[1]+4:end]
+        filename = file_coverage.filename
+        filename = filename[(findlast("src/", filename)[1] + 4):end]
 
-        covered_lines_of_code, lines_of_code =
-            get_summary(process_file(file_coverage.filename))
+        covered_lines_of_code, lines_of_code = get_summary(
+            process_file(file_coverage.filename)
+        )
         missed_lines_of_code = lines_of_code - covered_lines_of_code
         coverage_pct = 100 * covered_lines_of_code / lines_of_code
-        coverage_pct_str =
-            isnan(coverage_pct) ? "N/A" : @sprintf "%9.1f%%" coverage_pct
+        coverage_pct_str = isnan(coverage_pct) ? "N/A" : @sprintf "%9.1f%%" coverage_pct
 
-        print_formatted(results_line_format, filename,
-                        lines_of_code, missed_lines_of_code, coverage_pct_str)
+        print_formatted(
+            results_line_format,
+            filename,
+            lines_of_code,
+            missed_lines_of_code,
+            coverage_pct_str,
+        )
 
         # Increment line counteres
         total_lines_of_code += lines_of_code
@@ -137,19 +145,23 @@ function display_results(coverage::Array)
     end
 
     # Print coverage summary
-    total_missed_lines_of_code =
-        total_lines_of_code - total_covered_lines_of_code
+    total_missed_lines_of_code = total_lines_of_code - total_covered_lines_of_code
     coverage_pct = 100 * total_covered_lines_of_code / total_lines_of_code
-    coverage_pct_str =
-        isnan(coverage_pct) ? "N/A" : @sprintf "%9.1f%%" coverage_pct
+    coverage_pct_str = isnan(coverage_pct) ? "N/A" : @sprintf "%9.1f%%" coverage_pct
 
     println(horizontal_rule)
-    print_formatted(results_line_format, "TOTAL",
-                    total_lines_of_code, total_missed_lines_of_code,
-                    coverage_pct_str)
+    print_formatted(
+        results_line_format,
+        "TOTAL",
+        total_lines_of_code,
+        total_missed_lines_of_code,
+        coverage_pct_str,
+    )
 
     # TODO: add count of tests passed, skipped, failed.
     # TODO: add test runtime
+
+    return nothing
 end
 
 """
