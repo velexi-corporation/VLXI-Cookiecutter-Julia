@@ -25,10 +25,13 @@ limitations under the License.
 """
 # --- Imports
 
-using ArgParse
-using Coverage
+# Standard library
 using Logging
 using Printf
+
+# External packages
+using ArgParse
+using Coverage
 
 # --- Main program
 

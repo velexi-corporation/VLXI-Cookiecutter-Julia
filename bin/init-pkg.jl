@@ -25,12 +25,15 @@ limitations under the License.
 """
 # --- Imports
 
-using ArgParse
-using DocumenterTools
+# Standard library
 using Logging
 using Pkg
-using PkgTemplates
 using UUIDs
+
+# External packages
+using ArgParse
+using DocumenterTools
+using PkgTemplates
 
 # --- Constants
 
