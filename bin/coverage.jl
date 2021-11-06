@@ -5,8 +5,6 @@ exec julia --color=yes --startup-file=no \
            --project=`dirname "${BASH_SOURCE[0]}"` "${BASH_SOURCE[0]}" "$@"
 =#
 """
-Generate coverage analysis.
-
 ------------------------------------------------------------------------------
 Copyright (c) 2020-2021 Velexi Corporation
 
@@ -40,7 +38,8 @@ function main()
     # --- Preparations
 
     # Define command-line interface
-    arg_table = ArgParseSettings()
+    description = "Generate coverage analysis report."
+    arg_table = ArgParseSettings(; description=description)
     @add_arg_table! arg_table begin
         "--keep-cov-files", "-k"
         help = "retain *.cov files"
