@@ -37,7 +37,7 @@ function main()
 
     # --- Preparations
 
-    # Define command-line interface
+    # Define command-line interface arguments
     description = "Generate coverage analysis report."
     arg_table = ArgParseSettings(; description=description)
     @add_arg_table! arg_table begin
