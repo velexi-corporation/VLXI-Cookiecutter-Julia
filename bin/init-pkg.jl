@@ -51,16 +51,20 @@ function main()
         "--overwrite", "-f"
         help = "overwrite pre-existing package files"
         action = :store_true
+
         "--julia-version", "-j"
         help = "minimum Julia version"
         arg_type = VersionNumber
         default = v"1.6"
+
         "--dest-dir", "-d"
         help = "directory where Julia package will reside"
         default = "."
+
         "--license", "-l"
         help = "package license"
         default = "ASL"
+
         "pkg_name"
         help = "package name"
         required = true

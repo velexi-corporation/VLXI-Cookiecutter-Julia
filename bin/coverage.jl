@@ -44,9 +44,11 @@ function main()
         "--keep-cov-files", "-k"
         help = "retain *.cov files"
         action = :store_true
+
         "--pkg-dir", "-d"
         help = "package directory"
         default = "."
+
         "--verbose", "-v"
         help = "enable verbose mode"
         action = :store_true
