@@ -37,5 +37,5 @@ end
 end
 
 @testset extended_test_set "Unit tests" begin
-    @includetests ARGS
+    @TestSetExtensions.includetests ARGS
 end
