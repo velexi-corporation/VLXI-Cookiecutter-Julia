@@ -42,7 +42,7 @@ EXAMPLE_MODULE_JL = "ExampleModule.jl"
 
 function main()
 
-    # --- Preparations
+    # --- Define CLI
 
     # Define command-line arguments
     description = "Initialize Julia package."
@@ -77,6 +77,8 @@ function main()
     julia_version::VersionNumber = args["julia-version"]
     dst_dir::String = args["dest-dir"]
     license::String = args["license"]
+
+    # --- Preparations
 
     # Construct name of temporary directory
     tmp_dir = "tmp.init-pkg." * string(uuid4())

@@ -33,7 +33,8 @@ using JuliaFormatter
 # --- Main program
 
 function main()
-    # --- Preparations
+
+    # --- Define CLI
 
     # Define command-line arguments
     description = "Check source code files against Julia style conventions."
@@ -57,6 +58,8 @@ function main()
     overwrite::Bool = args["overwrite"]
     style_str::String = lowercase(args["style"])
     paths::Vector{String} = args["paths"]
+
+    # --- Preparations
 
     # Set paths
     if isempty(paths)

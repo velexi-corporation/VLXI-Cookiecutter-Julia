@@ -35,7 +35,7 @@ using Coverage
 
 function main()
 
-    # --- Preparations
+    # --- Define CLI
 
     # Define command-line arguments
     description = "Generate coverage analysis report."
@@ -59,6 +59,8 @@ function main()
     keep_cov_files::Bool = args["keep-cov-files"]
     pkg_dir::String = args["pkg-dir"]
     verbose::Bool = args["verbose"]
+
+    # --- Preparations
 
     # Set log level
     if !verbose
