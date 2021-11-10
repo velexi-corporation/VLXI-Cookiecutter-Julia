@@ -7,14 +7,20 @@
 # --- Targets
 
 # Default target
-all: test
+all: fast-test
 
 # Testing
 test check:
 	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Remove old coverage files
-	julia --color=yes -e 'import Pkg; Pkg.test(coverage=true)'
+	julia --color=yes -e 'import Pkg; Pkg.test(coverage=true; test_args=${TEST_ARGS})'
 	@echo
 	coverage.jl
+
+full-test full-check:
+	make test TEST_ARGS=String[]
+
+fast-test fast-check:
+	make test TEST_ARGS=[\"-x\"]
 
 # Code style
 format:
