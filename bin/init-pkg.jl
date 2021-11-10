@@ -44,7 +44,7 @@ function main()
 
     # --- Preparations
 
-    # Define command-line interface arguments
+    # Define command-line arguments
     description = "Initialize Julia package."
     arg_table = ArgParseSettings(; description=description)
     @add_arg_table! arg_table begin

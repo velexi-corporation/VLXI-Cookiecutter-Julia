@@ -35,7 +35,7 @@ using JuliaFormatter
 function main()
     # --- Preparations
 
-    # Define command-line interface arguments
+    # Define command-line arguments
     description = "Check source code files against Julia style conventions."
     arg_table = ArgParseSettings(; description=description)
     @add_arg_table! arg_table begin
