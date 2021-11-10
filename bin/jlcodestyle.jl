@@ -39,7 +39,7 @@ function main()
     description = "Check source code files against Julia style conventions."
     arg_table = ArgParseSettings(; description=description)
     @add_arg_table! arg_table begin
-        "-o", "--overwrite"
+        "--overwrite", "-o"
         help = "overwrite files with reformatted source code"
         action = :store_true
 
