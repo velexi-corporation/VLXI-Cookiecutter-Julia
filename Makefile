@@ -10,17 +10,17 @@
 all: fast-test
 
 # Testing
-test-cmd:
-	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Remove old coverage files
-	julia --color=yes -e 'import Pkg; Pkg.test(coverage=true; test_args=${TEST_ARGS})'
-	@echo
-	coverage.jl
-
 full-test full-check:
 	make test-cmd TEST_ARGS=String[]
 
 fast-test fast-check test check:
 	make test-cmd TEST_ARGS=[\"-x\"]
+
+test-cmd:
+	find . -name "*.jl.*.cov" -exec rm -f {} \;  # Remove old coverage files
+	julia --color=yes -e 'import Pkg; Pkg.test(coverage=true; test_args=${TEST_ARGS})'
+	@echo
+	coverage.jl
 
 # Code style
 format:
