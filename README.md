@@ -1,7 +1,5 @@
-Julia Package Template
-======================
-
-__Version__: 0.1.8
+Velexi Julia Package Cookiecutter
+=================================
 
 __Authors__  
 Kevin T. Chu `<kevin@velexi.com>`
