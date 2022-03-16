@@ -1,12 +1,12 @@
 #!/bin/bash
 # -*- mode: julia -*-
 #=
-exec julia --color=yes --startup-file=no \
+exec julia --color=yes --startup-file=no --compile=min -O0 \
            --project=`dirname "${BASH_SOURCE[0]}"` "${BASH_SOURCE[0]}" "$@"
 =#
 """
 ------------------------------------------------------------------------------
-Copyright (c) 2020-2021 Velexi Corporation
+Copyright (c) 2020-2022 Velexi Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
