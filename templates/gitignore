@@ -1,0 +1,24 @@
+# --- Julia files
+
+# Project files
+Manifest.toml
+
+# Coverage.jl files
+*.jl.*.cov
+*.jl.*.mem
+
+# --- GitHub
+
+.github/secrets
+
+# --- Miscellaneous
+
+# direnv
+.direnv
+.envrc
+
+# vim
+.*.swp
+
+# macOS
+.DS_Store*
