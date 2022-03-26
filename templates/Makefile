@@ -12,9 +12,9 @@ export JULIA_PROJECT = @.
 # --- Targets
 
 # Default target
-all: test
+all: fast-test
 
-# Code quality
+# Testing
 test:
 	@echo Removing old coverage files
 	find . -name "*.jl.*.cov" -exec rm -f {} \;
@@ -25,6 +25,11 @@ test:
 	@echo Generating code coverage report
 	@jlcoverage
 
+fast-test: export JLTEST_FAIL_FAST=true
+fast-test: test
+    echo $(JLTEST_FAIL_FAST)
+
+# Code quality
 codestyle:
 	@echo Checking code style
 	@jlcodestyle -v $(PKG_DIR)
@@ -42,5 +47,5 @@ spotless: clean
 	find . -name "Manifest.toml" -exec rm -rf {} \;  # Manifest.toml files
 
 # Phony Targets
-.PHONY: all test docs \
+.PHONY: all test fast-test codestyle docs \
 		clean spotless
