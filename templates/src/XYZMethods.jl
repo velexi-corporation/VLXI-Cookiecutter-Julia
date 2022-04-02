@@ -13,7 +13,7 @@
 #   limitations under the License.
 
 """
-ExampleMethods.jl defines methods for the ExampleModule.jl module.
+XYZMethods.jl defines methods for the XYZModule.jl module.
 """
 
 # --- Exports

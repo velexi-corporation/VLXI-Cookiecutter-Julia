@@ -13,14 +13,45 @@
 #   limitations under the License.
 
 """
-The ExampleModule module defines types and functions to support {{ BRIEF DESCRIPTION }}.
+XYZType.jl defines the XYZType type and type-specific methods.
 """
-module ExampleModule
+
+# --- Exports
 
 # Types
-include("ExampleType.jl")
+export XYZType
 
-# Methods
-include("ExampleMethods.jl")
+# Properties
+export id
 
-end  # End of ExampleModule module
+# Functions/Methods
+export say_hello
+
+# --- Types
+
+struct XYZType
+    #=
+      Fields
+      ------
+      * `id`: ID
+      * `name`: name
+    =#
+    id::Int
+    name::String
+end
+
+# --- Methods
+
+"""
+    id(x::XYZType)
+
+Return id.
+"""
+id(x::XYZType) = x.id
+
+"""
+    say_hello(who::XYZType)
+
+Return "Hello, `who`".
+"""
+say_hello(who::XYZType) = "Hello, $(who.name)"
