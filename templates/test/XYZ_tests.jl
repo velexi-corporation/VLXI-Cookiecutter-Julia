@@ -1,4 +1,4 @@
-#   Copyright (c) 2022 Velexi Corporation
+#   Copyright (c) YYYY Velexi Corporation
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 #   limitations under the License.
 
 """
-Unit tests for the ExampleModule.jl module
+Unit tests for the XYZ module
 """
 
 # --- Imports
@@ -21,8 +21,8 @@ Unit tests for the ExampleModule.jl module
 # Standard library
 using Test
 
-# ExampleModule.jl package
-using ExampleModule
+# XYZ package
+using XYZ
 
 # --- Unit tests
 
@@ -35,7 +35,7 @@ end
 @testset "id() tests" begin
     # --- Preparations
 
-    x = ExampleType(1, "name")
+    x = XYZType(1, "name")
 
     # --- Tests
 
@@ -45,7 +45,7 @@ end
 @testset "say_hello() tests" begin
     # --- Preparations
 
-    x = ExampleType(1, "Julia")
+    x = XYZType(1, "Julia")
 
     # --- Tests
 
