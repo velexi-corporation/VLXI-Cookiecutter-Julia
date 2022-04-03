@@ -33,7 +33,7 @@ __Notes__
 * `templates/docs`: directory containing Julia Documenter files and templates
 
 * `templates/src`: directory containing a simple example of the code organization
-  guidelines
+  guidelines. Refer to the [src/README.md](src/README.md) file for more details.
 
   * `XYZModule.jl`: an example Julia module
   * `XYZType.jl`: an example source file for defining a type
