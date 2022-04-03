@@ -41,7 +41,7 @@ function main()
     # --- Define CLI
 
     # Define command-line arguments
-    description = "Create new Julia package"
+    description = "Create new Julia project"
     arg_table = ArgParseSettings(; description=description)
     @add_arg_table! arg_table begin
         "--julia-version", "-j"
@@ -50,11 +50,11 @@ function main()
         default = v"1.6"
 
         "--dest-dir", "-d"
-        help = "directory where Julia package will be created"
+        help = "directory where Julia project will be created"
         default = "."
 
         "--license", "-l"
-        help = "package license"
+        help = "project license"
         default = "ASL"
 
         "--ci-include-x86", "--x86"
@@ -65,14 +65,14 @@ function main()
         help = "disable upload of coverage results to Codecov (default: false)"
         action = :store_true
 
-        "pkg_name"
-        help = "package name"
+        "project_name"
+        help = "project name"
         required = true
     end
 
     # Parse command-line arguments
     args::Dict = parse_args(ARGS, arg_table)
-    pkg_name::String = args["pkg_name"]
+    project_name::String = args["project_name"]
 
     julia_version::VersionNumber = args["julia-version"]
     dst_dir::String = args["dest-dir"]
@@ -80,9 +80,9 @@ function main()
     ci_include_x86::Bool = args["ci-include-x86"]
     ci_enable_codecov::Bool = !args["ci-disable-codecov"]
 
-    # --- Create package
+    # --- Create project
 
-    # Define package template
+    # Define project template
     plugins = [
         License(; name=license),
         Git(; ssh=true),
@@ -93,13 +93,13 @@ function main()
         push!(plugins, Codecov())
     end
 
-    pkg_template = Template(; julia=julia_version, dir=dst_dir, plugins=plugins)
+    template = Template(; julia=julia_version, dir=dst_dir, plugins=plugins)
 
-    # Define package template
-    pkg_template(pkg_name)
+    # Create new project
+    template(project_name)
 
     # Upgrade manifest
-    Pkg.activate(joinpath(dst_dir, pkg_name))
+    Pkg.activate(joinpath(dst_dir, project_name))
     Pkg.upgrade_manifest()
 
     return nothing
