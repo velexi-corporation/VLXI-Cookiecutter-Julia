@@ -2,6 +2,11 @@ Velexi Julia Package Cookiecutter Release Notes
 ===============================================
 
 -------------------------------------------------------------------------------
+v0.2.1 (2022-04-04)
+===================
+* Reorganize and polish documentation.
+
+-------------------------------------------------------------------------------
 v0.2.0 (2022-04-03)
 ===================
 * Restructured project to be a cookiecutter instead of a template. Renamed package.
