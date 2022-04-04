@@ -1,5 +1,5 @@
-Velexi Julia Code Organization and Style Conventions
-====================================================
+Velexi Julia Code Structure and Style Conventions
+=================================================
 
 --------------------------------------------------------------------------------------------
 ## Code Organization

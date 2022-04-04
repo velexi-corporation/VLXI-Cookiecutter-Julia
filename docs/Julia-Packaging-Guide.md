@@ -1,16 +1,8 @@
-Julia Packaging Guide: Development, Registration, Release Process
-=================================================================
+Julia Packaging Guide: Development, Registration, and Release Process
+=====================================================================
 
 __Authors__  
 Kevin T. Chu `<kevin@velexi.com>`
-
---------------------------------------------------------------------------------------------
-
-Acknowledgements
-----------------
-
-Many thanks to Sören Dobberschütz and his excellent [blog article][dobberschutz-tips]. In
-many ways, this guide is simply a restructuring and expansion of his article.
 
 --------------------------------------------------------------------------------------------
 
@@ -25,9 +17,11 @@ Table of Contents
 
 4. [Package Release Process][#4]
 
-5. [Notes][#5]
+5. [Additional Notes][#5]
 
 6. [References][#6]
+
+7. [Acknowledgements][#7]
 
 --------------------------------------------------------------------------------------------
 
@@ -313,7 +307,7 @@ See the [Package Registration][#3] section for details.
 
 --------------------------------------------------------------------------------------------
 
-## 5. Notes
+## 5. Additional Notes
 
 ### Security Configurations for GitHub Actions
 
@@ -362,20 +356,28 @@ julia> AutoMerge.meets_distance_check("MyPackage", all_pkg_names)
 
 --------------------------------------------------------------------------------------------
 
+## 7. Acknowledgements
+
+Many thanks to Sören Dobberschütz and his excellent [blog article][dobberschutz-tips]. In
+many ways, this guide is a restructuring and expansion of his article.
+
+--------------------------------------------------------------------------------------------
+
 [----------------------------------- INTERNAL LINKS -----------------------------------]: #
 
 [#1]: #1-package-development
 [#2]: #2-hosting-documentation-on-github-pages
 [#3]: #3-package-registration
 [#4]: #4-package-release-process
-[#5]: #5-notes
+[#5]: #5-additional-notes
 [#6]: #6-references
+[#7]: #7-acknowledgements
 
 [------------------------------------- REFERENCES -------------------------------------]: #
 
 [auto-merge-guidelines]: https://juliaregistries.github.io/RegistryCI.jl/stable/guidelines/
+[dobberschutz-tips]: https://www.juliabloggers.com/tips-and-tricks-to-register-your-first-julia-package/
 [colprac]: https://colprac.sciml.ai/
 [julia-registrator]: https://github.com/JuliaRegistries/Registrator.jl
 [julia-artifacts]: https://pkgdocs.julialang.org/v1/artifacts/
 [semver]: https://semver.org/
-[dobberschutz-tips]: https://www.juliabloggers.com/tips-and-tricks-to-register-your-first-julia-package/
