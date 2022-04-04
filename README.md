@@ -1,5 +1,5 @@
-Velexi Julia Project Cookiecutter (0.2.0)
-=========================================
+Velexi Julia Project Cookiecutter
+=================================
 
 __Authors__  
 Kevin T. Chu `<kevin@velexi.com>`
