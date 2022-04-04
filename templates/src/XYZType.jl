@@ -13,20 +13,45 @@
 #   limitations under the License.
 
 """
-Unit tests for {{ PKG_NAME }} package.
+XYZType.jl defines the XYZType type and type-specific methods.
 """
 
-# --- Imports
+# --- Exports
 
-# Standard library
-using Test
+# Types
+export XYZType
 
-# External packages
-using TestTools: jltest
+# Properties
+export id
 
-# GeometricAlgebra.jl
-using GeometricAlgebra
+# Functions/Methods
+export say_hello
 
-# --- Run tests
+# --- Types
 
-jltest.run_tests(@__DIR__)
+struct XYZType
+    #=
+      Fields
+      ------
+      * `id`: ID
+      * `name`: name
+    =#
+    id::Int
+    name::String
+end
+
+# --- Methods
+
+"""
+    id(x::XYZType)
+
+Return id.
+"""
+id(x::XYZType) = x.id
+
+"""
+    say_hello(who::XYZType)
+
+Return "Hello, `who`".
+"""
+say_hello(who::XYZType) = "Hello, $(who.name)"

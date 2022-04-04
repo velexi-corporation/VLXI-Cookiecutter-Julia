@@ -13,7 +13,7 @@
 #   limitations under the License.
 
 """
-Unit tests for {{ PKG_NAME }} package.
+Unit tests for the XYZ module
 """
 
 # --- Imports
@@ -21,12 +21,33 @@ Unit tests for {{ PKG_NAME }} package.
 # Standard library
 using Test
 
-# External packages
-using TestTools: jltest
+# XYZ package
+using XYZ
 
-# GeometricAlgebra.jl
-using GeometricAlgebra
+# --- Unit tests
 
-# --- Run tests
+@testset "add_one() tests" begin
+    @test add_one(2) == 3
+    @test add_one(2.0) ≈ 2.9 atol = 0.2
+    @test add_one(π) ≈ π + 1 atol = 0.2
+end
 
-jltest.run_tests(@__DIR__)
+@testset "id() tests" begin
+    # --- Preparations
+
+    x = XYZType(1, "name")
+
+    # --- Tests
+
+    @test id(x) == 1
+end
+
+@testset "say_hello() tests" begin
+    # --- Preparations
+
+    x = XYZType(1, "Julia")
+
+    # --- Tests
+
+    @test say_hello(x) == "Hello, Julia"
+end

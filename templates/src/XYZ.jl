@@ -13,20 +13,14 @@
 #   limitations under the License.
 
 """
-Unit tests for {{ PKG_NAME }} package.
+The XYZ module defines types and functions to support {{ BRIEF DESCRIPTION }}.
 """
+module XYZ
 
-# --- Imports
+# Types
+include("XYZType.jl")
 
-# Standard library
-using Test
+# Methods
+include("XYZMethods.jl")
 
-# External packages
-using TestTools: jltest
-
-# GeometricAlgebra.jl
-using GeometricAlgebra
-
-# --- Run tests
-
-jltest.run_tests(@__DIR__)
+end  # End of XYZ module

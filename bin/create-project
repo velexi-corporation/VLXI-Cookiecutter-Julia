@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+# -*- mode: julia -*-
+#=
+exec julia --startup-file=no -q --compile=min -O0 \
+           --project=`dirname "${BASH_SOURCE[0]}"` "${BASH_SOURCE[0]}" "$@"
+=#
+
+# ------------------------------------------------------------------------------------------
+#   Copyright (c) 2020-2022 Velexi Corporation
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+# ------------------------------------------------------------------------------------------
+
+# --- Imports
+
+# Standard library
+using Pkg
+
+# External packages
+using ArgParse
+using PkgTemplates
+
+# --- Main program
+
+function main()
+    # --- Preparations
+
+    # Set up environment for this script
+    Pkg.instantiate()
+
+    # --- Define CLI
+
+    # Define command-line arguments
+    description = "Create new Julia project"
+    arg_table = ArgParseSettings(; description=description)
+    @add_arg_table! arg_table begin
+        "--julia-version", "-j"
+        help = "minimum Julia version"
+        arg_type = VersionNumber
+        default = v"1.6"
+
+        "--dest-dir", "-d"
+        help = "directory where Julia project will be created"
+        default = "."
+
+        "--license", "-l"
+        help = "project license"
+        default = "ASL"
+
+        "--ci-include-x86", "--x86"
+        help = "include x86 architecture in CI tests (default: false)"
+        action = :store_true
+
+        "--ci-disable-codecov", "-C"
+        help = "disable upload of coverage results to Codecov (default: false)"
+        action = :store_true
+
+        "project_name"
+        help = "project name"
+        required = true
+    end
+
+    # Parse command-line arguments
+    args::Dict = parse_args(ARGS, arg_table)
+    project_name::String = args["project_name"]
+
+    julia_version::VersionNumber = args["julia-version"]
+    dst_dir::String = args["dest-dir"]
+    license::String = args["license"]
+    ci_include_x86::Bool = args["ci-include-x86"]
+    ci_enable_codecov::Bool = !args["ci-disable-codecov"]
+
+    # --- Create project
+
+    # Define project template
+    plugins = [
+        License(; name=license),
+        Git(; ssh=true),
+        Documenter{GitHubActions}(),
+        GitHubActions(; x86=ci_include_x86),
+    ]
+    if ci_enable_codecov
+        push!(plugins, Codecov())
+    end
+
+    template = Template(; julia=julia_version, dir=dst_dir, plugins=plugins)
+
+    # Create new project
+    template(project_name)
+
+    # Upgrade manifest
+    Pkg.activate(joinpath(dst_dir, project_name))
+    Pkg.upgrade_manifest()
+
+    return nothing
+end
+
+# --- Run main program
+
+if abspath(PROGRAM_FILE) == @__FILE__
+    main()
+end

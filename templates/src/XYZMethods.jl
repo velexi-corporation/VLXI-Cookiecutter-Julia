@@ -13,20 +13,18 @@
 #   limitations under the License.
 
 """
-Unit tests for {{ PKG_NAME }} package.
+XYZMethods.jl defines methods for the XYZModule.jl module.
 """
 
-# --- Imports
+# --- Exports
 
-# Standard library
-using Test
+export add_one
 
-# External packages
-using TestTools: jltest
+# --- Methods
 
-# GeometricAlgebra.jl
-using GeometricAlgebra
+"""
+    add_one(x)
 
-# --- Run tests
-
-jltest.run_tests(@__DIR__)
+Return `x + 1`.
+"""
+add_one(x) = x + 1
