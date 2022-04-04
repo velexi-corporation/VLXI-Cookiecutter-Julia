@@ -1,5 +1,5 @@
-Velexi Julia Project Cookiecutter: Julia Code Organization Conventions and Guidelines
-=====================================================================================
+Velexi Julia Code Organization and Style Conventions
+====================================================
 
 --------------------------------------------------------------------------------------------
 ## Code Organization
