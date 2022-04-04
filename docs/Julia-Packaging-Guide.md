@@ -6,6 +6,14 @@ Kevin T. Chu `<kevin@velexi.com>`
 
 --------------------------------------------------------------------------------------------
 
+Acknowledgements
+----------------
+
+Many thanks to Sören Dobberschütz and his excellent [blog article][dobberschutz-tips]. In
+many ways, this guide is simply a restructuring and expansion of his article.
+
+--------------------------------------------------------------------------------------------
+
 Table of Contents
 -----------------
 
@@ -197,8 +205,8 @@ The following steps register a new package with the General registry.
 
 * (OPTIONAL) Prepare the package artifacts.
 
-    * Please refer to the [Artifacts][julia-artifacts] section of the documentation for
-     the `Pkg` package.
+    * Please refer to the [blog article][dobberschutz-tips] by Sören Dobberschütz and the
+      [Artifacts][julia-artifacts] section of the documentation for the `Pkg` package.
 
 * Prepare the package for the initial release.
 
