@@ -22,8 +22,9 @@ Table of Contents
 
 ## 1. Overview
 
-This cookiecutter repository is intended to streamline the process of setting up a Julia
-project with Velexi's default configuration choices for the following:
+The [Velexi Julia Project Cookiecutter][github-vlxi-cookiecutter-julia] is intended to
+streamline the process of setting up a Julia project with Velexi's default configuration
+choices for the following:
 
 * license,
 
@@ -122,3 +123,7 @@ file.
 [#2]: #2-quick-start
 
 [#3]: #3-documentation
+
+[------------------------------------- REFERENCES -------------------------------------]: #
+
+[github-vlxi-cookiecutter-julia]: https://github.com/velexi-corporation/VLXI-Cookiecutter-Julia
