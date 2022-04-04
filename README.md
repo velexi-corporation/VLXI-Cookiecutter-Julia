@@ -1,9 +1,6 @@
 Velexi Julia Project Cookiecutter
 =================================
 
-__Authors__  
-Kevin T. Chu `<kevin@velexi.com>`
-
 --------------------------------------------------------------------------------------------
 
 Table of Contents
@@ -17,11 +14,9 @@ Table of Contents
 
     1.3. [License][#1.3]
 
-2. [Usage][#2]
+2. [Quick Start][#2]
 
-    2.1. [Creating a New Julia Project][#2.1]
-
-    2.2. [Using Template Files][#2.2]
+3. [Documentation][#3]
 
 --------------------------------------------------------------------------------------------
 
@@ -82,9 +77,7 @@ file.
 
 --------------------------------------------------------------------------------------------
 
-## 2. Usage
-
-### 2.1. Creating a New Julia Project
+## 2. Quick Start
 
 1. Use the `create-project` CLI tool to create a new empty Julia project. In the following
    command, replace `PROJECT_NAME` with the name of the new Julia project.
@@ -107,9 +100,15 @@ file.
 3. (OPTIONAL) Replace auto-generated project files with custom versions based on files in
    the `templates` directory.
 
-### 2.2. Using Template Files
+--------------------------------------------------------------------------------------------
 
-See the [templates/README.md](templates/README.md) file.
+## 3. Documentation
+
+* [Julia Packaging Guide](docs/Julia-Packaging-Guide.md)
+
+* [Velexi Julia Code Structure and Style Conventions](docs/Velexi-Julia-Code-Structure-and-Style-Conventions.md)
+
+* [Template Documentation](templates/README.md)
 
 --------------------------------------------------------------------------------------------
 
@@ -120,6 +119,6 @@ See the [templates/README.md](templates/README.md) file.
 [#1.2]: #12-software-dependencies
 [#1.3]: #13-license
 
-[#2]: #2-usage
-[#2.1]: #21-creating-a-new-julia-project
-[#2.2]: #22-using-template-files
+[#2]: #2-quick-start
+
+[#3]: #3-documentation
