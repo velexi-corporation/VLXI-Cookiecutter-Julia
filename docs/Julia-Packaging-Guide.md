@@ -350,6 +350,7 @@ julia> AutoMerge.meets_distance_check("MyPackage", all_pkg_names)
 * [Julia Artifacts][julia-artifacts]
 * [Julia Registrator][julia-registrator]
 * [Semantic Versioning 2.0.0][semver]
+* [Tips and tricks to register your first Julia package][dobberschutz-tips]
 
 --------------------------------------------------------------------------------------------
 
@@ -369,3 +370,4 @@ julia> AutoMerge.meets_distance_check("MyPackage", all_pkg_names)
 [julia-registrator]: https://github.com/JuliaRegistries/Registrator.jl
 [julia-artifacts]: https://pkgdocs.julialang.org/v1/artifacts/
 [semver]: https://semver.org/
+[dobberschutz-tips]: https://www.juliabloggers.com/tips-and-tricks-to-register-your-first-julia-package/
