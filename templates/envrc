@@ -26,6 +26,6 @@ done
 
 # Julia configuration
 export JULIA_PROJECT=@.
-export JULIA_LOAD_PATH=$PROJECT_ROOT_DIR:  # Note the trailing ":" is necessary
-                                           # so that Julia includes the
-                                           # default LOAD_PATH
+export JULIA_LOAD_PATH=$PROJECT_ROOT_DIR:  # Note the trailing ":" is necessary so that
+                                           # Julia includes the default LOAD_PATH
+export JULIA_PKG_USE_CLI_GIT=true
