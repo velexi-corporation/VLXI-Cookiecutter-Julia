@@ -82,9 +82,9 @@ __Notes__
 
 ## Miscellaneous Templates and Examples
 
-* `templates/envrc`: sample `.envrc` for project
+* `templates/dot-envrc`: sample `.envrc` for project
 
-  * __Note__. If used, `envrc` should be renamed to `.envrc` and placed in the project
+  * __Note__. If used, `dot-envrc` should be renamed to `.envrc` and placed in the project
     root directory
 
 --------------------------------------------------------------------------------------------
