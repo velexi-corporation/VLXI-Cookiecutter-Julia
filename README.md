@@ -88,8 +88,8 @@ The contents of this repository are covered under the Apache License contained i
 
    __Notes__
 
-   * The `create-project` supports several command-line options. Use `create-project --help`
-     to see a full list of options.
+   * The `create-project` CLI tool supports several command-line options. Use
+     `create-project --help` to see a full list of options.
 
    * The directory containing the new Julia project is relocateable. It has no dependency
      on this cookiecutter package.
