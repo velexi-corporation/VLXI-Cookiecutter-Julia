@@ -7,11 +7,13 @@ Manifest.toml
 *.jl.*.cov
 *.jl.*.mem
 
-# --- Miscellaneous
+# --- Environments
 
 # direnv
 .direnv
 .envrc
+
+# --- Miscellaneous
 
 # vim
 .*.swp

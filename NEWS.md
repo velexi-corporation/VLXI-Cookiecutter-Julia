@@ -2,9 +2,24 @@ Velexi Julia Package Cookiecutter Release Notes
 ===============================================
 
 -------------------------------------------------------------------------------
+0.2.2 (2022-04-29)
+==================
+
+### Enhancements
+
+* Improved consistency of file and directory naming.
+* Improved documentation.
+
+### Bug Fixes
+
+* Fixed typo in GitHub Actions CI workflow file.
+* Fixed copyright notices.
+* Restored template parameter to appendix of LICENSE file.
+
+-------------------------------------------------------------------------------
 0.2.1 (2022-04-04)
 ==================
-* Reorganize and polish documentation.
+* Reorganized and polish documentation.
 
 -------------------------------------------------------------------------------
 0.2.0 (2022-04-03)
