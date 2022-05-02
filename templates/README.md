@@ -19,11 +19,15 @@ __Notes__
 
 ## Git Configuration
 
-* `templates/github`: directory containing GitHub Actions workflow files and templates
+* `templates/dot-github`: directory containing GitHub Actions workflow files and templates
 
-* `templates/gitignore`: sample `.gitignore` for project
+  * `CI.yml.template` copy to `.github` directory and set `CODECOV_TOKEN`
 
-  * __Note__. If used, `gitignore` should be renamed to `.gitignore` and placed in the
+  * `TagBot.yml`: copy to `.github` directory
+
+* `templates/dot-gitignore`: sample `.gitignore` for project
+
+  * __Note__. If used, `dot-gitignore` should be renamed to `.gitignore` and placed in the
     project root directory.
 
 --------------------------------------------------------------------------------------------
