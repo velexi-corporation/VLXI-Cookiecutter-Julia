@@ -21,9 +21,14 @@ __Notes__
 
 * `templates/dot-github`: directory containing GitHub Actions workflow files and templates
 
-  * `CI.yml.template` copy to `.github` directory and set `CODECOV_TOKEN`
+  * `CI.yml.template`
+    * Copy `CI.yml.template` to the `.github` directory and rename it to `CI.yml`.
 
-  * `TagBot.yml`: copy to `.github` directory
+    * Set the following template parameters
+      * `CODECOV_TOKEN`
+
+  * `TagBot.yml`
+    * Copy `TagBot.yml` directly to the `.github` directory.
 
 * `templates/dot-gitignore`: sample `.gitignore` for project
 
