@@ -67,6 +67,8 @@ __Notes__
 
 ### Make Targets
 
+* `make help`. Show a list of all available `make` rules.
+
 * `make fast-test`. Run tests in fail-fast mode (i.e., halt testing after the first
   failing test). If the all tests pass, coverage information is displayed.
 
