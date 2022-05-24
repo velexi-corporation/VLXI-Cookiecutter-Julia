@@ -19,11 +19,20 @@ __Notes__
 
 ## Git Configuration
 
-* `templates/github`: directory containing GitHub Actions workflow files and templates
+* `templates/dot-github`: directory containing GitHub Actions workflow files and templates
 
-* `templates/gitignore`: sample `.gitignore` for project
+  * `CI.yml.template`
+    * Copy `CI.yml.template` to the `.github` directory and rename it to `CI.yml`.
 
-  * __Note__. If used, `gitignore` should be renamed to `.gitignore` and placed in the
+    * Set the following template parameters
+      * `CODECOV_TOKEN`
+
+  * `TagBot.yml`
+    * Copy `TagBot.yml` directly to the `.github` directory.
+
+* `templates/dot-gitignore`: sample `.gitignore` for project
+
+  * __Note__. If used, `dot-gitignore` should be renamed to `.gitignore` and placed in the
     project root directory.
 
 --------------------------------------------------------------------------------------------
@@ -57,6 +66,8 @@ __Notes__
   * __Note__. If used, `Makefile` should be placed in the project root directory.
 
 ### Make Targets
+
+* `make help`. Show a list of all available `make` rules.
 
 * `make fast-test`. Run tests in fail-fast mode (i.e., halt testing after the first
   failing test). If the all tests pass, coverage information is displayed.
