@@ -24,10 +24,12 @@ exec julia --startup-file=no -q --compile=min -O0 \
 # --- Imports
 
 # Standard library
+using Dates
 using Pkg
 
 # External packages
 using ArgParse
+using LibGit2: LibGit2
 using PkgTemplates
 
 # --- Main program
@@ -49,7 +51,7 @@ function main()
         arg_type = VersionNumber
         default = v"1.6"
 
-        "--dest-dir", "-d"
+        "--dst-dir", "-d"
         help = "directory where Julia project will be created"
         default = "."
 
@@ -75,7 +77,7 @@ function main()
     project_name::String = args["project_name"]
 
     julia_version::VersionNumber = args["julia-version"]
-    dst_dir::String = args["dest-dir"]
+    dst_dir::String = args["dst-dir"]
     license::String = args["license"]
     ci_include_x86::Bool = args["ci-include-x86"]
     ci_enable_codecov::Bool = !args["ci-disable-codecov"]
@@ -97,6 +99,22 @@ function main()
 
     # Create new project
     template(project_name)
+
+    # Create copyright notice
+    if license == "ASL"
+        # Get author
+        name = LibGit2.getconfig("user.name", "")
+        email = LibGit2.getconfig("user.email", "")
+        author = isempty(email) ? name : "$name <$email>"
+
+        # Get year
+        year = Dates.year(Dates.today())
+
+        notice_file = open(joinpath(dst_dir, project_name, "NOTICE"), "w")
+        write(notice_file, "$project_name\n")
+        write(notice_file, "Copyright $year $author\n")
+        close(notice_file)
+    end
 
     # Upgrade manifest
     Pkg.activate(joinpath(dst_dir, project_name))
