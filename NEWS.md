@@ -2,6 +2,19 @@ Velexi Julia Package Cookiecutter Release Notes
 ===============================================
 
 --------------------------------------------------------------------------------------------
+0.3.0 (2022-10-04)
+==================
+
+### Enhancements
+
+* Added explicit copyright notice when creating projects licensed under Apache License 2.0.
+* Simplified command-line options for `create-project`.
+* Updated documentation.
+
+### Bug Fixes
+* Added explicit copyright notice for the cookiecutter.
+
+--------------------------------------------------------------------------------------------
 0.2.2 (2022-04-29)
 ==================
 
