@@ -22,6 +22,9 @@ mv dot-github-workflows-CI.yml .github/workflows/CI.yml
 # Add Project.toml to test directory
 mv test-Project.toml test/Project.toml
 
+# Replace test/runtests.jl
+mv test-runtests.jl test/runtests.jl
+
 # --- Set up Git repository for project
 
 # Initialize Git repository
