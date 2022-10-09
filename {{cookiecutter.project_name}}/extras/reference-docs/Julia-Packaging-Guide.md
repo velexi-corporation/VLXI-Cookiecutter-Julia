@@ -108,11 +108,13 @@ documentation generation, continuous integration (CI), and coverage reporting.
 
     * Add the GPG configuration to `TagBot.yml`.
 
+      <!-- {% raw %} -->
       ```
       with:
           gpg: ${{ secrets.GPG_KEY }}
           gpg_password: ${{ secrets.GPG_PASSWORD }}
       ```
+      <!-- {% endraw %} -->
 
 --------------------------------------------------------------------------------------------
 

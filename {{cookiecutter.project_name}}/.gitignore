@@ -3,6 +3,9 @@
 # Project files
 Manifest.toml
 
+# Documentation
+/docs/build/
+
 # Coverage.jl files
 *.jl.*.cov
 *.jl.*.mem
