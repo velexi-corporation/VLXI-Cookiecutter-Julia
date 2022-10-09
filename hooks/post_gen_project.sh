@@ -16,9 +16,11 @@ if [[ "{{ cookiecutter.license }}" == "None" ]]; then
     touch LICENSE
 fi
 
-# --- Replace default GitHub Actions workflows
-
+# Replace default GitHub Actions workflows
 mv dot-github-workflows-CI.yml .github/workflows/CI.yml
+
+# Add Project.toml to test directory
+mv test-Project.toml test/Project.toml
 
 # --- Set up Git repository for project
 
