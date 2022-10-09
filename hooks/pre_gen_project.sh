@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #------------------------------------------------------------------------------
-# Apply pre-generation project configuration and setup
+# Cookiecutter pre-generation script
 #------------------------------------------------------------------------------
 
 # --- Create Julia project directory
