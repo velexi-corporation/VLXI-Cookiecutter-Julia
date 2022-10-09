@@ -6,13 +6,13 @@
 # --- Create Julia project directory
 
 # Set plugins parameters
-if [[ "{{cookiecutter.license}}" != "None" ]]; then
-    LICENSE='License(; name="{{cookiecutter.license}}"),'
+if [[ "{{ cookiecutter.license }}" != "None" ]]; then
+    LICENSE='License(; name="{{ cookiecutter.license }}"),'
 else
     LICENSE=""
 fi
 
-if [[ "{{cookiecutter.tagbot_enable_gpg}}" == "yes" ]]; then
+if [[ "{{ cookiecutter.tagbot_enable_gpg }}" == "yes" ]]; then
     TAG_BOT='TagBot(; gpg=Secret("GPG_KEY"), gpg_password=Secret("GPG_PASSWORD")),'
 fi
 
@@ -29,10 +29,10 @@ plugins = [
 ];
 
 template=Template(;
-                  julia=VersionNumber(\"{{cookiecutter.julia_version}}\"),
+                  julia=VersionNumber(\"{{ cookiecutter.julia_version }}\"),
                   dir=\".\",
                   plugins=plugins);
-template(\"{{cookiecutter.project_name}}\");
+template(\"{{ cookiecutter.project_name }}\");
 "
 
 # Display Julia expression to generate Julia project
@@ -47,6 +47,6 @@ julia --startup-file=no -q --compile=min -O0 -e "${JULIA_EXPR}"
 
 # --- Move files to cookiecutter directory
 
-mv {{cookiecutter.project_name}}/* .
-mv {{cookiecutter.project_name}}/.[!.]* .
-rmdir {{cookiecutter.project_name}}
+mv {{ cookiecutter.project_name }}/* .
+mv {{ cookiecutter.project_name }}/.[!.]* .
+rmdir {{ cookiecutter.project_name }}
