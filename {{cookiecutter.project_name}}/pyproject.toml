@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "{{ cookiecutter.project_name }}"
-version = "0.3.0"
-description = "Template for Julia projects"
-license = "Apache-2.0"
-authors = ["Kevin Chu <kevin@velexi.com>"]
+version = "0.1.0"
+description = ""
+license = "{% if cookiecutter.license == 'ASL' %}Apache-2.0{% elif cookiecutter.license == 'BSD3' %}BSD-3-Clause{% elif cookiecutter.license == 'MIT' %}MIT{% endif %}"
+readme = "README.md"
+authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 pre-commit = "^2.20.0"
 
 [build-system]

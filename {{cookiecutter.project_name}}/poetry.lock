@@ -124,8 +124,8 @@ testing = ["coverage (>=6.2)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "5dbdada651f3376d6515c5f8b1c4d60db0834de743bff284ab24ba900da9bdf5"
+python-versions = "^3.8"
+content-hash = "51d8cf41e2e3eaa8aa17e75581abd974d8455ce1a0cf2d02799a35fd9a697b6c"
 
 [metadata.files]
 cfgv = [
