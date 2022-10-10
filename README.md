@@ -532,9 +532,9 @@ dependencies for the template.
 
 [------------------------------------EXTERNAL LINKS------------------------------------]: #
 
-[cookiecutter]: https://cookiecutter.readthedocs.io/en/latest/
-
 [codecov]: https://codecov.io/
+
+[cookiecutter]: https://cookiecutter.readthedocs.io/en/latest/
 
 [direnv]: https://direnv.net/
 
