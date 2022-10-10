@@ -12,12 +12,13 @@ else
     LICENSE=""
 fi
 
-if [[ "{{ cookiecutter.tagbot_enable_gpg }}" == "yes" ]]; then
+if [[ "{{ cookiecutter.tagbot_use_gpg_signing }}" == "yes" ]]; then
     TAG_BOT='TagBot(; gpg=Secret("GPG_KEY"), gpg_password=Secret("GPG_PASSWORD")),'
 fi
 
 # Define Julia expression to use PkgTemplates to generate a Julia project
 JULIA_EXPR="
+using Pkg;
 using PkgTemplates;
 
 plugins = [
@@ -28,12 +29,18 @@ plugins = [
     $TAG_BOT
 ];
 
+dir = \".\";
+project_name = \"{{ cookiecutter.project_name }}\";
 template=Template(;
                   julia=VersionNumber(\"{{ cookiecutter.julia_version }}\"),
-                  dir=\".\",
+                  dir=dir,
                   plugins=plugins);
-template(\"{{ cookiecutter.project_name }}\");
+template(project_name);
+Pkg.activate(joinpath(dir, project_name));
+Pkg.upgrade_manifest();
 "
+
+
 
 # Display Julia expression to generate Julia project
 echo
