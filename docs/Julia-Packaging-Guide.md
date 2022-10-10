@@ -1,0 +1,1 @@
+../{{cookiecutter.project_name}}/extras/docs/Julia-Packaging-Guide.md
