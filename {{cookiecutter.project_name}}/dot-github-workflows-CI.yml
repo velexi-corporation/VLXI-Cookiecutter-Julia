@@ -33,7 +33,7 @@ jobs:
             arch: x86
         {% endif %}
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
-{% if cookiecutter.ci_enable_codecov == "yes" %}
+{% if cookiecutter.ci_include_codecov == "yes" %}
     env:
         codecov-arch: x64
         codecov-version: '1.8'
@@ -58,7 +58,7 @@ jobs:
 
       - name: Run tests
         uses: julia-actions/julia-runtest@v1
-{% if cookiecutter.ci_enable_codecov == "yes" %}
+{% if cookiecutter.ci_include_codecov == "yes" %}
       - name: Process coverage data
         # Only run for 'main' branch running on 'Linux' with the latest version of Julia
         if: |
