@@ -13,6 +13,10 @@
     "yes",
     "no"
   ],
+  "ci_enable_codecov": [
+    "yes",
+    "no"
+  ],
   "tagbot_enable_gpg": [
     "yes",
     "no"
