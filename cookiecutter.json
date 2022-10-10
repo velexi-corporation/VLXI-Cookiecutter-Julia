@@ -9,20 +9,20 @@
     "None"
   ],
   "julia_version": "v1.8",
+  "enable_github_pages": [
+    "yes",
+    "no"
+  ],
   "ci_include_x86": [
     "yes",
     "no"
   ],
-  "ci_enable_codecov": [
+  "ci_include_codecov": [
     "yes",
     "no"
   ],
-  "tagbot_enable_gpg": [
-    "yes",
-    "no"
-  ],
-  "enable_github_pages": [
-    "yes",
-    "no"
+  "tagbot_use_gpg_signing": [
+    "no",
+    "yes"
   ]
 }
