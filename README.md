@@ -411,6 +411,89 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
 
 * [direnv][direnv]
 
+#### Python Packages
+
+See `[tool.poetry.dependencies]` section of [`pyproject.toml`](pyproject.toml).
+
+### 3.2. Setting Up to Develop the Cookiecutter
+
+1. Set up a dedicated virtual environment for cookiecutter development.
+   See Step 3 from [Section 2.1][#2.1] for instructions on how to set up
+   `direnv` and `poetry` environments.
+
+2. Install the Python packages required for development.
+
+   ```shell
+   $ poetry install
+
+3. Install the git pre-commit hooks.
+
+   ```shell
+   $ pre-commit install
+   ```
+
+4. Make the cookiecutter better!
+
+### 3.3. Additional Notes
+
+#### Updating Cookiecutter Template Dependencies
+
+To update the Python dependencies for the template (contained in the
+`{{cookiecutter.project_name}}` directory), use the following procedure to
+ensure that package dependencies for developing the non-template components
+of the cookiecutter (e.g., cookiecutter hooks) do not interfere with package
+dependencies for the template.
+
+* Create a local clone of the cookiecutter Git repository to use for
+  cookiecutter development.
+
+* Use `cookiecutter` from the local cookiecutter Git repository to create a
+  clean project for template dependency updates.
+
+  ```shell
+  $ cookiecutter PATH/TO/LOCAL/REPO
+  ```
+
+* In the pristine project, perform the following steps to update the template's
+  package dependencies.
+
+  * Set up a virtual environment for developing the template (e.g., a direnv
+    environment).
+
+  * Use `poetry` or manually edit `pyproject.toml` to (1) make changes to the
+    package dependency list and (2) update the package dependency versions.
+
+  * Use `poetry` to update the package dependencies and versions recorded in
+    the `poetry.lock` file.
+
+* Update `{{cookiecutter.project_name}}/pyproject.toml`.
+
+  * Copy `pyproject.toml` from the pristine project to
+    `{{cookiecutter.project_name}}/pyproject.toml`.
+
+  * Restore the templated values in the `[tool.poetry]` section to the
+    following:
+
+    <!-- {% raw %} -->
+    ```jinja
+    [tool.poetry]
+    name = "{{ cookiecutter.project_name }}"
+    version = "0.1.0"
+    description = ""
+    license = "{% if cookiecutter.license == 'ASL' %}Apache-2.0{% elif cookiecutter.license == 'BSD3' %}BSD-3-Clause{% elif cookiecutter.license == 'MIT' %}MIT{% endif %}"
+    readme = "README.md"
+    authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}> and contributors"]
+    ```
+    <!-- {% endraw %} -->
+
+* Update `{{cookiecutter.project_name}}/poetry.lock`.
+
+  * Copy `poetry.lock` from the pristine project to
+    `{{cookiecutter.project_name}}/poetry.lock`.
+
+* Commit the updated `pyproject.toml` and `poetry.lock` files to the Git
+  repository.
+
 --------------------------------------------------------------------------------------------
 
 ## 4. Documentation
