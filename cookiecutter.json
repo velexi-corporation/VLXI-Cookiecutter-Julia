@@ -1,0 +1,28 @@
+{
+  "project_name": "ProjectName",
+  "author": "Your Name",
+  "email": "{{ cookiecutter.author.lower().replace(' ', '.') }}@example.com",
+  "license": [
+    "ASL",
+    "BSD3",
+    "MIT",
+    "None"
+  ],
+  "julia_version": "1.6",
+  "enable_github_pages": [
+    "yes",
+    "no"
+  ],
+  "ci_include_x86": [
+    "yes",
+    "no"
+  ],
+  "ci_include_codecov": [
+    "yes",
+    "no"
+  ],
+  "tagbot_use_gpg_signing": [
+    "no",
+    "yes"
+  ]
+}

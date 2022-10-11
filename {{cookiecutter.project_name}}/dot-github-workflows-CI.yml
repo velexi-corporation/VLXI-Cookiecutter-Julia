@@ -13,31 +13,31 @@ on:
 concurrency:
   # Skip intermediate builds: always.
   # Cancel intermediate builds: only if it is a pull request build.
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+  group: {% raw %}${{ github.workflow }}-${{ github.ref }}{% endraw %}
+  cancel-in-progress: {% raw %}${{ startsWith(github.ref, 'refs/pull/') }}{% endraw %}
 
 jobs:
-  test:
-    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }} - ${{ github.event_name }}
+  run-tests:
+    name: Julia {% raw %}${{ matrix.version }} (${{ matrix.os }}, ${{ matrix.arch }}){% endraw %}
 
     strategy:
       fail-fast: false
 
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        arch: [x64, x86]
-        version: ['1.6', '1.7']
-
+        arch: [x64{% if cookiecutter.ci_include_x86 == "yes" %}, x86{% endif %}]
+        version: ['1.6', '1.7', '1.8']
+        {% if cookiecutter.ci_include_x86 == "yes" %}
         exclude:
           - os: macOS-latest
             arch: x86
-
-    runs-on: ${{ matrix.os }}
-
+        {% endif %}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+{% if cookiecutter.ci_include_codecov == "yes" %}
     env:
         codecov-arch: x64
-        codecov-version: '1.7'
-
+        codecov-version: '1.8'
+{% endif %}
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -45,20 +45,20 @@ jobs:
       - name: Set up Julia environment
         uses: julia-actions/setup-julia@v1
         with:
-          version: ${{ matrix.version }}
-          arch: ${{ matrix.arch }}
+          version: {% raw %}${{ matrix.version }}{% endraw %}
+          arch: {% raw %}${{ matrix.arch }}{% endraw %}
 
       - name: Set up Julia caches
         uses: julia-actions/cache@v1
         with:
-          cache-name: ${{ matrix.arch }}-${{ matrix.version }}
+          cache-name: {% raw %}${{ runner.os }}-${{ runner.arch }}-${{ matrix.version }}-${{ hashFiles('.github/workflows/CI.yml') }}{% endraw %}
 
       - name: Build package
         uses: julia-actions/julia-buildpkg@v1
 
       - name: Run tests
         uses: julia-actions/julia-runtest@v1
-
+{% if cookiecutter.ci_include_codecov == "yes" %}
       - name: Process coverage data
         # Only run for 'main' branch running on 'Linux' with the latest version of Julia
         if: |
@@ -81,13 +81,13 @@ jobs:
 
         uses: codecov/codecov-action@v2
         with:
-          token: {{ CODECOV_TOKEN }}
+          token: {% raw %}${{ secrets.CODECOV_TOKEN }}{% endraw %}
           files: lcov.info
           fail_ci_if_error: true
           verbose: true
-
-  docs:
-    name: Documentation
+{% endif %}
+  build-docs:
+    name: Build Documentation
 
     runs-on: ubuntu-latest
 
@@ -98,7 +98,7 @@ jobs:
       - name: Set up Julia environment
         uses: julia-actions/setup-julia@latest
         with:
-          version: '1.7'
+          version: '1.8'
 
       - name: Install dependencies
         run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
@@ -106,5 +106,5 @@ jobs:
       - name: Build and deploy documentation
         run: julia --project=docs/ --compile=min -O0 docs/make.jl
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          DOCUMENTER_KEY: {% raw %}${{ secrets.DOCUMENTER_KEY }}{% endraw %}
