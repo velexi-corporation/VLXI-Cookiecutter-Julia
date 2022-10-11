@@ -1,12 +1,21 @@
-Velexi Julia Package Cookiecutter Release Notes
+Velexi Julia Project Cookiecutter Release Notes
 ===============================================
+
+--------------------------------------------------------------------------------------------
+0.4.0 (2022-10-10)
+==================
+### Cookiecutter Template Enhancements
+* Restructure the cookiecutter to be compatible with the Cookiecutter template tool.
+* Update documentation.
+
+### Cookiecutter Development Enhancements
+* Add integrations with tools for supporting code quality: black and git
+  pre-commit hooks.
 
 --------------------------------------------------------------------------------------------
 0.3.0 (2022-10-04)
 ==================
-
 ### Enhancements
-
 * Added explicit copyright notice when creating projects licensed under Apache License 2.0.
 * Simplified command-line options for `create-project`.
 * Updated documentation.
@@ -17,15 +26,12 @@ Velexi Julia Package Cookiecutter Release Notes
 --------------------------------------------------------------------------------------------
 0.2.2 (2022-04-29)
 ==================
-
 ### Enhancements
-
 * Improved support for private/local Julia registries in template `.envrc` file.
 * Improved consistency of file and directory naming.
 * Improved documentation.
 
 ### Bug Fixes
-
 * Fixed typo in GitHub Actions CI workflow file.
 * Fixed copyright notices.
 * Restored template parameter to appendix of LICENSE file.
