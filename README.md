@@ -503,6 +503,8 @@ dependencies for the template.
 
 * [Julia Packaging Guide][julia-packaging-guide]
 
+* [Poetry Quick Reference][poetry-quick-reference]
+
 * [Velexi Julia Code Structure and Style Conventions][julia-style-conventions]
 
 --------------------------------------------------------------------------------------------
