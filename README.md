@@ -35,7 +35,7 @@ Table of Contents
 ## 1. Overview
 
 The [Velexi Julia Project Cookiecutter][github-vlxi-cookiecutter-julia] is intended to
-streamline the process of setting up a Julia project
+streamline the process of setting up a Julia project that
 
 * encourages the creation of high-quality software,
 
@@ -71,7 +71,6 @@ streamline the process of setting up a Julia project
 ├── pyproject.toml          <- Python project metadata file for cookiecutter
 │                              development
 ├── poetry.lock             <- Poetry lockfile
-├── bin/                    <- cookiecutter CLI tools
 ├── docs/                   <- cookiecutter documentation
 ├── extras/                 <- additional files that may be useful for
 │                              cookiecutter development
@@ -104,8 +103,8 @@ streamline the process of setting up a Julia project
 * `ci_include_codecov`: flag indicating whether the CI workflow should upload
   coverage statistics to [Codecov][codecov]
 
-* `tagbot_use_gpg_signing`: flag indicating whether TagBot should create
-  signed tags
+* `tagbot_use_gpg_signing`: flag indicating whether TagBot should sign the tags
+  it creates
 
 ### 1.3. License
 
@@ -217,7 +216,7 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
        $ git remote add origin GIT_REMOTE
        ```
 
-       where `GIT_REMOTE` is the URL to the remote Git repository.
+       where `GIT_REMOTE` is the URL of the remote Git repository.
 
      * Push the `main` branch to the remote Git repository.
 
@@ -255,7 +254,7 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
    * Commit all updated files (e.g., `poetry.lock`) to the project Git
      repository.
 
-6. Add GitHub keys required for GitHub Actions workflows.
+6. Add GitHub keys that are required for GitHub Actions workflows.
 
    __Documentation Deployment__
 
@@ -267,14 +266,14 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
       julia> DocumenterTools.genkeys()
       ```
 
-   2. Add the public key as a GitHub deployment key.
+   2. Add the public key as a GitHub Deploy key.
 
       From the project GitHub repository, navigate to "Settings" > "Deploy keys"
       (in the "Security" section of the side menu).
 
       Add a deploy key named `Julia Documenter`.
 
-   3. Add the private key as a GitHub secret.
+   3. Add the private key as a GitHub Secret.
 
       From the project GitHub repository, navigate to "Settings" > "Secrets"
       (in the "Security" section of the side menu).
@@ -303,7 +302,7 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
    These steps are needed only if TagBot is configured to use GPG signing
    (i.e., `tagbot_use_gpg_signing` set to `yes` when creating the project).
 
-   1. Generate and export GPG key pair.
+   1. Generate and export a GPG key pair.
 
       ```shell
       $ # Generate GPG key
@@ -324,7 +323,7 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
       * `GPG_KEY`: public key
       * `GPG_PASSWORD`: private key
 
-7. ___Recommended___. Customize GitHub Configurations.
+7. ___Recommended___. Customize the settings for the project GitHub repository.
 
    __Code Stability__. Branch protection helps ensure that there is always a
    relatively stable code branch.
@@ -374,7 +373,7 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
 
    3. Configure "Workflow permissions".
 
-      * Select "Read repository content permissions"
+      * Select "Read repository content permissions".
 
       * Allow GitHub Actions to create and approve pull requests: no
 
@@ -446,6 +445,10 @@ dependencies for the template.
 
 * Create a local clone of the cookiecutter Git repository to use for
   cookiecutter development.
+
+  ```shell
+  $ git clone git@github.com:velexi-research/VLXI-Cookiecutter-Julia.git
+  ```
 
 * Use `cookiecutter` from the local cookiecutter Git repository to create a
   clean project for template dependency updates.
@@ -529,6 +532,8 @@ dependencies for the template.
 [julia-packaging-guide]: {{cookiecutter.project_name}}/extras/docs/Julia-Packaging-Guide.md
 
 [julia-style-conventions]: {{cookiecutter.project_name}}/extras/docs/Velexi-Julia-Code-Structure-and-Style-Conventions.md
+
+[poetry-quick-reference]: {{cookiecutter.project_name}}/extras/docs/Poetry-Quick-Reference.md
 
 [------------------------------------EXTERNAL LINKS------------------------------------]: #
 
