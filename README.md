@@ -8,11 +8,11 @@ Table of Contents
 
 1. [Overview][#1]
 
-    1.1. [Repository Contents][#1.1]
+   1.1. [Repository Contents][#1.1]
 
-    1.2 [Cookiecutter Parameters][#1.2]
+   1.2 [Cookiecutter Parameters][#1.2]
 
-    1.3. [License][#1.3]
+   1.3. [License][#1.3]
 
 2. [Usage][#2]
 
