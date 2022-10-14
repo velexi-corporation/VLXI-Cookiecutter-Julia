@@ -526,11 +526,11 @@ dependencies for the template.
 
 [github-vlxi-cookiecutter-julia]: https://github.com/velexi-research/VLXI-Cookiecutter-Julia
 
-[julia-packaging-guide]: {{cookiecutter.project_name}}/extras/docs/Julia-Packaging-Guide.md
+[julia-packaging-guide]: {{cookiecutter.project_name}}/extras/references/Julia-Packaging-Guide.md
 
-[julia-style-conventions]: {{cookiecutter.project_name}}/extras/docs/Velexi-Julia-Code-Structure-and-Style-Conventions.md
+[julia-style-conventions]: {{cookiecutter.project_name}}/extras/references/Velexi-Julia-Code-Structure-and-Style-Conventions.md
 
-[poetry-quick-reference]: {{cookiecutter.project_name}}/extras/docs/Poetry-Quick-Reference.md
+[poetry-quick-reference]: {{cookiecutter.project_name}}/extras/references/Poetry-Quick-Reference.md
 
 [----------------------------------- EXTERNAL LINKS -----------------------------------]: #
 
