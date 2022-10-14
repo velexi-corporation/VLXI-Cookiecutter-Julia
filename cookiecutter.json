@@ -1,7 +1,7 @@
 {
   "project_name": "ProjectName",
   "author": "Your Name",
-  "email": "{{ cookiecutter.author.lower().replace(' ', '.') }}@example.com",
+  "email": "{{ cookiecutter.author | slugify(separator='.') }}@example.com",
   "license": [
     "ASL",
     "BSD3",
@@ -9,6 +9,7 @@
     "None"
   ],
   "julia_version": "1.6",
+  "github_repo_owner": "{{ cookiecutter.author | slugify }}",
   "enable_github_pages": [
     "yes",
     "no"
