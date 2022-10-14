@@ -19,6 +19,9 @@ fi
 # Replace default GitHub Actions workflows
 mv dot-github-workflows-CI.yml .github/workflows/CI.yml
 
+# Replace default README.md
+mv README-template.md README.md
+
 # Add Project.toml to test directory
 mv test-Project.toml test/Project.toml
 
