@@ -72,8 +72,7 @@ Table of Contents
   "[Version specifier format][julia-version-specifier-format]" section of the
   official Julia documentation for version specifier semantics.
 
-* `github_repo_owner`: owner of the GitHub repository for the project. To
-  disable GitHub integration, set `github_repo_owner` to an empty string.
+* `github_repo_owner`: owner of the GitHub repository for the project
 
 * `enable_github_pages`: flag indicating whether GitHub Pages should be enabled
   for the project
