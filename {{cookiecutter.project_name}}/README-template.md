@@ -121,18 +121,21 @@ Known issues for the package.
 ## 4. Contributor Notes
 
 ### 4.1. License
-
+{% if cookiecutter.license == "ASL" %}
 The contents of this package are covered under the Apache License 2.0 (included
 in the `LICENSE` file). The copyright for this package is contained in the
 `NOTICE` file.
-
+{% else %}
+The contents of this package are covered under the license contained in the
+`LICENSE` file.
+{% endif %}
 ### 4.2. Package Contents
 
 ```
 ├── README.md          <- this file
 ├── NEWS.md            <- package release notes
 ├── LICENSE            <- package license
-├{% if cookiecutter.license == 'Apache License 2.0' %}── NOTICE            <- package copyright notice
+├{% if cookiecutter.license == "ASL" %}── NOTICE            <- package copyright notice
 ├{% endif %}── Makefile           <- Makefile containing useful shortcuts (`make` rules).
 ├── Project.toml       <- Julia package metadata file
 ├── Manifest.toml      <- Julia environment manifest file
