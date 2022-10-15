@@ -72,7 +72,7 @@ Table of Contents
 
 ## 1. Overview
 
-A more detailed overview of the project.
+A more detailed description of the project.
 
 -------------------------------------------------------------------------------
 
