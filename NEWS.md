@@ -2,6 +2,20 @@ Velexi Julia Project Cookiecutter Release Notes
 ===============================================
 
 --------------------------------------------------------------------------------------------
+0.4.1 (2022-10-14)
+==================
+### Cookiecutter Template Enhancements
+* Add additional template files (e.g., README.md, NEWS.md)
+* Add `github_repo_owner` parameter to cookiecutter.json.
+* Move software references to `extras` directory to separate them from project
+  documentation.
+
+### Cookiecutter Development Enhancements
+* Simplify logic for default values in cookiecutter.json.
+* Update documentation.
+* Update poetry.lock.
+
+--------------------------------------------------------------------------------------------
 0.4.0 (2022-10-10)
 ==================
 ### Cookiecutter Template Enhancements
