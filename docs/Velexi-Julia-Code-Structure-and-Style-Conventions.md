@@ -1,1 +1,1 @@
-../{{cookiecutter.project_name}}/extras/docs/Velexi-Julia-Code-Structure-and-Style-Conventions.md
+../{{cookiecutter.project_name}}/extras/references/Velexi-Julia-Code-Structure-and-Style-Conventions.md
