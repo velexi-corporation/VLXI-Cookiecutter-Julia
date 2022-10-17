@@ -489,7 +489,7 @@ dependencies for the template.
     description = ""
     license = "{% if cookiecutter.license == 'ASL' %}Apache-2.0{% elif cookiecutter.license == 'BSD3' %}BSD-3-Clause{% elif cookiecutter.license == 'MIT' %}MIT{% endif %}"
     readme = "README.md"
-    authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}> and contributors"]
+    authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
     ```
     <!-- {% endraw %} -->
 
