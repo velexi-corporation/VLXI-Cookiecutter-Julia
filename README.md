@@ -196,6 +196,14 @@ Table of Contents
        $ git push -u origin main
        ```
 
+     * If GitHub Pages are enabled for the project, push the `gh-pages` branch
+       to the remote Git repository.
+
+       ```shell
+       $ git checkout gh-pages
+       $ git push -u origin gh-pages
+       ```
+
 5. Finish setting up the new Julia project.
 
    * Verify the copyright year and owner in the copyright notice. If the
@@ -481,7 +489,7 @@ dependencies for the template.
     description = ""
     license = "{% if cookiecutter.license == 'ASL' %}Apache-2.0{% elif cookiecutter.license == 'BSD3' %}BSD-3-Clause{% elif cookiecutter.license == 'MIT' %}MIT{% endif %}"
     readme = "README.md"
-    authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}> and contributors"]
+    authors = ["{{ cookiecutter.author }} <{{ cookiecutter.email }}>"]
     ```
     <!-- {% endraw %} -->
 
