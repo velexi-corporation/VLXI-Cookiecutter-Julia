@@ -14,13 +14,13 @@
     "yes",
     "no"
   ],
-  "ci_include_x86": [
-    "yes",
-    "no"
-  ],
   "ci_include_codecov": [
     "yes",
     "no"
+  ],
+  "ci_include_x86": [
+    "no",
+    "yes"
   ],
   "tagbot_use_gpg_signing": [
     "no",
