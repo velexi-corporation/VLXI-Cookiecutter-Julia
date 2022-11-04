@@ -11,7 +11,7 @@
       <a href="https://{{ cookiecutter.github_repo_owner }}.github.io/{{ cookiecutter.project_name }}.jl/stable/"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/docs-stable-blue.svg"/></a>
     </td>
   </tr>
-  {% endif %}
+{% endif %}
   <tr>
     <td>Build Status</td>
     <td>
@@ -163,7 +163,7 @@ __Note__: this project uses `poetry` to manage Python package dependencies.
    * _Optional_. Install [direnv][direnv].
 
 2. ___Recommended___ Set up a dedicated virtual environment for the project using
-   `direnv` (because manages the environment for both the shell and Python). 
+   `direnv` (because manages the environment for both the shell and Python).
 
    __Note__: to avoid conflicts between virtual environments, only one method
    should be used to manage the virtual environment.
