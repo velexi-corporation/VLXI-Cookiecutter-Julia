@@ -36,7 +36,7 @@
 
 A brief description of the package.
 
-The {{ cookiecutter.project_name }} features:
+The {{ cookiecutter.project_name }} package features:
 
 * a list of the core features of the project.
 
