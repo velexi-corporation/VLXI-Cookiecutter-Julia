@@ -31,7 +31,7 @@ jobs:
         exclude:
           - os: macOS-latest
             arch: x86
-        {% endif %}
+{% endif %}
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 {% if cookiecutter.ci_include_codecov == "yes" %}
     env:
