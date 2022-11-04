@@ -27,7 +27,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
         arch: [x64{% if cookiecutter.ci_include_x86 == "yes" %}, x86{% endif %}]
         version: ['1.6', '1.7', '1.8']
-        {% if cookiecutter.ci_include_x86 == "yes" %}
+{% if cookiecutter.ci_include_x86 == "yes" %}
         exclude:
           - os: macOS-latest
             arch: x86
