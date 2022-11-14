@@ -19,6 +19,8 @@ fi
 # Define Julia expression to use PkgTemplates to generate a Julia project
 JULIA_EXPR="
 using Pkg;
+
+Pkg.add(\"PkgTemplates\");
 using PkgTemplates;
 
 plugins = [
