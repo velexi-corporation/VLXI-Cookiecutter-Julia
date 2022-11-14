@@ -1,12 +1,25 @@
 Velexi Julia Project Cookiecutter Release Notes
 ===============================================
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+0.4.4 (2022-11-13)
+==================
+### Cookiecutter Template Enhancements
+* Add `--overwrite` arg to jlcodestyle pre-commit hook.
+* Add automatic addition of Julia packages required to generate a new Julia package.
+* Polish CI GitHub Actions workflow template.
+* Update documentation.
+* Update Python package dependency versions.
+
+### Cookiecutter Development Enhancements
+* Update Python package dependency versions.
+
+--------------------------------------------------------------------------------------------
 0.4.3 (2022-10-22)
 ==================
 * Change default value of "ci_include_x86" parameter to "no".
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 0.4.2 (2022-10-17)
 ==================
 * Fix bug in authors field of pyproject.toml files.
