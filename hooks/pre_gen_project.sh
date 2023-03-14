@@ -10,7 +10,7 @@ if [[ "{{ cookiecutter.project_name }}" == .jl* ]]; then
     echo 'Error: `project_name` cannot start with ".jl"'
     exit 1
 fi
-JL_PACKAGE_NAME='{{ cookiecutter.project_name | trim(".jl") | trim() | slugify() }}'
+JL_PACKAGE_NAME='{{ cookiecutter.project_name | trim(".jl") | trim() | replace(" ", "_") }}'
 if [ -z "$JL_PACKAGE_NAME" ]; then
     echo "Error: JL_PACKAGE_NAME cannot be empty."
     exit 1
