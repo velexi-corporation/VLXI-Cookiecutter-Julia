@@ -79,7 +79,7 @@ jobs:
             matrix.arch == env.codecov-arch &&
             matrix.version == env.codecov-version
 
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: {% raw %}${{ secrets.CODECOV_TOKEN }}{% endraw %}
           files: lcov.info
