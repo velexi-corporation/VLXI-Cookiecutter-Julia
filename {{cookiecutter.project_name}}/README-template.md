@@ -1,4 +1,4 @@
-{{ cookiecutter.project_name }}.jl
+{{ cookiecutter.__package_name }}
 ===============================================================================
 
 [----------------------------- BADGES: BEGIN -----------------------------]: #
@@ -7,24 +7,24 @@
   <tr>
     <td>Documentation</td>
     <td>
-      <a href="https://{{ cookiecutter.github_repo_owner }}.github.io/{{ cookiecutter.project_name }}.jl/dev/"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/docs-dev-blue.svg"/></a>
-      <a href="https://{{ cookiecutter.github_repo_owner }}.github.io/{{ cookiecutter.project_name }}.jl/stable/"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/docs-stable-blue.svg"/></a>
+      <a href="https://{{ cookiecutter.github_repo_owner }}.github.io/{{ cookiecutter.__package_name }}.jl/dev/"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/docs-dev-blue.svg"/></a>
+      <a href="https://{{ cookiecutter.github_repo_owner }}.github.io/{{ cookiecutter.__package_name }}.jl/stable/"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/docs-stable-blue.svg"/></a>
     </td>
   </tr>
 {% endif %}
   <tr>
     <td>Build Status</td>
     <td>
-      <a href="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.project_name }}.jl/actions/workflows/CI.yml"><img style="vertical-align: bottom;" src="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.project_name }}.jl/actions/workflows/CI.yml/badge.svg"/></a>{% if cookiecutter.ci_include_codecov == "yes" %}
-      <a href="https://codecov.io/gh/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.project_name }}.jl">
-        <img style="vertical-align: bottom;" src="https://codecov.io/gh/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.project_name }}.jl/branch/main/graph/badge.svg"/></a>{% endif %}
+      <a href="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/actions/workflows/CI.yml"><img style="vertical-align: bottom;" src="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/actions/workflows/CI.yml/badge.svg"/></a>{% if cookiecutter.ci_include_codecov == "yes" %}
+      <a href="https://codecov.io/gh/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl">
+        <img style="vertical-align: bottom;" src="https://codecov.io/gh/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/branch/main/graph/badge.svg"/></a>{% endif %}
     </td>
   </tr>
 
   <!-- Miscellaneous Badges -->
   <tr>
     <td colspan=2 align="center">
-      <a href="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.project_name }}.jl/issues"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/></a>
+      <a href="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/issues"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/></a>
       <a href="https://github.com/invenia/BlueStyle"><img style="vertical-align: bottom;" src="https://img.shields.io/badge/code%20style-blue-4495d1.svg"/></a>
     </td>
   </tr>
@@ -36,7 +36,7 @@
 
 A brief description of the package.
 
-The {{ cookiecutter.project_name }} package features:
+The {{ cookiecutter.__package_name }} package features:
 
 * a list of the core features of the project.
 
@@ -92,17 +92,17 @@ A more detailed description of the project.
 
   * _Only needed once_. This step only needs to be performed once per Julia installation.
 
-  * _{{ cookiecutter.project_name }} is registered with a local Julia package registry_.
+  * _{{ cookiecutter.__package_name }} is registered with a local Julia package registry_.
     The XYZ registry needs to be added to your Julia installation because
-    {{ cookiecutter.project_name }} is currently registered with XYZ Julia package
+    {{ cookiecutter.__package_name }} is currently registered with XYZ Julia package
     registry (not the General Julia package registry).
 -->
 
-* Install the {{ cookiecutter.project_name }} package via the Pkg REPL. That's it!
+* Install the {{ cookiecutter.__package_name }} package via the Pkg REPL. That's it!
 
   ```julia
   julia>  # Press ']' to enter the Pkg REPL mode.
-  pkg> add {{ cookiecutter.project_name }}
+  pkg> add {{ cookiecutter.__package_name }}
   ```
 
 ### 2.2. Examples
