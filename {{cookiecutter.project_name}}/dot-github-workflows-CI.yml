@@ -35,6 +35,7 @@ jobs:
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 {% if cookiecutter.ci_include_codecov == "yes" %}
     env:
+        codecov-os: 'Linux'
         codecov-arch: x64
         codecov-version: '1.8'
 {% endif %}
@@ -63,7 +64,7 @@ jobs:
         # Only run for 'main' branch running on 'Linux' with the latest version of Julia
         if: |
             github.ref_name == 'main' &&
-            runner.os == 'Linux' &&
+            runner.os == env.codecov-os &&
             matrix.arch == env.codecov-arch &&
             matrix.version == env.codecov-version
 
@@ -75,7 +76,7 @@ jobs:
         # Only run for 'main' branch running on 'Linux' with the latest version of Julia
         if: |
             github.ref_name == 'main' &&
-            runner.os == 'Linux' &&
+            runner.os == env.codecov-os &&
             matrix.arch == env.codecov-arch &&
             matrix.version == env.codecov-version
 
