@@ -379,7 +379,7 @@ many ways, this guide is a restructuring and expansion of his article.
 
 [auto-merge-guidelines]: https://juliaregistries.github.io/RegistryCI.jl/stable/guidelines/
 [dobberschutz-tips]: https://www.juliabloggers.com/tips-and-tricks-to-register-your-first-julia-package/
-[colprac]: https://colprac.sciml.ai/
+[colprac]: https://docs.sciml.ai/ColPrac/
 [julia-registrator]: https://github.com/JuliaRegistries/Registrator.jl
 [julia-artifacts]: https://pkgdocs.julialang.org/v1/artifacts/
 [semver]: https://semver.org/
