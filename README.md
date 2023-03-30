@@ -359,8 +359,10 @@ Table of Contents
 ### 1.3. Publishing Package Documentation to GitHub Pages
 
 1. From the project GitHub repository, navigate to "Settings" > "Pages" (in
-   the "Code and automation" section of the side menu) and set "Source" to
-   "GitHub Actions".
+   the "Code and automation" section of the side menu) and configure GitHub
+   Pages to use "GitHub Actions" as its "Source".
+
+   * Source: GitHub Actions
 
 2. In the "About" section of the project GitHub repository, set "Website" to
    the URL for the project GitHub Pages.
