@@ -13,9 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Skip intermediate builds: always.
+# Cancel intermediate builds: only if it is a pull request build.
 concurrency:
-  # Skip intermediate builds: always.
-  # Cancel intermediate builds: only if it is a pull request build.
   group: {% raw %}${{ github.workflow }}-${{ github.ref }}{% endraw %}
   cancel-in-progress: {% raw %}${{ startsWith(github.ref, 'refs/pull/') }}{% endraw %}
 
@@ -107,7 +107,7 @@ jobs:
       - name: Install dependencies
         run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
 
-      - name: Build and deploy documentation
+      - name: Build documentation and update deployment branch
         run: julia --project=docs/ --compile=min -O0 docs/make.jl
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
