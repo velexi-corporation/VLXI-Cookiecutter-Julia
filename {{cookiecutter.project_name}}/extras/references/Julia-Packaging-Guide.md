@@ -126,13 +126,14 @@ part of the continuous integration and release processes.
 ### Prerequisite
 
 * The GitHub repository for the package should have a GitHub Action job for generating
-  documentation (e.g., `docs` in `CI.yml`).
+  documentation (e.g., `build-docs` in `CI.yml`) and a GitHub Action job for deploying
+  site files to GitHub Pages (e.g., `deploy-docs` in `gh-pages.yml`).
 
 ### Steps
 
-* Create a key pair that the `docs` job can use to make modifications to the GitHub
-  repository. __Note__: the `docs` job in `CI.yml` will only modify the `gh-pages` branch
-  of the Git repository.
+* Create a key pair that the `build-docs` job can use to make modifications to the GitHub
+  repository. __Note__: the `build-docs` job in `CI.yml` will only modify the `gh-pages`
+  branch of the Git repository.
 
   * Use `DocumenterTools` to generate a key pair (with private key Base64-encoded).
 
@@ -151,18 +152,16 @@ part of the continuous integration and release processes.
 * Configure "GitHub Pages" for the GitHub repository.
 
   * _Prerequisite_. The `gh-pages` branch must exist. You may need to create it manually.
-    __Note__: the `docs` job in `CI.yml` will create the `gh-pages` branch if it does not
-    already exist.
+    __Note__: the `build-docs` job in `CI.yml` will create the `gh-pages` branch if it
+    does not already exist.
 
   * In the GitHub repository, navigate to `Settings` > `Pages` (on the sidebar) > `Source`.
 
-  * Set the source for "GitHub Pages".
-    * Branch: `gh-pages`
-    * folder: `/(root)`
+  * Set the source for "GitHub Pages" to `GitHub Actions`.
 
 * (OPTIONAL) Enable creation of version-specific documentation.
 
-  * Make sure that the `docs` GitHub Action job used to build and deploy documentation
+  * Make sure that the `build-docs` GitHub Action job used to build and deploy documentation
     calls `deploydocs()` with the `versions` keyword set to an appropriate value (the
     default value is reasonable).
 
