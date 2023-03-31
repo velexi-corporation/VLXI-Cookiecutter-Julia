@@ -360,17 +360,16 @@ Table of Contents
 
 1. From the project GitHub repository, navigate to "Settings" > "Pages" (in
    the "Code and automation" section of the side menu) and configure GitHub
-   Pages to deploy from the `gh-pages` branch.
+   Pages to use "GitHub Actions" as its "Source".
 
-   * Source: Deploy from a branch
-   * Branch: gh-pages
-     * Folder: /(root)
+   * Source: GitHub Actions
 
 2. In the "About" section of the project GitHub repository, set "Website" to
    the URL for the project GitHub Pages.
 
-3. That's it! Every time the `main` branch is updated, the CI workflow will
-   automatically update the package documentation on GitHub Pages.
+3. That's it! Every time the `main` branch is updated, the CI and gh-pages
+   workflows will automatically update the package documentation on GitHub
+   Pages.
 
 -------------------------------------------------------------------------------
 
