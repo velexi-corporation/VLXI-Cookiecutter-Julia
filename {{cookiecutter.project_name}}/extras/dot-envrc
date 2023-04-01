@@ -35,7 +35,7 @@ export JULIA_LOAD_PATH=$PROJECT_ROOT_DIR:  # Note the trailing ":" is necessary 
                                            # Julia includes the default LOAD_PATH
 export JULIA_PKG_USE_CLI_GIT=true
 
-# --- Shell environment
+# --- Shell configuration
 
 # Set PATH
 PATH_EXTRA="bin $PATH_EXTRA"
