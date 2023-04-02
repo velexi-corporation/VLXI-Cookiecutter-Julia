@@ -483,7 +483,7 @@ dependencies for the template.
     <!-- {% raw %} -->
     ```jinja
     [tool.poetry]
-    name = "{{ cookiecutter.project_name }}"
+    name = "{{ cookiecutter.__package_name }}"
     version = "0.1.0"
     description = ""
     license = "{% if cookiecutter.license == 'ASL' %}Apache-2.0{% elif cookiecutter.license == 'BSD3' %}BSD-3-Clause{% elif cookiecutter.license == 'MIT' %}MIT{% endif %}"
