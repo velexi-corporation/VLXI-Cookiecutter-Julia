@@ -88,7 +88,7 @@ A more detailed description of the project.
   pkg> registry add https://github.com/{{ cookiecutter.github_repo_owner }}/JuliaRegistry.git
   ```
 
-  __Notes__
+  ___Notes___
 
   * _Only needed once_. This step only needs to be performed once per Julia installation.
 
@@ -150,9 +150,9 @@ The contents of this package are covered under the license contained in the
 
 ### 4.3. Setting Up a Development Environment
 
-__Note__: this project uses `poetry` to manage Python package dependencies.
+___Note___: this project uses `poetry` to manage Python package dependencies.
 
-1. ___Prerequisites___
+1. Prerequisites
 
    * Install [Git][git].
 
@@ -162,13 +162,10 @@ __Note__: this project uses `poetry` to manage Python package dependencies.
 
    * _Optional_. Install [direnv][direnv].
 
-2. ___Recommended___ Set up a dedicated virtual environment for the project using
+2. ___Recommended___. Set up a dedicated virtual environment for the project using
    `direnv` (because manages the environment for both the shell and Python).
 
-   __Note__: to avoid conflicts between virtual environments, only one method
-   should be used to manage the virtual environment.
-
-   * ___Prerequisite___. Install `direnv`.
+   * Prerequisite. Install `direnv`.
 
    * Copy `extras/dot-envrc` to the project root directory, and rename it to
      `.envrc`.

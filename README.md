@@ -88,7 +88,7 @@ Table of Contents
 
 ### 1.2. Setting Up a New Project
 
-1. ___Prerequisites___
+1. Prerequisites
 
    * Install [Git][git].
 
@@ -96,7 +96,7 @@ Table of Contents
 
    * Install [Python][python] 3.9 (or greater).
 
-     __Note__. Python is only required for a few purposes:
+     ___Note___. Python is only required for a few purposes:
 
      * by [Cookiecutter][cookiecutter] at setup time and
 
@@ -122,13 +122,13 @@ Table of Contents
      virtual environment options (e.g., `venv`, `direnv`, `conda`) should work.
      Below are instructions for setting up a `direnv` or `poetry` environment.
 
-     __Note__: to avoid conflicts between virtual environments, only one method
+     ___Note___: to avoid conflicts between virtual environments, only one method
      should be used to manage the virtual environment.
 
-     * __`direnv` Environment__. __Note__: `direnv` manages the environment for
+     * __`direnv` Environment__. _Note_: `direnv` manages the environment for
        both Python and the shell.
 
-       * ___Prerequisite___. Install `direnv`.
+       * Prerequisite. Install `direnv`.
 
        * Copy `extras/dot-envrc` to the project root directory, and rename it
          to `.envrc`.
@@ -144,7 +144,7 @@ Table of Contents
          $ direnv allow
          ```
 
-     * __`poetry` Environment__. __Note__: `poetry` only manages the Python
+     * __`poetry` Environment__. _Note_: `poetry` only manages the Python
        environment (it does not manage the shell environment).
 
        * Create a `poetry` environment that uses a specific Python executable.
@@ -214,17 +214,17 @@ Table of Contents
    * Verify the URLs in `docs/make.jl`, the Julia documentation build script.
 
      * `makedocs()`: check the leading part of the URL for the `repo` argument.
-       __Note__: the URL should contain the protocol (e.g., `https://`).
+       ___Note___: the URL should contain the protocol (e.g., `https://`).
 
        __Example__: `https://github.com/user/Project.jl/blob/{commit}{path}#{line}`
 
      * `Documenter.HTML()`: check the URL for the `canonical` argument.
-       __Note__: the URL should contain the protocol (e.g., `https://`).
+       ___Note___: the URL should contain the protocol (e.g., `https://`).
 
        __Example__: `https://user.github.io/Project.jl`
 
-     * `deploydocs()`: check the URL for the `repo` argument. __Note__: the
-       URL should ___not___ contain the protocol (e.g., `https://`).
+     * `deploydocs()`: check the URL for the `repo` argument. ___Note___: the
+       URL should _not_ contain the protocol (e.g., `https://`).
 
        __Example__: `github.com/user/Project.jl`
 
@@ -319,10 +319,10 @@ Table of Contents
 
         * Require approvals
 
-          * __Recommendation__: enable for projects with multiple active
+          * ___Recommendation___: enable for projects with multiple active
             developers who can serve as reviewers
 
-          * __Warning__: must be disabled for projects with a single developer
+          * ___Warning___: must be disabled for projects with a single developer
 
       * Require conversation resolution before merging
 
