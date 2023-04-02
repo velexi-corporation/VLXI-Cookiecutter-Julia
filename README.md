@@ -94,7 +94,7 @@ Table of Contents
 
    * Install [Julia][julia] 1.7 (or greater).
 
-   * Install [Python][python] 3.8 (or greater).
+   * Install [Python][python] 3.9 (or greater).
 
      __Note__. Python is only required for a few purposes:
 
@@ -406,7 +406,7 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
 
 * [Git][git]
 * [Julia][julia] (>=1.6)
-* [Python][python] (>=3.8)
+* [Python][python] (>=3.9)
 * [Poetry][poetry]
 
 #### Optional Packages
