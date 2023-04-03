@@ -171,7 +171,7 @@ Table of Contents
 
 4. Configure Git.
 
-   * Install the git pre-commit hooks.
+   * Install the Git pre-commit hooks.
 
      ```shell
      $ pre-commit install
@@ -428,7 +428,7 @@ See `[tool.poetry.dependencies]` section of [`pyproject.toml`](pyproject.toml).
    ```shell
    $ poetry install
 
-3. Install the git pre-commit hooks.
+3. Install the Git pre-commit hooks.
 
    ```shell
    $ pre-commit install
