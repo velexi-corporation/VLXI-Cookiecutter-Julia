@@ -1,4 +1,4 @@
-{{ cookiecutter.__package_name }}
+{{ cookiecutter.project_name }}
 ===============================================================================
 
 [----------------------------- BADGES: BEGIN -----------------------------]: #
@@ -36,7 +36,7 @@
 
 A brief description of the package.
 
-The {{ cookiecutter.__package_name }} package features:
+The {{ cookiecutter.project_name }} package features:
 
 * a list of the core features of the project.
 
@@ -98,7 +98,7 @@ A more detailed description of the project.
     registry (not the General Julia package registry).
 -->
 
-* Install the {{ cookiecutter.__package_name }} package via the Pkg REPL. That's it!
+* Install the `{{ cookiecutter.__package_name }}` package via the Pkg REPL. That's it!
 
   ```julia
   julia>  # Press ']' to enter the Pkg REPL mode.
