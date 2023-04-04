@@ -136,6 +136,7 @@ The contents of this package are covered under the license contained in the
 ├── LICENSE            <- package license
 ├{% if cookiecutter.license == "ASL" %}── NOTICE            <- package copyright notice
 ├{% endif %}── Makefile           <- Makefile containing useful shortcuts (`make` rules).
+│                         Use `make help` to show the list of available rules.
 ├── Project.toml       <- Julia package metadata file
 ├── Manifest.toml      <- Julia environment manifest file
 ├── pyproject.toml     <- Python project dependency and configuration file
