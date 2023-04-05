@@ -228,6 +228,8 @@ Table of Contents
 
        __Example__: `github.com/user/Project.jl`
 
+   * Fill in any empty fields in `pyproject.toml`.
+
    * Customize the `README.md` file to reflect the specifics of the project.
 
    * Commit all updated files (e.g., `poetry.lock`) to the project Git
