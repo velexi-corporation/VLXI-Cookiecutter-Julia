@@ -26,10 +26,6 @@ if [[ "{{ cookiecutter.project_name }}" == .jl* ]]; then
     echo 'Error: `project_name` cannot start with ".jl"'
     exit 1
 fi
-if [ -z "{{ cookiecutter.__package_name }}" ]; then
-    echo "Error: `__package_name` cannot be empty."
-    exit 1
-fi
 
 # --- Create Julia project directory
 
@@ -60,7 +56,7 @@ plugins = [
 ];
 
 dir = \".\";
-project_name = \"{{ cookiecutter.__package_name }}\";
+project_name = \"{{ cookiecutter.__project_name }}\";
 template=Template(;
                   julia=VersionNumber(\"{{ cookiecutter.julia_version }}\"),
                   dir=dir,
@@ -82,6 +78,6 @@ julia --startup-file=no -q --compile=min -O0 -e "${JULIA_EXPR}"
 
 # --- Move files to cookiecutter directory
 
-mv {{ cookiecutter.__package_name }}/* .
-mv {{ cookiecutter.__package_name }}/.[!.]* .
-rmdir {{ cookiecutter.__package_name }}
+mv {{ cookiecutter.__project_name }}/* .
+mv {{ cookiecutter.__project_name }}/.[!.]* .
+rmdir {{ cookiecutter.__project_name }}
