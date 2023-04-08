@@ -1,1 +1,1 @@
-../{{cookiecutter.project_name}}/extras/references/Julia-Packaging-Guide.md
+../{{cookiecutter.__project_name}}/extras/references/Julia-Packaging-Guide.md
