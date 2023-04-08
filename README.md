@@ -443,7 +443,7 @@ See `[tool.poetry.dependencies]` section of [`pyproject.toml`](pyproject.toml).
 #### Updating Cookiecutter Template Dependencies
 
 To update the Python dependencies for the template (contained in the
-`{{cookiecutter.project_name}}` directory), use the following procedure to
+`{{cookiecutter.__project_name}}` directory), use the following procedure to
 ensure that package dependencies for developing the non-template components
 of the cookiecutter (e.g., cookiecutter hooks) do not interfere with package
 dependencies for the template.
@@ -474,10 +474,10 @@ dependencies for the template.
   * Use `poetry` to update the package dependencies and versions recorded in
     the `poetry.lock` file.
 
-* Update `{{cookiecutter.project_name}}/pyproject.toml`.
+* Update `{{cookiecutter.__project_name}}/pyproject.toml`.
 
   * Copy `pyproject.toml` from the pristine project to
-    `{{cookiecutter.project_name}}/pyproject.toml`.
+    `{{cookiecutter.__project_name}}/pyproject.toml`.
 
   * Restore the templated values in the `[tool.poetry]` section to the
     following:
@@ -485,7 +485,7 @@ dependencies for the template.
     <!-- {% raw %} -->
     ```jinja
     [tool.poetry]
-    name = "{{ cookiecutter.__package_name }}"
+    name = "{{ cookiecutter.__project_name }}"
     version = "0.1.0"
     description = ""
     license = "{% if cookiecutter.license == 'ASL' %}Apache-2.0{% elif cookiecutter.license == 'BSD3' %}BSD-3-Clause{% elif cookiecutter.license == 'MIT' %}MIT{% endif %}"
@@ -494,10 +494,10 @@ dependencies for the template.
     ```
     <!-- {% endraw %} -->
 
-* Update `{{cookiecutter.project_name}}/poetry.lock`.
+* Update `{{cookiecutter.__project_name}}/poetry.lock`.
 
   * Copy `poetry.lock` from the pristine project to
-    `{{cookiecutter.project_name}}/poetry.lock`.
+    `{{cookiecutter.__project_name}}/poetry.lock`.
 
 * Commit the updated `pyproject.toml` and `poetry.lock` files to the Git
   repository.
@@ -534,11 +534,11 @@ dependencies for the template.
 
 [github-vlxi-cookiecutter-julia]: https://github.com/velexi-research/VLXI-Cookiecutter-Julia
 
-[julia-packaging-guide]: {{cookiecutter.project_name}}/extras/references/Julia-Packaging-Guide.md
+[julia-packaging-guide]: {{cookiecutter.__project_name}}/extras/references/Julia-Packaging-Guide.md
 
-[julia-style-conventions]: {{cookiecutter.project_name}}/extras/references/Velexi-Julia-Code-Structure-and-Style-Conventions.md
+[julia-style-conventions]: {{cookiecutter.__project_name}}/extras/references/Velexi-Julia-Code-Structure-and-Style-Conventions.md
 
-[poetry-quick-reference]: {{cookiecutter.project_name}}/extras/references/Poetry-Quick-Reference.md
+[poetry-quick-reference]: {{cookiecutter.__project_name}}/extras/references/Poetry-Quick-Reference.md
 
 [----------------------------------- EXTERNAL LINKS -----------------------------------]: #
 
