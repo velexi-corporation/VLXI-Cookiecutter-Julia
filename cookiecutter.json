@@ -1,6 +1,6 @@
 {
-  "project_name": "ProjectName",
-  "__project_name": "{{ cookiecutter.project_name | trim('.jl') | trim() | title | replace(' ', '') }}",
+  "package_name": "PackageName",
+  "__package_name": "{{ cookiecutter.package_name | trim('.jl') | trim() | replace(' ', '_') }}",
   "author": "Your Name",
   "email": "{{ cookiecutter.author | slugify(separator='.') }}@example.com",
   "license": [

@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "Velexi Julia Project Cookiecutter"
-version = "0.4.9"
-description = "Template for Julia projects"
+name = "Velexi Julia Package Cookiecutter"
+version = "0.5.0"
+description = "Template for Julia packages"
 license = "Apache-2.0"
 authors = ["Kevin Chu <kevin@velexi.com>"]
 

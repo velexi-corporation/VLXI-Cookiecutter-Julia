@@ -19,7 +19,7 @@
 # Cookiecutter post-generation script
 #------------------------------------------------------------------------------
 
-# --- Update project template files based on user configuration
+# --- Update package template files based on user configuration
 
 # Remove NOTICE file if license is not Apache License 2.0
 if [[ "{{ cookiecutter.license }}" != "ASL" ]]; then
@@ -44,11 +44,11 @@ mv test-Project.toml test/Project.toml
 # Replace test/runtests.jl
 mv test-runtests.jl test/runtests.jl
 
-# Set up basic project structure
+# Set up basic package structure
 git checkout main
 git add .
 git reset dot-github-workflows-gh-pages.yml
-git commit -m "Set up basic project structure."
+git commit -m "Set up basic package structure."
 
 # --- Set up deployment of package documentation to GitHub Pages
 

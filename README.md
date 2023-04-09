@@ -1,8 +1,8 @@
-Velexi Julia Project Cookiecutter
+Velexi Julia Package Cookiecutter
 =================================
 
-The [Velexi Julia Project Cookiecutter][github-vlxi-cookiecutter-julia] is intended to
-streamline the process of setting up a Julia project that
+The [Velexi Julia Package Cookiecutter][github-vlxi-cookiecutter-julia] is intended to
+streamline the process of setting up a Julia package that
 
 * encourages the creation of high-quality software,
 
@@ -36,7 +36,7 @@ Table of Contents
 
    1.1. [Cookiecutter Parameters][#1.1]
 
-   1.2. [Setting Up a New Project][#1.2]
+   1.2. [Setting Up a New Package][#1.2]
 
    1.3. [Publishing Package Documentation to GitHub Pages][#1.3]
 
@@ -60,22 +60,22 @@ Table of Contents
 
 ### 1.1. Cookiecutter Parameters
 
-* `project_name`: project name
+* `package_name`: package name
 
-* `author`: project's primary author
+* `author`: package's primary author
 
 * `email`: primary author's email
 
-* `license`: type of license to use for the project
+* `license`: type of license to use for the package
 
-* `julia_version`: Julia versions compatible with the project. See the
+* `julia_version`: Julia versions compatible with the package. See the
   "[Version specifier format][julia-version-specifier-format]" section of the
   official Julia documentation for version specifier semantics.
 
-* `github_repo_owner`: owner of the GitHub repository for the project
+* `github_repo_owner`: owner of the GitHub repository for the package
 
 * `enable_github_pages`: flag indicating whether GitHub Pages should be enabled
-  for the project
+  for the package
 
 * `ci_include_x86`: flag indicating whether the CI testing matrix should
   include the x86 architecture
@@ -86,7 +86,7 @@ Table of Contents
 * `tagbot_use_gpg_signing`: flag indicating whether TagBot should sign the tags
   it creates
 
-### 1.2. Setting Up a New Project
+### 1.2. Setting Up a New Package
 
 1. Prerequisites
 
@@ -110,15 +110,15 @@ Table of Contents
 
    * _Optional_. Install [direnv][direnv].
 
-2. Use `cookiecutter` to create a new Julia project.
+2. Use `cookiecutter` to create a new Julia package.
 
    ```shell
    $ cookiecutter https://github.com/velexi-research/VLXI-Cookiecutter-Julia.git
    ```
 
-3. Set up the Python development tools for the project.
+3. Set up the Python development tools for the package.
 
-   * Set up a dedicated virtual environment for the project. Any of the common
+   * Set up a dedicated virtual environment for the package. Any of the common
      virtual environment options (e.g., `venv`, `direnv`, `conda`) should work.
      Below are instructions for setting up a `direnv` or `poetry` environment.
 
@@ -130,7 +130,7 @@ Table of Contents
 
        * Prerequisite. Install `direnv`.
 
-       * Copy `extras/dot-envrc` to the project root directory, and rename it
+       * Copy `extras/dot-envrc` to the package root directory, and rename it
          to `.envrc`.
 
          ```shell
@@ -150,7 +150,7 @@ Table of Contents
        * Create a `poetry` environment that uses a specific Python executable.
          For instance, if `python3` is on your `PATH`, the following command
          creates (or activates if it already exists) a Python virtual
-         environment that uses `python3` for the project.
+         environment that uses `python3`.
 
          ```shell
          $ poetry env use python3
@@ -159,15 +159,15 @@ Table of Contents
          For commands to use other Python executables for the virtual
          environment, see the [Poetry Quick Reference][poetry-quick-reference].
 
-   * Install the Python package dependencies for the project and update them
-     to the latest available versions.
+   * Install the Python package dependencies and update them to the latest
+     available versions.
 
      ```shell
      $ poetry install
      $ poetry update
      ```
 
-   * Commit the updated `poetry.lock` files to the project Git repository.
+   * Commit the updated `poetry.lock` files to the package Git repository.
 
 4. Configure Git.
 
@@ -196,7 +196,7 @@ Table of Contents
        $ git push -u origin main
        ```
 
-     * If GitHub Pages are enabled for the project, push the `gh-pages` branch
+     * If GitHub Pages are enabled for the package, push the `gh-pages` branch
        to the remote Git repository.
 
        ```shell
@@ -204,10 +204,10 @@ Table of Contents
        $ git push -u origin gh-pages
        ```
 
-5. Finish setting up the new Julia project.
+5. Finish setting up the new Julia package.
 
    * Verify the copyright year and owner in the copyright notice. If the
-     project is licensed under Apache License 2.0, the copyright notice is
+     package is licensed under Apache License 2.0, the copyright notice is
      located in the `NOTICE` file. Otherwise, the copyright notice is located
      in the `LICENSE` file.
 
@@ -216,23 +216,23 @@ Table of Contents
      * `makedocs()`: check the leading part of the URL for the `repo` argument.
        ___Note___: the URL should contain the protocol (e.g., `https://`).
 
-       __Example__: `https://github.com/user/Project.jl/blob/{commit}{path}#{line}`
+       __Example__: `https://github.com/user/Package.jl/blob/{commit}{path}#{line}`
 
      * `Documenter.HTML()`: check the URL for the `canonical` argument.
        ___Note___: the URL should contain the protocol (e.g., `https://`).
 
-       __Example__: `https://user.github.io/Project.jl`
+       __Example__: `https://user.github.io/Package.jl`
 
      * `deploydocs()`: check the URL for the `repo` argument. ___Note___: the
        URL should _not_ contain the protocol (e.g., `https://`).
 
-       __Example__: `github.com/user/Project.jl`
+       __Example__: `github.com/user/Package.jl`
 
    * Fill in any empty fields in `pyproject.toml`.
 
-   * Customize the `README.md` file to reflect the specifics of the project.
+   * Customize the `README.md` file to reflect the specifics of the package.
 
-   * Commit all updated files (e.g., `poetry.lock`) to the project Git
+   * Commit all updated files (e.g., `poetry.lock`) to the package Git
      repository.
 
 6. Add GitHub keys that are required for GitHub Actions workflows.
@@ -249,14 +249,14 @@ Table of Contents
 
    2. Add the public key as a GitHub Deploy key.
 
-      From the project GitHub repository, navigate to "Settings" > "Deploy keys"
+      From the package GitHub repository, navigate to "Settings" > "Deploy keys"
       (in the "Security" section of the side menu).
 
       Add a deploy key named `Julia Documenter`.
 
    3. Add the private key as a GitHub Secret.
 
-      From the project GitHub repository, navigate to "Settings" > "Secrets"
+      From the package GitHub repository, navigate to "Settings" > "Secrets"
       (in the "Security" section of the side menu).
 
       Add a repository secret named `DOCUMENTER_KEY`.
@@ -265,15 +265,15 @@ Table of Contents
 
    These steps are needed only if the CI workflow includes uploading of
    coverage statistics to Codecov (i.e., `ci_include_codecov` set to `yes`
-   when creating the project).
+   when creating the package).
 
-   1. Log into [Codecov][codecov] and enable the project GitHub repository on
+   1. Log into [Codecov][codecov] and enable the package GitHub repository on
       Codecov.
 
    2. Get the Codecov token for the repository by navigating to "Settings"
-      from the project Codecov repo page.
+      from the package Codecov repo page.
 
-   3. From the project GitHub repository, navigate to "Settings" > "Secrets"
+   3. From the package GitHub repository, navigate to "Settings" > "Secrets"
       (in the "Security" section of the side menu).
 
    4. Add a repository secret named `CODECOV_TOKEN`.
@@ -281,7 +281,7 @@ Table of Contents
    __GPG Signing__
 
    These steps are needed only if TagBot is configured to use GPG signing
-   (i.e., `tagbot_use_gpg_signing` set to `yes` when creating the project).
+   (i.e., `tagbot_use_gpg_signing` set to `yes` when creating the package).
 
    1. Generate and export a GPG key pair.
 
@@ -296,7 +296,7 @@ Table of Contents
       $ gpg --armor --export-secret-keys KEY_ID
       ```
 
-   2. From the project GitHub repository, navigate to "Settings" > "Secrets"
+   2. From the package GitHub repository, navigate to "Settings" > "Secrets"
       (in the "Security" section of the side menu).
 
    3. Add repository secrets with the following names.
@@ -304,12 +304,12 @@ Table of Contents
       * `GPG_KEY`: public key
       * `GPG_PASSWORD`: private key
 
-7. ___Recommended___. Customize the settings for the project GitHub repository.
+7. ___Recommended___. Customize the settings for the package GitHub repository.
 
    __Code Stability__. Branch protection helps ensure that there is always a
    relatively stable code branch.
 
-   1. From the project GitHub repository, navigate to "Settings" > "Branches"
+   1. From the package GitHub repository, navigate to "Settings" > "Branches"
       (in the "Code and automation" section of the side menu).
 
    2. Set the default branch to `main`.
@@ -333,7 +333,7 @@ Table of Contents
    __GitHub Actions Security__. Restricting GitHub Actions decreases the
    chances of accidental (or intentional) modifications to the code base.
 
-   1. From the project GitHub repository, navigate to "Settings" > "Actions" >
+   1. From the package GitHub repository, navigate to "Settings" > "Actions" >
       "General" (in the "Code and automation" section of the side menu).
 
    2. Configure "Actions permissions".
@@ -360,14 +360,14 @@ Table of Contents
 
 ### 1.3. Publishing Package Documentation to GitHub Pages
 
-1. From the project GitHub repository, navigate to "Settings" > "Pages" (in
+1. From the package GitHub repository, navigate to "Settings" > "Pages" (in
    the "Code and automation" section of the side menu) and configure GitHub
    Pages to use "GitHub Actions" as its "Source".
 
    * Source: GitHub Actions
 
-2. In the "About" section of the project GitHub repository, set "Website" to
-   the URL for the project GitHub Pages.
+2. In the "About" section of the package GitHub repository, set "Website" to
+   the URL for the package GitHub Pages.
 
 3. That's it! Every time the `main` branch is updated, the CI and gh-pages
    workflows will automatically update the package documentation on GitHub
@@ -390,14 +390,13 @@ The contents of this cookiecutter are covered under the Apache License 2.0 (incl
 ├── LICENSE                 <- cookiecutter license
 ├── NOTICE                  <- cookiecutter copyright notice
 ├── cookiecutter.json       <- cookiecutter configuration file
-├── pyproject.toml          <- Python project metadata file for cookiecutter
-│                              development
+├── pyproject.toml          <- Python metadata file for cookiecutter development
 ├── poetry.lock             <- Poetry lockfile
 ├── docs/                   <- cookiecutter documentation
 ├── extras/                 <- additional files that may be useful for
 │                              cookiecutter development
 ├── hooks/                  <- cookiecutter scripts that run before and/or
-│                              after project generation
+│                              after package generation
 ├── spikes/                 <- experimental code
 └── {{cookiecutter.name}}/  <- cookiecutter template
 ```
@@ -443,7 +442,7 @@ See `[tool.poetry.dependencies]` section of [`pyproject.toml`](pyproject.toml).
 #### Updating Cookiecutter Template Dependencies
 
 To update the Python dependencies for the template (contained in the
-`{{cookiecutter.__project_name}}` directory), use the following procedure to
+`{{cookiecutter.__package_name}}` directory), use the following procedure to
 ensure that package dependencies for developing the non-template components
 of the cookiecutter (e.g., cookiecutter hooks) do not interfere with package
 dependencies for the template.
@@ -456,14 +455,14 @@ dependencies for the template.
   ```
 
 * Use `cookiecutter` from the local cookiecutter Git repository to create a
-  clean project for template dependency updates.
+  clean copy of the template for dependency updates.
 
   ```shell
   $ cookiecutter PATH/TO/LOCAL/REPO
   ```
 
-* In the pristine project, perform the following steps to update the template's
-  package dependencies.
+* In the pristine copy of the template, perform the following steps to update
+  the template's package dependencies.
 
   * Set up a virtual environment for developing the template (e.g., a direnv
     environment).
@@ -474,10 +473,10 @@ dependencies for the template.
   * Use `poetry` to update the package dependencies and versions recorded in
     the `poetry.lock` file.
 
-* Update `{{cookiecutter.__project_name}}/pyproject.toml`.
+* Update `{{cookiecutter.__package_name}}/pyproject.toml`.
 
-  * Copy `pyproject.toml` from the pristine project to
-    `{{cookiecutter.__project_name}}/pyproject.toml`.
+  * Copy `pyproject.toml` from the pristine copy of the template to
+    `{{cookiecutter.__package_name}}/pyproject.toml`.
 
   * Restore the templated values in the `[tool.poetry]` section to the
     following:
@@ -485,7 +484,7 @@ dependencies for the template.
     <!-- {% raw %} -->
     ```jinja
     [tool.poetry]
-    name = "{{ cookiecutter.__project_name }}"
+    name = "{{ cookiecutter.__package_name }}"
     version = "0.1.0"
     description = ""
     license = "{% if cookiecutter.license == 'ASL' %}Apache-2.0{% elif cookiecutter.license == 'BSD3' %}BSD-3-Clause{% elif cookiecutter.license == 'MIT' %}MIT{% endif %}"
@@ -494,10 +493,10 @@ dependencies for the template.
     ```
     <!-- {% endraw %} -->
 
-* Update `{{cookiecutter.__project_name}}/poetry.lock`.
+* Update `{{cookiecutter.__package_name}}/poetry.lock`.
 
-  * Copy `poetry.lock` from the pristine project to
-    `{{cookiecutter.__project_name}}/poetry.lock`.
+  * Copy `poetry.lock` from the pristine copy of the template to
+    `{{cookiecutter.__package_name}}/poetry.lock`.
 
 * Commit the updated `pyproject.toml` and `poetry.lock` files to the Git
   repository.
@@ -518,7 +517,7 @@ dependencies for the template.
 
 [#1]: #1-usage
 [#1.1]: #11-cookiecutter-parameters
-[#1.2]: #12-setting-up-a-new-project
+[#1.2]: #12-setting-up-a-new-package
 [#1.3]: #13-publishing-package-documentation-to-github-pages
 
 [#2]: #2-contributor-notes
@@ -534,11 +533,11 @@ dependencies for the template.
 
 [github-vlxi-cookiecutter-julia]: https://github.com/velexi-research/VLXI-Cookiecutter-Julia
 
-[julia-packaging-guide]: {{cookiecutter.__project_name}}/extras/references/Julia-Packaging-Guide.md
+[julia-packaging-guide]: {{cookiecutter.__package_name}}/extras/references/Julia-Packaging-Guide.md
 
-[julia-style-conventions]: {{cookiecutter.__project_name}}/extras/references/Velexi-Julia-Code-Structure-and-Style-Conventions.md
+[julia-style-conventions]: {{cookiecutter.__package_name}}/extras/references/Velexi-Julia-Code-Structure-and-Style-Conventions.md
 
-[poetry-quick-reference]: {{cookiecutter.__project_name}}/extras/references/Poetry-Quick-Reference.md
+[poetry-quick-reference]: {{cookiecutter.__package_name}}/extras/references/Poetry-Quick-Reference.md
 
 [----------------------------------- EXTERNAL LINKS -----------------------------------]: #
 

@@ -22,12 +22,12 @@
 # --- Preparations
 
 # Get Julia package name
-if [[ "{{ cookiecutter.project_name }}" == .jl* ]]; then
-    echo 'Error: `project_name` cannot start with ".jl"'
+if [[ "{{ cookiecutter.package_name }}" == .jl* ]]; then
+    echo 'Error: `package_name` cannot start with ".jl"'
     exit 1
 fi
 
-# --- Create Julia project directory
+# --- Create Julia package directory
 
 # Set plugins parameters
 if [[ "{{ cookiecutter.license }}" != "None" ]]; then
@@ -40,7 +40,7 @@ if [[ "{{ cookiecutter.tagbot_use_gpg_signing }}" == "yes" ]]; then
     TAG_BOT='TagBot(; gpg=Secret("GPG_KEY"), gpg_password=Secret("GPG_PASSWORD")),'
 fi
 
-# Define Julia expression to use PkgTemplates to generate a Julia project
+# Define Julia expression to use PkgTemplates to generate a Julia package
 JULIA_EXPR="
 using Pkg;
 
@@ -56,28 +56,28 @@ plugins = [
 ];
 
 dir = \".\";
-project_name = \"{{ cookiecutter.__project_name }}\";
+package_name = \"{{ cookiecutter.__package_name }}\";
 template=Template(;
                   julia=VersionNumber(\"{{ cookiecutter.julia_version }}\"),
                   dir=dir,
                   plugins=plugins);
-template(project_name);
-Pkg.activate(joinpath(dir, project_name));
+template(package_name);
+Pkg.activate(joinpath(dir, package_name));
 Pkg.upgrade_manifest();
 "
 
-# Display Julia expression to generate Julia project
+# Display Julia expression to generate Julia package
 echo
 echo "Running Julia expression:"
 echo
 echo $JULIA_EXPR
 echo
 
-# Run Julia expression to generate Julia project
+# Run Julia expression to generate Julia package
 julia --startup-file=no -q --compile=min -O0 -e "${JULIA_EXPR}"
 
 # --- Move files to cookiecutter directory
 
-mv {{ cookiecutter.__project_name }}/* .
-mv {{ cookiecutter.__project_name }}/.[!.]* .
-rmdir {{ cookiecutter.__project_name }}
+mv {{ cookiecutter.__package_name }}/* .
+mv {{ cookiecutter.__package_name }}/.[!.]* .
+rmdir {{ cookiecutter.__package_name }}

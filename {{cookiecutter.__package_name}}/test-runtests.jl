@@ -1,5 +1,5 @@
 """
-Unit tests for {{ cookiecutter.__project_name }} package.
+Unit tests for {{ cookiecutter.__package_name }} package.
 """
 
 # --- Imports
@@ -10,8 +10,8 @@ using Test
 # External packages
 using TestTools: jltest
 
-# {{ cookiecutter.__project_name }}
-using {{ cookiecutter.__project_name }}
+# {{ cookiecutter.__package_name }}
+using {{ cookiecutter.__package_name }}
 
 # --- Run tests
 
