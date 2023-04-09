@@ -32,8 +32,7 @@ documentation generation, continuous integration (CI), and coverage reporting.
 
 ### Steps
 
-* Create an empty package (e.g., using `create-project` script or the `PkgTemplates`
-  package).
+* Create an empty package (e.g., using the `PkgTemplates` package).
 
 * Develop the package.
 
