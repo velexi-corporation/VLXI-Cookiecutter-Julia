@@ -70,4 +70,8 @@ if [[ "{{ cookiecutter.enable_github_pages }}" == "yes" ]]; then
 
     # Change back to "main" branch
     git checkout main
+
+else
+    # Remove GitHub Actions workflow for GitHub Pages
+    rm dot-github-workflows-gh-pages.yml
 fi

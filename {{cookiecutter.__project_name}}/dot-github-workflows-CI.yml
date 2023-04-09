@@ -30,18 +30,18 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         arch: [x64{% if cookiecutter.ci_include_x86 == "yes" %}, x86{% endif %}]
         version: ['1.6', '1.7', '1.8']
-{% if cookiecutter.ci_include_x86 == "yes" %}
+        {% if cookiecutter.ci_include_x86 == "yes" %}
         exclude:
           - os: macos-latest
             arch: x86
-{% endif %}
+        {% endif %}
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
-{% if cookiecutter.ci_include_codecov == "yes" %}
+    {% if cookiecutter.ci_include_codecov == "yes" %}
     env:
         codecov-os: 'Linux'
         codecov-arch: x64
         codecov-version: '1.8'
-{% endif %}
+    {% endif %}
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -62,7 +62,7 @@ jobs:
 
       - name: Run tests
         uses: julia-actions/julia-runtest@v1
-{% if cookiecutter.ci_include_codecov == "yes" %}
+      {% if cookiecutter.ci_include_codecov == "yes" %}
       - name: Process coverage data
         # Only run for 'main' branch running on 'Linux' with the latest version of Julia
         if: |
@@ -89,7 +89,8 @@ jobs:
           files: lcov.info
           fail_ci_if_error: true
           verbose: true
-{% endif %}
+      {% endif %}
+  {% if cookiecutter.enable_github_pages == "yes" %}
   build-docs:
     name: Build Documentation
 
@@ -112,3 +113,4 @@ jobs:
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           DOCUMENTER_KEY: {% raw %}${{ secrets.DOCUMENTER_KEY }}{% endraw %}
+  {% endif %}
