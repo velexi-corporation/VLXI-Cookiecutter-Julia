@@ -8,8 +8,6 @@ Velexi Julia Package Cookiecutter Release Notes
 * Add quick reference on local registry setup and usage.
 * Fix logic for setting up GitHub Actions when GitHub Pages are not enabled.
 * Improve package naming conventions.
-  * Slugify package name in places where special characters may cause problems
-    (e.g., URLs and directory names).
 * Polish code and documentation.
 
 ### Cookiecutter Development
