@@ -443,9 +443,9 @@ See `[tool.poetry.dependencies]` section of [`pyproject.toml`](pyproject.toml).
 
 To update the Python dependencies for the template (contained in the
 `{{cookiecutter.__package_name}}` directory), use the following procedure to
-ensure that package dependencies for developing the non-template components
-of the cookiecutter (e.g., cookiecutter hooks) do not interfere with package
-dependencies for the template.
+ensure that Python package dependencies for developing the non-template
+components of the cookiecutter (e.g., cookiecutter hooks) do not interfere with
+Python package dependencies for the template.
 
 * Create a local clone of the cookiecutter Git repository to use for
   cookiecutter development.
