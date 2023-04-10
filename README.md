@@ -455,23 +455,24 @@ dependencies for the template.
   ```
 
 * Use `cookiecutter` from the local cookiecutter Git repository to create an
-  instance of the template to use for updating Python dependencies.
+  instance of the template to use for updating Python package dependencies.
 
   ```shell
   $ cookiecutter PATH/TO/LOCAL/REPO
   ```
 
 * In the instance of the template, perform the following steps to update the
-  template's package dependencies.
+  template's Python package dependencies.
 
   * Set up a virtual environment for developing the template (e.g., a direnv
     environment).
 
   * Use `poetry` or manually edit `pyproject.toml` to (1) make changes to the
-    package dependency list and (2) update the package dependency versions.
+    Python package dependency list and (2) update the versions of Python package
+    dependencies.
 
-  * Use `poetry` to update the package dependencies and versions recorded in
-    the `poetry.lock` file.
+  * Use `poetry` to update the Python package dependencies and versions recorded
+    in the `poetry.lock` file.
 
 * Update `{{cookiecutter.__package_name}}/pyproject.toml`.
 
