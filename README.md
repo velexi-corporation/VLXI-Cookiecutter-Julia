@@ -439,7 +439,7 @@ See `[tool.poetry.dependencies]` section of [`pyproject.toml`](pyproject.toml).
 
 ### 2.5. Additional Notes
 
-#### Updating Cookiecutter Template Dependencies
+#### Updating Template Dependencies
 
 To update the Python dependencies for the template (contained in the
 `{{cookiecutter.__package_name}}` directory), use the following procedure to
@@ -454,15 +454,15 @@ dependencies for the template.
   $ git clone git@github.com:velexi-research/VLXI-Cookiecutter-Julia.git
   ```
 
-* Use `cookiecutter` from the local cookiecutter Git repository to create a
-  clean copy of the template for dependency updates.
+* Use `cookiecutter` from the local cookiecutter Git repository to create an
+  instance of the template to use for updating Python dependencies.
 
   ```shell
   $ cookiecutter PATH/TO/LOCAL/REPO
   ```
 
-* In the pristine copy of the template, perform the following steps to update
-  the template's package dependencies.
+* In the instance of the template, perform the following steps to update the
+  template's package dependencies.
 
   * Set up a virtual environment for developing the template (e.g., a direnv
     environment).
@@ -475,7 +475,7 @@ dependencies for the template.
 
 * Update `{{cookiecutter.__package_name}}/pyproject.toml`.
 
-  * Copy `pyproject.toml` from the pristine copy of the template to
+  * Copy `pyproject.toml` from the instance of the template to
     `{{cookiecutter.__package_name}}/pyproject.toml`.
 
   * Restore the templated values in the `[tool.poetry]` section to the
@@ -495,7 +495,7 @@ dependencies for the template.
 
 * Update `{{cookiecutter.__package_name}}/poetry.lock`.
 
-  * Copy `poetry.lock` from the pristine copy of the template to
+  * Copy `poetry.lock` from the instance of the template to
     `{{cookiecutter.__package_name}}/poetry.lock`.
 
 * Commit the updated `pyproject.toml` and `poetry.lock` files to the Git
