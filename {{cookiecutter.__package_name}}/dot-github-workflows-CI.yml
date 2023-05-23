@@ -75,7 +75,7 @@ jobs:
         with:
           directories: src
 
-      - name: Upload code coverage data to codecov.io
+      - name: Upload coverage reports to Codecov
         # Only run for 'main' branch running on 'Linux' with the latest version of Julia
         if: |
             github.ref_name == 'main' &&
