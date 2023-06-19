@@ -2,7 +2,7 @@ Velexi Julia Package Cookiecutter Release Notes
 ===============================================
 
 --------------------------------------------------------------------------------------------
-0.5.0 (2023-05-??)
+0.5.0 (2023-06-??)
 ==================
 ### Cookiecutter Template
 * Add quick reference on local registry setup and usage.
