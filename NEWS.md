@@ -6,8 +6,10 @@ Velexi Julia Package Cookiecutter Release Notes
 ==================
 ### Cookiecutter Template
 * Add quick reference on local registry setup and usage.
-* Fix logic for setting up GitHub Actions when GitHub Pages are not enabled.
 * Improve package naming conventions.
+* Fix logic for setting up GitHub Actions when GitHub Pages are not enabled.
+* Fix pre-commit configuration bug.
+  - Add --allow-missing-credentials option for detect-aws-credentials.
 * Polish code and documentation.
 * Polish dot-envrc.
 * Update package dependency versions.
