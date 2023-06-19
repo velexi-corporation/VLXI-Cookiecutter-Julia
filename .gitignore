@@ -4,6 +4,26 @@
 .direnv
 .envrc
 
+# conda
+.conda
+
+# Python virtual environments
+.venv
+
+# --- Python files
+
+# compiled code
+__pycache__/
+*.py[cod]
+
+# testing
+htmlcov/
+.cache
+.coverage
+.coverage.*
+.pytest_cache
+.tox/
+
 # --- Code editors
 
 # VS Code
