@@ -10,6 +10,10 @@
 # Python virtual environments
 .venv
 
+# --- Julia files
+
+Manifest.toml
+
 # --- Python files
 
 # compiled code
