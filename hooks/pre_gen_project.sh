@@ -60,6 +60,7 @@ package_name = \"{{ cookiecutter.__package_name }}\";
 template=Template(;
                   julia=VersionNumber(\"{{ cookiecutter.julia_version }}\"),
                   dir=dir,
+                  user=\"{{ cookiecutter.github_repo_owner }}\",
                   plugins=plugins);
 template(package_name);
 Pkg.activate(joinpath(dir, package_name));
