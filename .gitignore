@@ -10,11 +10,11 @@
 # Python virtual environment
 .venv
 
-# --- Julia files
+# --- Julia
 
 Manifest.toml
 
-# --- Python files
+# --- Python
 
 # compiled code
 __pycache__/
