@@ -1,12 +1,12 @@
-# --- Julia files
+# --- Julia
 
-# Project files
+# Manifest
 Manifest.toml
 
 # Documentation
 /docs/build/
 
-# Coverage.jl files
+# Coverage.jl
 *.jl.*.cov
 *.jl.*.mem
 
