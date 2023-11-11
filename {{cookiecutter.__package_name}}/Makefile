@@ -19,7 +19,7 @@ test:
 	find . -name "*.jl.*.cov" -exec rm -f {} \;
 	@echo
 	@echo Running tests
-	julia --color=yes -e 'import Pkg; Pkg.test(; coverage=true)'
+	jltest --code-coverage test/runtests.jl
 	@echo
 	@echo Generating code coverage report
 	@jlcoverage
@@ -48,17 +48,19 @@ docs:
 
 # --- Utility rules
 
-.PHONY: clean
+.PHONY: clean spotless
 
-## Remove files and directories automatically generated during development (e.g., coverage
-## files).
+## Remove files and directories automatically generated during development and testing
+## (e.g., coverage files).
 clean:
 	@echo Removing coverage files
 	find . -name "*.jl.*.cov" -exec rm -f {} \;
 
-## Remove files and directories automatically generated during development (e.g., coverage
-## files) and project setup (e.g., `Manifest.toml` files).
+## Remove all automatically generatd files and directories (e.g., coverage files, package
+## documentation, and `Manifest.toml` files).
 spotless: clean
+	@echo Removing auto-generated package documentatoin
+	rm -rf docs/build/
 	@echo Removing Manifest.toml files
 	find . -name "Manifest.toml" -exec rm -rf {} \;
 
