@@ -9,7 +9,7 @@
     "MIT",
     "None"
   ],
-  "julia_version": "1.6",
+  "julia_version": "1.7",
   "github_repo_owner": "{{ cookiecutter.author | slugify }}",
   "enable_github_pages": [
     "yes",
