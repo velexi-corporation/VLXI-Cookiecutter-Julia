@@ -56,7 +56,7 @@ clean:
 	@echo Removing coverage files
 	find . -name "*.jl.*.cov" -exec rm -f {} \;
 
-## Remove all automatically generatd files and directories (e.g., coverage files, package
+## Remove all automatically generated files and directories (e.g., coverage files, package
 ## documentation, and `Manifest.toml` files).
 spotless: clean
 	@echo Removing auto-generated package documentatoin
