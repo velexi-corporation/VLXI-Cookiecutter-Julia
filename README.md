@@ -352,11 +352,15 @@ Table of Contents
           julia-actions/*,
           ```
 
+          ___Note___. "Allow specified actions and reusable workflows" settings only apply
+          to public repositories. Private repositories that rely on actions and workflows
+          listed in the "Allow specified actions and reusable workflows" settings will fail.
+
    3. Configure "Workflow permissions".
 
       * Select "Read repository content permissions".
 
-      * Allow GitHub Actions to create and approve pull requests: no
+      * Allow GitHub Actions to create and approve pull requests: yes
 
 ### 1.3. Publishing Package Documentation to GitHub Pages
 
