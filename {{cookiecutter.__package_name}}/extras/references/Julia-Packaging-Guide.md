@@ -56,7 +56,7 @@ documentation generation, continuous integration (CI), and coverage reporting.
       URL to the GitHub repository for the project.
 
     _Example_
-    ```
+    ```julia
     makedocs(;
         modules=[PackageName],
         authors="Your Name <your-name@example.com> and contributors",
