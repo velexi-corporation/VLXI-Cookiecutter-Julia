@@ -64,7 +64,15 @@ template=Template(;
                   plugins=plugins);
 template(package_name);
 Pkg.activate(joinpath(dir, package_name));
-Pkg.upgrade_manifest();
+try
+    Pkg.upgrade_manifest();
+catch error
+    if !(error isa Pkg.Types.PkgError) ||
+        !contains(error.msg, \"Manifest.toml\` already up to date: \")
+
+        rethrow(error)
+    end
+end
 "
 
 # Display Julia expression to generate Julia package
