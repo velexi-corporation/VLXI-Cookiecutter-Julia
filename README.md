@@ -249,15 +249,15 @@ Table of Contents
 
    2. Add the public key as a GitHub Deploy key.
 
-      From the package GitHub repository, navigate to "Settings" > "Deploy keys"
-      (in the "Security" section of the side menu).
+      * From the package GitHub repository, navigate to "Settings" > "Deploy keys"
+        (in the "Security" section of the side menu).
 
-      Add a deploy key named `Julia Documenter`.
+      * Enable "Allow write access"
 
-   3. Add the private key as a GitHub Secret.
+   3. Add the private key as a GitHub Secret for GitHub Actions.
 
-      From the package GitHub repository, navigate to "Settings" > "Secrets"
-      (in the "Security" section of the side menu).
+      From the package GitHub repository, navigate to "Settings" > "Secrets and variables"
+      > "Actions" (in the "Security" section of the side menu).
 
       Add a repository secret named `DOCUMENTER_KEY`.
 
@@ -273,8 +273,8 @@ Table of Contents
    2. Get the Codecov token for the repository by navigating to "Settings"
       from the package Codecov repo page.
 
-   3. From the package GitHub repository, navigate to "Settings" > "Secrets"
-      (in the "Security" section of the side menu).
+   3. From the package GitHub repository, navigate to "Settings" > "Secrets and variables"
+      > "Actions" (in the "Security" section of the side menu).
 
    4. Add a repository secret named `CODECOV_TOKEN`.
 
@@ -309,10 +309,11 @@ Table of Contents
    __Code Stability__. Branch protection helps ensure that there is always a
    relatively stable code branch.
 
-   1. From the package GitHub repository, navigate to "Settings" > "Branches"
-      (in the "Code and automation" section of the side menu).
+   1. From the package GitHub repository, navigate to "Settings" > "General". Set the
+      default branch to `main`.
 
-   2. Set the default branch to `main`.
+   2. From the package GitHub repository, navigate to "Settings" > "Branches"
+      (in the "Code and automation" section of the side menu).
 
    3. Add branch protection for the `main` branch and enable the following
       configurations.
@@ -350,6 +351,7 @@ Table of Contents
           JuliaRegistries/TagBot@,
           codecov/codecov-action@*,
           julia-actions/*,
+          pytooling/*,
           ```
 
           ___Note___. "Allow specified actions and reusable workflows" settings only apply
