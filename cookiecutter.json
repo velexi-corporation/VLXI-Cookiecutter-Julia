@@ -1,6 +1,6 @@
 {
-  "project_name": "ProjectName",
-  "__package_name": "{{ cookiecutter.project_name | trim('.jl') | trim() | replace(' ', '_') }}",
+  "package_name": "PackageName",
+  "__package_name": "{{ cookiecutter.package_name | trim('.jl') | trim() | replace(' ', '_') }}",
   "author": "Your Name",
   "email": "{{ cookiecutter.author | slugify(separator='.') }}@example.com",
   "license": [
@@ -9,7 +9,7 @@
     "MIT",
     "None"
   ],
-  "julia_version": "1.6",
+  "julia_version": "1.7",
   "github_repo_owner": "{{ cookiecutter.author | slugify }}",
   "enable_github_pages": [
     "yes",

@@ -1,0 +1,1 @@
+../{{cookiecutter.__package_name}}/extras/references/Julia-Local-Registry-Guide.md

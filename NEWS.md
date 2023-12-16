@@ -1,5 +1,27 @@
-Velexi Julia Project Cookiecutter Release Notes
+Velexi Julia Package Cookiecutter Release Notes
 ===============================================
+
+--------------------------------------------------------------------------------------------
+0.5.0 (2023-12-15)
+==================
+### Cookiecutter Template
+* Add quick reference on local registry setup and usage.
+* Improve GitHub Actions workflows.
+  * Fix logic for setting up GitHub Actions when GitHub Pages are not enabled.
+* Fix bugs in pre-gen script.
+* Improve package naming conventions.
+* Improve Makefile targets.
+* Polish dot-envrc.
+* Bump required version of Julia to 1.7.
+* Remove unnecessary pre-commit hooks.
+* Update code and documentation.
+* Update package dependency versions.
+
+### Cookiecutter Development
+* Add Apache license incantations to cookiecutter hook scripts.
+* Remove "__package_name" cookiecutter parameter.
+* Polish dot-envrc.
+* Update package dependency versions.
 
 --------------------------------------------------------------------------------------------
 0.4.9 (2023-03-30)

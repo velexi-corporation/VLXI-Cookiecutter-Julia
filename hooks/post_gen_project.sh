@@ -1,9 +1,25 @@
 #!/usr/bin/env bash
 #------------------------------------------------------------------------------
+#   Copyright 2020 Velexi Corporation
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
 # Cookiecutter post-generation script
 #------------------------------------------------------------------------------
 
-# --- Update project template files based on user configuration
+# --- Update package template files based on user configuration
 
 # Remove NOTICE file if license is not Apache License 2.0
 if [[ "{{ cookiecutter.license }}" != "ASL" ]]; then
@@ -28,11 +44,11 @@ mv test-Project.toml test/Project.toml
 # Replace test/runtests.jl
 mv test-runtests.jl test/runtests.jl
 
-# Set up basic project structure
+# Set up basic package structure
 git checkout main
 git add .
 git reset dot-github-workflows-gh-pages.yml
-git commit -m "Set up basic project structure."
+git commit -m "Set up basic package structure."
 
 # --- Set up deployment of package documentation to GitHub Pages
 
@@ -54,4 +70,8 @@ if [[ "{{ cookiecutter.enable_github_pages }}" == "yes" ]]; then
 
     # Change back to "main" branch
     git checkout main
+
+else
+    # Remove GitHub Actions workflow for GitHub Pages
+    rm dot-github-workflows-gh-pages.yml
 fi

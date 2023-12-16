@@ -1,4 +1,4 @@
-{{ cookiecutter.__package_name }}
+{{ cookiecutter.package_name }}
 ===============================================================================
 
 [----------------------------- BADGES: BEGIN -----------------------------]: #
@@ -36,9 +36,9 @@
 
 A brief description of the package.
 
-The {{ cookiecutter.__package_name }} package features:
+The {{ cookiecutter.package_name }} package features:
 
-* a list of the core features of the project.
+* a list of the core features of the package.
 
 -------------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ Table of Contents
 
 ## 1. Overview
 
-A more detailed description of the project.
+A more detailed description of the package.
 
 -------------------------------------------------------------------------------
 
@@ -88,7 +88,7 @@ A more detailed description of the project.
   pkg> registry add https://github.com/{{ cookiecutter.github_repo_owner }}/JuliaRegistry.git
   ```
 
-  __Notes__
+  ___Notes___
 
   * _Only needed once_. This step only needs to be performed once per Julia installation.
 
@@ -98,7 +98,7 @@ A more detailed description of the project.
     registry (not the General Julia package registry).
 -->
 
-* Install the {{ cookiecutter.__package_name }} package via the Pkg REPL. That's it!
+* Install the `{{ cookiecutter.__package_name }}` package via the Pkg REPL. That's it!
 
   ```julia
   julia>  # Press ']' to enter the Pkg REPL mode.
@@ -136,9 +136,10 @@ The contents of this package are covered under the license contained in the
 ├── LICENSE            <- package license
 ├{% if cookiecutter.license == "ASL" %}── NOTICE            <- package copyright notice
 ├{% endif %}── Makefile           <- Makefile containing useful shortcuts (`make` rules).
+│                         Use `make help` to show the list of available rules.
 ├── Project.toml       <- Julia package metadata file
 ├── Manifest.toml      <- Julia environment manifest file
-├── pyproject.toml     <- Python project dependency and configuration file
+├── pyproject.toml     <- Python dependency and configuration file
 ├── poetry.lock        <- Poetry lockfile
 ├── docs/              <- package documentation
 ├── extras/            <- additional files and references that may be useful
@@ -150,9 +151,9 @@ The contents of this package are covered under the license contained in the
 
 ### 4.3. Setting Up a Development Environment
 
-__Note__: this project uses `poetry` to manage Python package dependencies.
+___Note___: this project uses `poetry` to manage Python package dependencies.
 
-1. ___Prerequisites___
+1. Prerequisites
 
    * Install [Git][git].
 
@@ -162,15 +163,13 @@ __Note__: this project uses `poetry` to manage Python package dependencies.
 
    * _Optional_. Install [direnv][direnv].
 
-2. ___Recommended___ Set up a dedicated virtual environment for the project using
-   `direnv` (because manages the environment for both the shell and Python).
+2. ___Recommended___. Set up a dedicated virtual environment for the package
+   development using `direnv` (because manages the environment for both the
+   shell and Python).
 
-   __Note__: to avoid conflicts between virtual environments, only one method
-   should be used to manage the virtual environment.
+   * Prerequisite. Install `direnv`.
 
-   * ___Prerequisite___. Install `direnv`.
-
-   * Copy `extras/dot-envrc` to the project root directory, and rename it to
+   * Copy `extras/dot-envrc` to the package root directory, and rename it to
      `.envrc`.
 
      ```shell
@@ -198,7 +197,7 @@ __Note__: this project uses `poetry` to manage Python package dependencies.
 
 ### 4.4. Running Automated Tests
 
-This project is configured to support (1) automated testing of code located in
+This package is configured to support (1) automated testing of code located in
 the `src` directory and (2) analysis of how well the tests cover of the source
 code (i.e., coverage analysis).
 
@@ -213,12 +212,6 @@ code (i.e., coverage analysis).
 
   ```shell
   $ make fast-test
-  ```
-
-* Run all of the tests and run `pylint` on all source code files.
-
-  ```shell
-  $ make full-test
   ```
 
 ### 4.5. Cleaning the Development Directory

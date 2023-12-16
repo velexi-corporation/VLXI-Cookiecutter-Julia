@@ -32,8 +32,14 @@ documentation generation, continuous integration (CI), and coverage reporting.
 
 ### Steps
 
-* Create an empty package (e.g., using `create-project` script or the `PkgTemplates`
-  package).
+* Use `cookiecutter` to create a new Julia package.
+
+  ```shell
+  $ cookiecutter https://github.com/velexi-research/VLXI-Cookiecutter-Julia.git
+  ```
+
+  _Note_: the cookiecutter uses the `PkgTemplates` package to automatically generate a new
+  Julia package with the standard directory layout.
 
 * Develop the package.
 
@@ -42,12 +48,31 @@ documentation generation, continuous integration (CI), and coverage reporting.
 
   * By convention, package documentation resides in the `docs/` directory.
 
-  * Set the documentation build parameters in `docs/make.jl`. A template is available in
-    this repository in the `templates/docs/` directory.
+  * Update the arguments to `makedocs()` in `docs/make.jl`.
 
-  * (OPTIONAL) To enable creation of version-specific documentation, include `deploydocs()`
-    in `make.jl`. The default value of the `versions` keyword argument enables a reasonable
-    set of document versions.
+    * Remove the `repo` keyword argument.
+
+    * Add the `repolink` keyword argument to the `Documenter.HTML()` constructor to set the
+      URL to the GitHub repository for the project.
+
+    _Example_
+    ```julia
+    makedocs(;
+        modules=[PackageName],
+        authors="Your Name <your-name@example.com> and contributors",
+        sitename="PackageName.jl",
+        format=Documenter.HTML(;
+            prettyurls=get(ENV, "CI", "false") == "true",
+            canonical="https://your-name.github.io/PackageName.jl",
+            repolink="https://github.com/your-name/PackageName.jl",
+            edit_link="main",
+            assets=String[],
+        ),
+        pages=[
+            "Home" => "index.md",
+        ],
+    )
+    ```
 
 * Set up a GitHub repository for the package.
 

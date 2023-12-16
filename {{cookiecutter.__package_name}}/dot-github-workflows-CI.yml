@@ -13,9 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Skip intermediate builds: always.
-# Cancel intermediate builds: only if it is a pull request build.
 concurrency:
+  # Skip intermediate builds: always.
+  # Cancel intermediate builds: only if it is a pull request build.
   group: {% raw %}${{ github.workflow }}-${{ github.ref }}{% endraw %}
   cancel-in-progress: {% raw %}${{ startsWith(github.ref, 'refs/pull/') }}{% endraw %}
 
@@ -29,7 +29,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         arch: [x64{% if cookiecutter.ci_include_x86 == "yes" %}, x86{% endif %}]
-        version: ['1.6', '1.7', '1.8']
+        version: ['1.7', '1.8', '1.9']
 {% if cookiecutter.ci_include_x86 == "yes" %}
         exclude:
           - os: macos-latest
@@ -40,7 +40,7 @@ jobs:
     env:
         codecov-os: 'Linux'
         codecov-arch: x64
-        codecov-version: '1.8'
+        codecov-version: '1.9'
 {% endif %}
     steps:
       - name: Check out code
@@ -55,7 +55,7 @@ jobs:
       - name: Set up Julia caches
         uses: julia-actions/cache@v1
         with:
-          cache-name: {% raw %}${{ runner.os }}-${{ runner.arch }}-${{ matrix.version }}-${{ hashFiles('.github/workflows/CI.yml') }}{% endraw %}
+          cache-name: {% raw %}${{ github.repository }}-${{ github.workflow }}-${{ github.job }}-julia-${{ runner.os }}-${{ runner.arch }}-${{ matrix.version }}-${{ hashFiles('.github/workflows/CI.yml') }}{% endraw %}
 
       - name: Build package
         uses: julia-actions/julia-buildpkg@v1
@@ -90,6 +90,7 @@ jobs:
           fail_ci_if_error: true
           verbose: true
 {% endif %}
+{% if cookiecutter.enable_github_pages == "yes" %}
   build-docs:
     name: Build Documentation
 
@@ -102,13 +103,14 @@ jobs:
       - name: Set up Julia environment
         uses: julia-actions/setup-julia@latest
         with:
-          version: '1.8'
+          version: '1.9'
 
       - name: Install dependencies
-        run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
+        run: julia --project=docs --color=yes -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
 
-      - name: Build documentation and update deployment branch
-        run: julia --project=docs/ --compile=min -O0 docs/make.jl
+      - name: Build and deploy documentation
+        run: julia --project=docs --color=yes --compile=min -O0 docs/make.jl
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           DOCUMENTER_KEY: {% raw %}${{ secrets.DOCUMENTER_KEY }}{% endraw %}
+{% endif %}

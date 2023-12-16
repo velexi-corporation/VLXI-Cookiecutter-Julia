@@ -1,22 +1,43 @@
-# --- Julia files
-
-# Project files
-Manifest.toml
-
-# Coverage.jl files
-*.jl.*.cov
-*.jl.*.mem
-
 # --- Environments
 
 # direnv
 .direnv
 .envrc
 
-# --- Miscellaneous
+# conda
+.conda
+
+# Python virtual environment
+.venv
+
+# --- Julia
+
+# Manifest
+Manifest.toml
+
+# --- Python
+
+# compiled code
+__pycache__/
+*.py[cod]
+
+# testing
+htmlcov/
+.cache
+.coverage
+.coverage.*
+.pytest_cache
+.tox/
+
+# --- Code editors
+
+# VS Code
+.vscode/
 
 # vim
-.*.swp
+*.sw[po]
+
+# --- Miscellaneous
 
 # macOS
 .DS_Store*

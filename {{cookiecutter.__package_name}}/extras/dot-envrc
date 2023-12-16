@@ -5,7 +5,9 @@
 # --- Project-Specific Configuration Parameters
 
 # Paths to add to PATH
-# NOTE: paths should be specified relative to the project root directory.
+#
+# NOTE: paths should be space-separated and specified relative to
+#       the project root directory
 PATH_EXTRA=
 
 # ============================ DO NOT EDIT BELOW ============================ #
@@ -35,7 +37,7 @@ export JULIA_LOAD_PATH=$PROJECT_ROOT_DIR:  # Note the trailing ":" is necessary 
                                            # Julia includes the default LOAD_PATH
 export JULIA_PKG_USE_CLI_GIT=true
 
-# --- Shell environment
+# --- Shell configuration
 
 # Set PATH
 PATH_EXTRA="bin $PATH_EXTRA"
