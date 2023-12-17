@@ -368,9 +368,10 @@ Table of Contents
 
 1. From the package GitHub repository, navigate to "Settings" > "Pages" (in
    the "Code and automation" section of the side menu) and configure GitHub
-   Pages to use "GitHub Actions" as its "Source".
+   Pages to use "gh-pages/(root)" as its "Source".
 
-   * Source: GitHub Actions
+   * Source: Deploy from a branch
+   * Branch: `gh-pages/(root)`
 
 2. In the "About" section of the package GitHub repository, set "Website" to
    the URL for the package GitHub Pages.
