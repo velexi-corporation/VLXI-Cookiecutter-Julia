@@ -17,7 +17,7 @@
     <td>
       <a href="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/actions/workflows/CI.yml"><img style="vertical-align: bottom;" src="https://github.com/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/actions/workflows/CI.yml/badge.svg"/></a>{% if cookiecutter.ci_include_codecov == "yes" %}
       <a href="https://codecov.io/gh/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl">
-        <img style="vertical-align: bottom;" src="https://codecov.io/gh/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/branch/main/graph/badge.svg"/></a>{% endif %}
+        <img style="vertical-align: bottom;" src="https://codecov.io/gh/{{ cookiecutter.github_repo_owner }}/{{ cookiecutter.__package_name }}.jl/graph/badge.svg"/></a>{% endif %}
     </td>
   </tr>
 
