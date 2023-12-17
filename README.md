@@ -348,7 +348,7 @@ Table of Contents
         * Allow specified actions and reusable workflows.
 
           ```
-          JuliaRegistries/TagBot@,
+          JuliaRegistries/TagBot@*,
           codecov/codecov-action@*,
           julia-actions/*,
           pytooling/*,
