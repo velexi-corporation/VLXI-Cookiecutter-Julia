@@ -2,6 +2,16 @@ Velexi Julia Package Cookiecutter Release Notes
 ===============================================
 
 --------------------------------------------------------------------------------------------
+0.5.1 (2023-12-17)
+==================
+### Cookiecutter Template
+* Fix errors in README template.
+* Remove redundancy in cache name of GitHub Actions workflow.
+
+### Cookiecutter Development
+* Fix errors in README.
+
+--------------------------------------------------------------------------------------------
 0.5.0 (2023-12-15)
 ==================
 ### Cookiecutter Template
