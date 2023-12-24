@@ -94,7 +94,8 @@ Instructions for adding a local registry that the Julia package is registered wi
     (not the General Julia package registry), so the Pkg REPL will be able to find
     `{{ cookiecutter.__package_name }}` only if the XYZ Julia package registry has been
     added to your Julia installation. For more information about local registries for Julia
-    packages, [LocalRegistry.jl][local-registry-jl].
+    packages, [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl).
+
 
   * This step only needs to be performed once per Julia installation.
 
@@ -249,8 +250,6 @@ code (i.e., coverage analysis).
 [direnv]: https://direnv.net/
 
 [git]: https://git-scm.com/
-
-[local-registry-jl]: https://github.com/GunnarFarneback/LocalRegistry.jl
 
 [python]: https://www.python.org/
 
