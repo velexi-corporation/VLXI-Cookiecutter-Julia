@@ -135,7 +135,7 @@ The contents of this package are covered under the license contained in the
 ├── README.md          <- this file
 ├── NEWS.md            <- package release notes
 ├── LICENSE            <- package license
-├{% if cookiecutter.license == "ASL" %}── NOTICE            <- package copyright notice
+├{% if cookiecutter.license == "ASL" %}── NOTICE             <- package copyright notice
 ├{% endif %}── Makefile           <- Makefile containing useful shortcuts (`make` rules).
 │                         Use `make help` to show the list of available rules.
 ├── Project.toml       <- Julia package metadata file
