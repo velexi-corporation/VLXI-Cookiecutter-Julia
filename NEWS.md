@@ -2,6 +2,18 @@ Velexi Julia Package Cookiecutter Release Notes
 ===============================================
 
 --------------------------------------------------------------------------------------------
+0.5.2 (2024-05-07)
+==================
+### Cookiecutter Template
+* Update README template.
+* Add cache for `build-docs` job in GitHub Actions workflow.
+* Update instructions in the "Julia Local Registry Guide".
+
+### Cookiecutter Development
+* Update README.
+* Update package dependency versions.
+
+--------------------------------------------------------------------------------------------
 0.5.1 (2023-12-17)
 ==================
 ### Cookiecutter Template

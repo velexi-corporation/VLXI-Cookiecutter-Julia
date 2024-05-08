@@ -1,7 +1,7 @@
 {{ cookiecutter.package_name }}
-===============================================================================
+============================================================================================
 
-[----------------------------- BADGES: BEGIN -----------------------------]: #
+[------------------------------------ BADGES: BEGIN ------------------------------------]: #
 
 <table>{% if cookiecutter.enable_github_pages == "yes" %}
   <tr>
@@ -30,9 +30,9 @@
   </tr>
 </table>
 
-[------------------------------ BADGES: END ------------------------------]: #
+[------------------------------------- BADGES: END -------------------------------------]: #
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 A brief description of the package.
 
@@ -40,7 +40,7 @@ The {{ cookiecutter.package_name }} package features:
 
 * a list of the core features of the package.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 Table of Contents
 -----------------
@@ -67,19 +67,19 @@ Table of Contents
 
    4.5. [Cleaning the Development Directory][#4.5]
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 ## 1. Overview
 
 A more detailed description of the package.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 ## 2. Getting Started
 
 ### 2.1. Installation
 
-<!-- Instructions for adding a local registry that the Julia package is registered with
+Instructions for adding a local registry that the Julia package is registered with
 
 * Add the XYZ Julia package registry.
 
@@ -90,13 +90,14 @@ A more detailed description of the package.
 
   ___Notes___
 
-  * _Only needed once_. This step only needs to be performed once per Julia installation.
+  * `{{ cookiecutter.__package_name }}` is registered with the XYZ Julia package registry
+    (not the General Julia package registry), so the Pkg REPL will be able to find
+    `{{ cookiecutter.__package_name }}` only if the XYZ Julia package registry has been
+    added to your Julia installation. For more information about local registries for Julia
+    packages, [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl).
 
-  * _{{ cookiecutter.__package_name }} is registered with a local Julia package registry_.
-    The XYZ registry needs to be added to your Julia installation because
-    {{ cookiecutter.__package_name }} is currently registered with XYZ Julia package
-    registry (not the General Julia package registry).
--->
+
+  * This step only needs to be performed once per Julia installation.
 
 * Install the `{{ cookiecutter.__package_name }}` package via the Pkg REPL. That's it!
 
@@ -109,13 +110,13 @@ A more detailed description of the package.
 
 Some examples of code that uses the package.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 ## 3. Known Issues
 
 Known issues for the package.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 ## 4. Contributor Notes
 
@@ -134,7 +135,7 @@ The contents of this package are covered under the license contained in the
 ├── README.md          <- this file
 ├── NEWS.md            <- package release notes
 ├── LICENSE            <- package license
-├{% if cookiecutter.license == "ASL" %}── NOTICE            <- package copyright notice
+├{% if cookiecutter.license == "ASL" %}── NOTICE             <- package copyright notice
 ├{% endif %}── Makefile           <- Makefile containing useful shortcuts (`make` rules).
 │                         Use `make help` to show the list of available rules.
 ├── Project.toml       <- Julia package metadata file
@@ -186,7 +187,7 @@ ___Note___: this project uses `poetry` to manage Python package dependencies.
 3. Install the Python package dependencies required for development.
 
    ```shell
-   $ poetry install
+   $ poetry install --no-root
    ```
 
 4. Install the Git pre-commit hooks.
@@ -223,9 +224,9 @@ code (i.e., coverage analysis).
   $ make clean
   ```
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
-[----------------------------- INTERNAL LINKS -----------------------------]: #
+[------------------------------------ INTERNAL LINKS -----------------------------------]: #
 
 [#1]: #1-overview
 
@@ -242,9 +243,9 @@ code (i.e., coverage analysis).
 [#4.4]: #44-running-automated-tests
 [#4.5]: #45-cleaning-the-development-directory
 
-[---------------------------- REPOSITORY LINKS ----------------------------]: #
+[----------------------------------- REPOSITORY LINKS ----------------------------------]: #
 
-[----------------------------- EXTERNAL LINKS -----------------------------]: #
+[------------------------------------ EXTERNAL LINKS -----------------------------------]: #
 
 [direnv]: https://direnv.net/
 

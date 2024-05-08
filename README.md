@@ -77,11 +77,11 @@ Table of Contents
 * `enable_github_pages`: flag indicating whether GitHub Pages should be enabled
   for the package
 
-* `ci_include_x86`: flag indicating whether the CI testing matrix should
-  include the x86 architecture
-
 * `ci_include_codecov`: flag indicating whether the CI workflow should upload
   coverage statistics to [Codecov][codecov]
+
+* `ci_include_x86`: flag indicating whether the CI testing matrix should
+  include the x86 architecture
 
 * `tagbot_use_gpg_signing`: flag indicating whether TagBot should sign the tags
   it creates
@@ -213,17 +213,29 @@ Table of Contents
 
    * Verify the URLs in `docs/make.jl`, the Julia documentation build script.
 
-     * `makedocs()`: check the leading part of the URL for the `repo` argument.
-       ___Note___: the URL should contain the protocol (e.g., `https://`).
+     * `makedocs()`
 
-       __Example__: `https://github.com/user/Package.jl/blob/{commit}{path}#{line}`
+       * `repo`. If present, remove the `repo` argument. `repo` has been replaced
+         by the `repolink` argument to `Documenter.HTML()` (see below).
 
-     * `Documenter.HTML()`: check the URL for the `canonical` argument.
-       ___Note___: the URL should contain the protocol (e.g., `https://`).
+       * `Documenter.HTML()`
 
-       __Example__: `https://user.github.io/Package.jl`
+         * Check the URL for the `canonical` argument. ___Note___: the URL should
+           contain the protocol (e.g., `https://`).
 
-     * `deploydocs()`: check the URL for the `repo` argument. ___Note___: the
+           __Example__: `https://user.github.io/Package.jl`
+
+         * Add the `repolink` argument. Make sure that the URL contains the protocol
+           (e.g., `https://`).
+
+           __Example__: `https://github.com/user/Package.jl`
+
+       * `warnonly` (Optional). Allow docstrings to be excluded from the package
+         documentation
+
+           __Example__: `warnonly=[:missing_docs]`
+
+     * `deploydocs()`. Check the URL for the `repo` argument. ___Note___: the
        URL should _not_ contain the protocol (e.g., `https://`).
 
        __Example__: `github.com/user/Package.jl`
@@ -348,9 +360,10 @@ Table of Contents
         * Allow specified actions and reusable workflows.
 
           ```
-          JuliaRegistries/TagBot@*,
           codecov/codecov-action@*,
+          dcarbone/install-jq-action@*,
           julia-actions/*,
+          JuliaRegistries/TagBot@*,
           pytooling/*,
           ```
 
