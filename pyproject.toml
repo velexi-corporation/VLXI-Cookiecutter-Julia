@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "Velexi Julia Package Cookiecutter"
-version = "0.5.3"
+version = "0.5.4"
 description = "Template for Julia packages"
 license = "Apache-2.0"
 authors = ["Kevin Chu <kevin@velexi.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 cookiecutter = "^2"
 pre-commit = "^3"
 
