@@ -89,6 +89,8 @@ registry.
 
   * Add release notes for the initial release in the `NEWS.md` file.
 
+  * Merge all repository updates into the `main` branch.
+
 * Use the `LocalRegistry` package to register the package with the local registry.
 
   ```julia
@@ -116,6 +118,8 @@ registry.
   * Increment the package version number in the `Project.toml` file.
 
   * Update the release notes in the `NEWS.md` file.
+
+  * Merge all repository updates into the `main` branch.
 
 * From the package development directory, use `LocalRegistry` to register a new release of
   the package.
