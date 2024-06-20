@@ -2,12 +2,22 @@ Velexi Julia Package Cookiecutter Release Notes
 ===============================================
 
 --------------------------------------------------------------------------------------------
+0.5.6 (2024-??-??)
+==================
+### Cookiecutter Template
+* Update "Julia Packaging Guide" quick reference.
+* Update Python package dependencies.
+
+### Cookiecutter Development
+* Update Python package dependencies.
+
+--------------------------------------------------------------------------------------------
 0.5.5 (2024-06-18)
 ==================
 ### Cookiecutter Template
 * Add "package-mode = false" to pyproject.toml to indicate that Poetry is being used only
   for dependency management (not for Python packaging).
-* Update Julia Local Registry quick reference.
+* Update "Julia Local Registry" quick reference.
 
 ### Cookiecutter Development
 * Update Python package dependencies.
